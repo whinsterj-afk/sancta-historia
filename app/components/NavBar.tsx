@@ -23,6 +23,9 @@ export default function NavBar() {
           <Link href="/#mapa" className="hover:text-[#8b5e24]">
             Mapa
           </Link>
+          <Link href="/sobre" className="hover:text-[#8b5e24]">
+            Sobre
+          </Link>
         </div>
       </nav>
     </header>
