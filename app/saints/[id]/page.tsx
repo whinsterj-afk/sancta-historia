@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { supabase } from "@/lib/supabase";
 
 export default async function SaintPage({
@@ -15,10 +16,17 @@ export default async function SaintPage({
 
   if (!saint) {
     return (
-      <main className="max-w-5xl mx-auto p-8">
-        <h1 className="text-3xl font-bold">
+      <main className="min-h-screen max-w-5xl mx-auto p-8">
+        <h1 className="text-3xl font-bold text-[#2b1b10]">
           Santo não encontrado
         </h1>
+
+        <Link
+          href="/santos"
+          className="inline-block mt-4 text-[#8b5e24] hover:underline"
+        >
+          ← Voltar para Santos
+        </Link>
       </main>
     );
   }
@@ -43,149 +51,245 @@ export default async function SaintPage({
     .neq("id", saint.id)
     .lte("birth_year", saint.death_year)
     .gte("death_year", saint.birth_year)
-    .limit(10);
+    .order("birth_year")
+    .limit(12);
+
+  const { data: locations } = await supabase
+    .from("locations")
+    .select("*")
+    .eq("saint_id", saint.id)
+    .order("start_year");
 
   return (
-    <main className="max-w-6xl mx-auto p-8">
-
-      <a
-        href="/"
-        className="text-blue-600 hover:underline"
+    <main className="min-h-screen max-w-7xl mx-auto p-8">
+      <Link
+        href="/santos"
+        className="text-[#8b5e24] hover:underline"
       >
-        ← Voltar para Timeline
-      </a>
+        ← Voltar para Santos
+      </Link>
 
-      <h1 className="text-5xl font-bold mt-4">
-        {saint.name}
-      </h1>
+      <section className="mt-6 mb-10">
+        <p className="text-sm uppercase tracking-[0.3em] text-[#8b5e24] mb-3">
+          Perfil do Santo
+        </p>
 
-      <p className="text-xl text-gray-600 mt-2">
-        {saint.birth_year} — {saint.death_year}
-      </p>
+        <h1 className="text-5xl md:text-6xl font-bold text-[#2b1b10] mb-3">
+          {saint.name}
+        </h1>
 
-      <div className="mt-8 grid md:grid-cols-2 gap-8">
+        <p className="text-xl text-[#4b3a2a]">
+          {saint.birth_year} — {saint.death_year}
+        </p>
 
-        <div className="border rounded-xl p-6">
+        {saint.famous_quote && (
+          <blockquote className="mt-6 border-l-4 border-[#8b5e24] pl-5 text-xl italic text-[#4b3a2a]">
+            “{saint.famous_quote}”
+          </blockquote>
+        )}
+      </section>
 
-          <h2 className="text-2xl font-bold mb-4">
+      <section className="grid lg:grid-cols-3 gap-6 mb-8">
+        <div className="lg:col-span-2 bg-[#fffaf0] border border-[#c9b895] rounded-2xl p-6 shadow-sm">
+          <h2 className="text-2xl font-bold mb-4 text-[#2b1b10]">
             Informações Gerais
           </h2>
 
-          <p>
-            <strong>Nascimento:</strong>{" "}
-            {saint.birth_place}
-          </p>
-
-          <p>
-            <strong>Falecimento:</strong>{" "}
-            {saint.death_place}
-          </p>
-
-          <p className="mt-4">
-            {saint.short_description}
-          </p>
-
-          <div className="mt-6">
-            <h3 className="text-xl font-bold mb-2">
-              Biografia
-            </h3>
+          <div className="grid md:grid-cols-2 gap-4 text-[#4b3a2a]">
+            <p>
+              <strong>Nascimento:</strong>
+              <br />
+              {saint.birth_place || "Não cadastrado"}
+            </p>
 
             <p>
-              {saint.biography ||
-                "Biografia ainda não cadastrada."}
+              <strong>Falecimento:</strong>
+              <br />
+              {saint.death_place || "Não cadastrado"}
+            </p>
+
+            <p>
+              <strong>Festa litúrgica:</strong>
+              <br />
+              {saint.feast_day || "Não cadastrada"}
+            </p>
+
+            <p>
+              <strong>Canonização:</strong>
+              <br />
+              {saint.canonization_year || "Não cadastrada"}
+            </p>
+
+            <p>
+              <strong>Ordem religiosa:</strong>
+              <br />
+              {saint.religious_order || "Não cadastrada"}
+            </p>
+
+            <p>
+              <strong>Categoria:</strong>
+              <br />
+              {saint.category || "Não cadastrada"}
+            </p>
+
+            <p className="md:col-span-2">
+              <strong>Padroeiro de:</strong>
+              <br />
+              {saint.patron_of || "Não cadastrado"}
             </p>
           </div>
-
         </div>
 
-        <div className="border rounded-xl p-6">
-
+        <div className="bg-[#2b1b10] text-[#fffaf0] rounded-2xl p-6 shadow-sm">
           <h2 className="text-2xl font-bold mb-4">
-            Papas Contemporâneos
+            Resumo
+          </h2>
+
+          <p className="leading-relaxed">
+            {saint.short_description || "Resumo ainda não cadastrado."}
+          </p>
+        </div>
+      </section>
+
+      <section className="bg-[#fffaf0] border border-[#c9b895] rounded-2xl p-6 shadow-sm mb-8">
+        <h2 className="text-3xl font-bold mb-4 text-[#2b1b10]">
+          Biografia
+        </h2>
+
+        <p className="text-[#4b3a2a] leading-relaxed">
+          {saint.biography || "Biografia ainda não cadastrada."}
+        </p>
+      </section>
+
+      <section className="grid lg:grid-cols-2 gap-6 mb-8">
+        <div className="bg-[#fffaf0] border border-[#c9b895] rounded-2xl p-6 shadow-sm">
+          <h2 className="text-2xl font-bold mb-4 text-[#2b1b10]">
+            Papas contemporâneos
           </h2>
 
           {popes?.length ? (
-            popes.map((pope) => (
-              <div
-                key={pope.id}
-                className="border-b pb-2 mb-2"
-              >
-                <strong>{pope.name}</strong>
-                <br />
-                {pope.start_year} - {pope.end_year}
-                <br />
-                <span className="text-sm text-gray-600">
-                  {pope.description}
-                </span>
-              </div>
-            ))
+            <div className="space-y-3">
+              {popes.map((pope) => (
+                <div key={pope.id} className="border-b border-[#c9b895] pb-3">
+                  <h3 className="font-bold text-[#2b1b10]">
+                    {pope.name}
+                  </h3>
+
+                  <p className="text-sm text-[#6b543d]">
+                    {pope.start_year} — {pope.end_year}
+                  </p>
+
+                  <p className="text-sm text-[#4b3a2a] mt-1">
+                    {pope.description}
+                  </p>
+                </div>
+              ))}
+            </div>
           ) : (
-            <p>Nenhum papa encontrado.</p>
+            <p className="text-[#4b3a2a]">
+              Nenhum papa cadastrado para este período.
+            </p>
           )}
         </div>
 
-      </div>
-
-      <div className="mt-8 grid md:grid-cols-2 gap-8">
-
-        <div className="border rounded-xl p-6">
-
-          <h2 className="text-2xl font-bold mb-4">
-            Eventos Históricos
+        <div className="bg-[#fffaf0] border border-[#c9b895] rounded-2xl p-6 shadow-sm">
+          <h2 className="text-2xl font-bold mb-4 text-[#2b1b10]">
+            Eventos históricos durante sua vida
           </h2>
 
           {events?.length ? (
-            events.map((event) => (
-              <div
-                key={event.id}
-                className="border-b pb-2 mb-2"
-              >
-                <strong>
-                  {event.year} — {event.title}
-                </strong>
+            <div className="space-y-3">
+              {events.map((event) => (
+                <div key={event.id} className="border-b border-[#c9b895] pb-3">
+                  <h3 className="font-bold text-[#2b1b10]">
+                    {event.year} — {event.title}
+                  </h3>
 
-                <p className="text-sm text-gray-600">
-                  {event.description}
-                </p>
-              </div>
-            ))
+                  {event.category && (
+                    <p className="text-xs uppercase tracking-wide text-[#8b5e24]">
+                      {event.category}
+                    </p>
+                  )}
+
+                  <p className="text-sm text-[#4b3a2a] mt-1">
+                    {event.description}
+                  </p>
+                </div>
+              ))}
+            </div>
           ) : (
-            <p>
+            <p className="text-[#4b3a2a]">
               Nenhum evento cadastrado para este período.
             </p>
           )}
-
         </div>
+      </section>
 
-        <div className="border rounded-xl p-6">
-
-          <h2 className="text-2xl font-bold mb-4">
-            Santos Contemporâneos
+      <section className="grid lg:grid-cols-2 gap-6">
+        <div className="bg-[#fffaf0] border border-[#c9b895] rounded-2xl p-6 shadow-sm">
+          <h2 className="text-2xl font-bold mb-4 text-[#2b1b10]">
+            Santos contemporâneos
           </h2>
 
           {contemporaries?.length ? (
-            contemporaries.map((other) => (
-              <div
-                key={other.id}
-                className="border-b pb-2 mb-2"
-              >
-                <strong>{other.name}</strong>
+            <div className="space-y-3">
+              {contemporaries.map((other) => (
+                <Link
+                  key={other.id}
+                  href={`/saints/${other.id}`}
+                  className="block border-b border-[#c9b895] pb-3 hover:text-[#8b5e24]"
+                >
+                  <h3 className="font-bold">
+                    {other.name}
+                  </h3>
 
-                <p className="text-sm text-gray-600">
-                  {other.birth_year} - {other.death_year}
-                </p>
-              </div>
-            ))
+                  <p className="text-sm text-[#6b543d]">
+                    {other.birth_year} — {other.death_year}
+                  </p>
+
+                  <p className="text-sm text-[#4b3a2a]">
+                    {other.short_description}
+                  </p>
+                </Link>
+              ))}
+            </div>
           ) : (
-            <p>
+            <p className="text-[#4b3a2a]">
               Nenhum santo contemporâneo encontrado.
             </p>
           )}
-
         </div>
 
-      </div>
+        <div className="bg-[#fffaf0] border border-[#c9b895] rounded-2xl p-6 shadow-sm">
+          <h2 className="text-2xl font-bold mb-4 text-[#2b1b10]">
+            Lugares relacionados
+          </h2>
 
+          {locations?.length ? (
+            <div className="space-y-3">
+              {locations.map((location) => (
+                <div key={location.id} className="border-b border-[#c9b895] pb-3">
+                  <h3 className="font-bold text-[#2b1b10]">
+                    {location.location_name}
+                  </h3>
+
+                  <p className="text-sm text-[#6b543d]">
+                    {location.start_year} — {location.end_year}
+                  </p>
+
+                  <p className="text-sm text-[#4b3a2a] mt-1">
+                    {location.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <p className="text-[#4b3a2a]">
+              Nenhum local cadastrado para este santo.
+            </p>
+          )}
+        </div>
+      </section>
     </main>
   );
 }
