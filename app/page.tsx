@@ -17,10 +17,19 @@ export default function Home() {
   const [events, setEvents] = useState<any[]>([]);
   const [locations, setLocations] = useState<any[]>([]);
   const [mapMode, setMapMode] = useState<"year" | "journey">("year");
+  const [stats, setStats] = useState({
+  saints: 0,
+  popes: 0,
+  events: 0,
+  locations: 0,
+});
 
   useEffect(() => {
   loadData();
 }, [year, mapMode]);
+useEffect(() => {
+  loadStats();
+}, []);
 
   async function loadData() {
     const { data: saintsData } = await supabase
@@ -44,6 +53,31 @@ export default function Home() {
       .limit(5);
 
     let locationData: any[] | null = [];
+    
+    async function loadStats() {
+  const saintsCount = await supabase
+    .from("saints")
+    .select("*", { count: "exact", head: true });
+
+  const popesCount = await supabase
+    .from("popes")
+    .select("*", { count: "exact", head: true });
+
+  const eventsCount = await supabase
+    .from("historical_events")
+    .select("*", { count: "exact", head: true });
+
+  const locationsCount = await supabase
+    .from("locations")
+    .select("*", { count: "exact", head: true });
+
+  setStats({
+    saints: saintsCount.count || 0,
+    popes: popesCount.count || 0,
+    events: eventsCount.count || 0,
+    locations: locationsCount.count || 0,
+  });
+}
 
 if (mapMode === "year") {
   const result = await supabase
@@ -73,16 +107,80 @@ if (mapMode === "journey") {
     setEvents(eventData || []);
     setLocations(locationData || []);
   }
+    async function loadStats() {
+    const saintsCount = await supabase
+      .from("saints")
+      .select("*", { count: "exact", head: true });
+
+    const popesCount = await supabase
+      .from("popes")
+      .select("*", { count: "exact", head: true });
+
+    const eventsCount = await supabase
+      .from("historical_events")
+      .select("*", { count: "exact", head: true });
+
+    const locationsCount = await supabase
+      .from("locations")
+      .select("*", { count: "exact", head: true });
+
+    setStats({
+      saints: saintsCount.count || 0,
+      popes: popesCount.count || 0,
+      events: eventsCount.count || 0,
+      locations: locationsCount.count || 0,
+    });
+  }
 
   return (
     <main className="min-h-screen max-w-7xl mx-auto p-8">
-      <h1 className="text-5xl font-bold mb-2">
-        Sancta Historia
-      </h1>
+      <h1 className="text-6xl font-bold mb-2 tracking-tight text-[#2b1b10]">
+  Sancta Historia
+</h1>
 
-      <p className="text-gray-600 mb-8">
-        Explore a história da Igreja Católica através do tempo.
-      </p>
+<p className="text-lg text-[#4b3a2a] mb-6">
+  Explore 2.000 anos de história da Igreja Católica através da linha do tempo,
+  dos santos, dos papas, dos eventos históricos e dos lugares que marcaram a
+  fé cristã.
+</p>
+
+<div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+  <div className="bg-[#fffaf0] border border-[#c9b895] rounded-2xl p-4 shadow-sm">
+    <p className="text-3xl font-bold text-[#5f3b16]">
+      {stats.saints}
+    </p>
+    <p className="text-sm text-[#4b3a2a]">
+      Santos cadastrados
+    </p>
+  </div>
+
+  <div className="bg-[#fffaf0] border border-[#c9b895] rounded-2xl p-4 shadow-sm">
+    <p className="text-3xl font-bold text-[#5f3b16]">
+      {stats.popes}
+    </p>
+    <p className="text-sm text-[#4b3a2a]">
+      Papas
+    </p>
+  </div>
+
+  <div className="bg-[#fffaf0] border border-[#c9b895] rounded-2xl p-4 shadow-sm">
+    <p className="text-3xl font-bold text-[#5f3b16]">
+      {stats.events}
+    </p>
+    <p className="text-sm text-[#4b3a2a]">
+      Eventos históricos
+    </p>
+  </div>
+
+  <div className="bg-[#fffaf0] border border-[#c9b895] rounded-2xl p-4 shadow-sm">
+    <p className="text-3xl font-bold text-[#5f3b16]">
+      {stats.locations}
+    </p>
+    <p className="text-sm text-[#4b3a2a]">
+      Locais no mapa
+    </p>
+  </div>
+</div>
 
       <div className="mb-8">
   <h2 className="text-2xl font-semibold mb-4">
