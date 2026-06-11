@@ -48,7 +48,7 @@ export default function SaintLocationsMap({
         Lugares historicamente associados à vida, missão, atuação ou morte deste santo.
       </p>
 
-      <MapView locations={locations} />
+      <MapView locations={locations} showPath={true} />
     </div>
   );
 }
