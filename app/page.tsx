@@ -228,7 +228,7 @@ if (mapMode === "journey") {
   </div>
 </div>
 
-      <section className="mb-8">
+      <section id="mapa" className="mb-8">
         <h2 className="text-2xl font-bold mb-4">
           Mapa Histórico
         </h2>
