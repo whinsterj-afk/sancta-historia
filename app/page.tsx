@@ -75,7 +75,7 @@ if (mapMode === "journey") {
   }
 
   return (
-    <main className="max-w-7xl mx-auto p-8">
+    <main className="min-h-screen max-w-7xl mx-auto p-8">
       <h1 className="text-5xl font-bold mb-2">
         Sancta Historia
       </h1>
@@ -166,7 +166,7 @@ if (mapMode === "journey") {
       </section>
 
       <div className="grid md:grid-cols-3 gap-6">
-        <div className="bg-white border rounded-xl p-5">
+        <div className="bg-[#fffaf0] border border-[#c9b895] rounded-2xl p-6 shadow-sm">
           <h2 className="text-2xl font-bold mb-4">
             Papa
           </h2>
@@ -192,7 +192,7 @@ if (mapMode === "journey") {
           ))}
         </div>
 
-        <div className="bg-white border rounded-xl p-5">
+        <div className="bg-[#fffaf0] border border-[#c9b895] rounded-2xl p-6 shadow-sm">
           <h2 className="text-2xl font-bold mb-4">
             Santos Vivos
           </h2>
@@ -222,7 +222,7 @@ if (mapMode === "journey") {
           </div>
         </div>
 
-        <div className="bg-white border rounded-xl p-5">
+        <div className="bg-[#fffaf0] border border-[#c9b895] rounded-2xl p-6 shadow-sm">
           <h2 className="text-2xl font-bold mb-4">
             Eventos Históricos
           </h2>

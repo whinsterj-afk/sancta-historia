@@ -1,8 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f7f1e6;
+  --foreground: #1f1a17;
+  --card: #fffaf0;
+  --border: #c9b895;
+  --accent: #8b5e24;
+  --accent-dark: #5f3b16;
 }
 
 @theme inline {
@@ -12,15 +16,18 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  background: var(--background);
+  background:
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.75), transparent 45%),
+    var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.leaflet-container {
+  font-family: inherit;
+}
+
+input[type="range"] {
+  accent-color: var(--accent);
 }
