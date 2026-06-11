@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { supabase } from "@/lib/supabase";
+import SaintLocationsMap from "@/app/components/SaintLocationsMap";
 
 function formatYear(year: number | null, note?: string | null) {
   if (note) {
@@ -337,6 +338,9 @@ export default async function SaintPage({
             </p>
           )}
         </div>
+      </section>
+            <section className="mt-8">
+        <SaintLocationsMap locations={locations || []} />
       </section>
     </main>
   );
