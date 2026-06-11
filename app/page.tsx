@@ -65,19 +65,50 @@ export default function Home() {
       </p>
 
       <div className="mb-8">
-        <h2 className="text-2xl font-semibold mb-2">
-          Ano Selecionado: {year}
-        </h2>
+  <h2 className="text-2xl font-semibold mb-4">
+    Ano Selecionado: {year}
+  </h2>
 
-        <input
-          type="range"
-          min="1"
-          max="2025"
-          value={year}
-          onChange={(e) => setYear(Number(e.target.value))}
-          className="w-full"
-        />
-      </div>
+  <div className="flex flex-col md:flex-row gap-4 md:items-center mb-4">
+    <input
+      type="range"
+      min="1"
+      max="2026"
+      value={year}
+      onChange={(e) => setYear(Number(e.target.value))}
+      className="w-full"
+    />
+
+    <input
+      type="number"
+      min="1"
+      max="2026"
+      value={year}
+      onChange={(e) => {
+        const typedYear = Number(e.target.value);
+
+        if (!Number.isNaN(typedYear)) {
+          setYear(typedYear);
+        }
+      }}
+      className="w-32 border rounded-lg px-3 py-2 text-lg"
+    />
+  </div>
+
+  <div className="flex gap-2 flex-wrap">
+    {[33, 325, 800, 1095, 1220, 1517, 1545, 1962, 1978, 2005].map(
+      (quickYear) => (
+        <button
+          key={quickYear}
+          onClick={() => setYear(quickYear)}
+          className="px-3 py-1 border rounded-lg text-sm hover:bg-gray-100"
+        >
+          {quickYear}
+        </button>
+      )
+    )}
+  </div>
+</div>
 
       <section className="mb-8">
         <h2 className="text-2xl font-bold mb-4">
