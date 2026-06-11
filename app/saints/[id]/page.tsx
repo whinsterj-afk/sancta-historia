@@ -1,6 +1,22 @@
 import Link from "next/link";
 import { supabase } from "@/lib/supabase";
 
+function formatYear(year: number | null, note?: string | null) {
+  if (note) {
+    return note;
+  }
+
+  if (year === null || year === undefined) {
+    return "Não confirmado";
+  }
+
+  if (year < 0) {
+    return `${Math.abs(year)} a.C.`;
+  }
+
+  return `${year} d.C.`;
+}
+
 export default async function SaintPage({
   params,
 }: {
@@ -79,8 +95,9 @@ export default async function SaintPage({
         </h1>
 
         <p className="text-xl text-[#4b3a2a]">
-          {saint.birth_year} — {saint.death_year}
-        </p>
+  {formatYear(saint.birth_year, saint.birth_year_note)} —{" "}
+  {formatYear(saint.death_year, saint.death_year_note)}
+</p>
 
         {saint.famous_quote && (
           <blockquote className="mt-6 border-l-4 border-[#8b5e24] pl-5 text-xl italic text-[#4b3a2a]">
@@ -115,10 +132,12 @@ export default async function SaintPage({
             </p>
 
             <p>
-              <strong>Canonização:</strong>
-              <br />
-              {saint.canonization_year || "Não cadastrada"}
-            </p>
+  <strong>Canonização:</strong>
+  <br />
+  {saint.canonization_year
+    ? `${saint.canonization_year} d.C.`
+    : saint.canonization_note || "Não cadastrada"}
+</p>
 
             <p>
               <strong>Ordem religiosa:</strong>
@@ -160,6 +179,35 @@ export default async function SaintPage({
           {saint.biography || "Biografia ainda não cadastrada."}
         </p>
       </section>
+
+      <section className="grid lg:grid-cols-2 gap-6 mb-8">
+  <div className="bg-[#fffaf0] border border-[#c9b895] rounded-2xl p-6 shadow-sm">
+    <h2 className="text-2xl font-bold mb-4 text-[#2b1b10]">
+      Importância histórica
+    </h2>
+
+    <p className="text-[#4b3a2a] leading-relaxed">
+      {saint.historical_importance ||
+        "Importância histórica ainda não cadastrada."}
+    </p>
+  </div>
+
+  <div className="bg-[#fffaf0] border border-[#c9b895] rounded-2xl p-6 shadow-sm">
+    <h2 className="text-2xl font-bold mb-4 text-[#2b1b10]">
+      Fontes
+    </h2>
+
+    {saint.sources ? (
+      <p className="text-sm text-[#4b3a2a] leading-relaxed whitespace-pre-line break-words">
+        {saint.sources}
+      </p>
+    ) : (
+      <p className="text-[#4b3a2a]">
+        Fontes ainda não cadastradas.
+      </p>
+    )}
+  </div>
+</section>
 
       <section className="grid lg:grid-cols-2 gap-6 mb-8">
         <div className="bg-[#fffaf0] border border-[#c9b895] rounded-2xl p-6 shadow-sm">
