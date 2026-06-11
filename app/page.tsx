@@ -1,67 +1,169 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { supabase } from "@/lib/supabase";
+
 
 export default function Home() {
   const [year, setYear] = useState(1220);
+
   const [saints, setSaints] = useState<any[]>([]);
+  const [popes, setPopes] = useState<any[]>([]);
+  const [events, setEvents] = useState<any[]>([]);
 
   useEffect(() => {
-    loadSaints();
+    loadData();
   }, [year]);
 
-  async function loadSaints() {
-    const { data } = await supabase
+  async function loadData() {
+
+    const { data: saintsData } = await supabase
       .from("saints")
       .select("*")
       .lte("birth_year", year)
       .gte("death_year", year)
       .order("birth_year");
 
-    setSaints(data || []);
+    const { data: popeData } = await supabase
+      .from("popes")
+      .select("*")
+      .lte("start_year", year)
+      .gte("end_year", year);
+
+    const { data: eventData } = await supabase
+  .from("historical_events")
+  .select("*")
+  .lte("year", year)
+  .order("year", { ascending: false })
+  .limit(5);
+
+
+
+    setSaints(saintsData || []);
+    setPopes(popeData || []);
+    setEvents(eventData || []);
   }
 
   return (
-    <main className="max-w-6xl mx-auto p-10">
+    <main className="max-w-7xl mx-auto p-8">
 
-      <h1 className="text-5xl font-bold mb-6">
+      <h1 className="text-5xl font-bold mb-2">
         Sancta Historia
       </h1>
 
-      <h2 className="text-2xl mb-4">
-        Ano Selecionado: {year}
-      </h2>
+      <p className="text-gray-600 mb-8">
+        Explore a história da Igreja Católica através do tempo.
+      </p>
 
-      <input
-        type="range"
-        min="1"
-        max="2025"
-        value={year}
-        onChange={(e) => setYear(Number(e.target.value))}
-        className="w-full mb-8"
-      />
+      <div className="mb-8">
 
-      <div className="grid gap-4">
+        <h2 className="text-2xl font-semibold mb-2">
+          Ano Selecionado: {year}
+        </h2>
 
-        {saints.map((saint) => (
-          <div
-            key={saint.id}
-            className="border rounded-xl p-4 bg-white"
-          >
-            <h3 className="font-bold text-xl">
-              {saint.name}
-            </h3>
+        <input
+          type="range"
+          min="1"
+          max="2025"
+          value={year}
+          onChange={(e) => setYear(Number(e.target.value))}
+          className="w-full"
+        />
 
-            <p>
-              {saint.birth_year} - {saint.death_year}
-            </p>
+      </div>
 
-            <p>
-              {saint.short_description}
-            </p>
+      <div className="grid md:grid-cols-3 gap-6">
+
+        {/* PAPA */}
+
+        <div className="bg-white border rounded-xl p-5">
+
+          <h2 className="text-2xl font-bold mb-4">
+            Papa
+          </h2>
+
+          {popes.length === 0 && (
+            <p>Nenhum Papa encontrado.</p>
+          )}
+
+          {popes.map((pope) => (
+            <div key={pope.id}>
+              <h3 className="font-semibold">
+                {pope.name}
+              </h3>
+
+              <p className="text-sm text-gray-500">
+                {pope.start_year} - {pope.end_year}
+              </p>
+
+              <p className="mt-2 text-sm">
+                {pope.description}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        {/* SANTOS */}
+
+        <div className="bg-white border rounded-xl p-5">
+
+          <h2 className="text-2xl font-bold mb-4">
+            Santos Vivos
+          </h2>
+
+          <div className="space-y-3">
+
+            {saints.map((saint) => (
+              <div
+                key={saint.id}
+                className="border-b pb-2"
+              >
+                <Link
+  href={`/saints/${saint.id}`}
+  className="font-semibold text-blue-600 hover:underline"
+>
+  {saint.name}
+</Link>
+
+                <p className="text-sm text-gray-500">
+                  {saint.birth_year} - {saint.death_year}
+                </p>
+              </div>
+            ))}
+
           </div>
-        ))}
+
+        </div>
+
+        {/* EVENTOS */}
+
+        <div className="bg-white border rounded-xl p-5">
+
+          <h2 className="text-2xl font-bold mb-4">
+            Eventos Históricos
+          </h2>
+
+          <div className="space-y-3">
+
+            {events.map((event) => (
+              <div
+                key={event.id}
+                className="border-b pb-2"
+              >
+                <h3 className="font-semibold">
+                  {event.year} — {event.title}
+                </h3>
+
+                <p className="text-sm text-gray-600">
+                  {event.description}
+                </p>
+              </div>
+            ))}
+
+          </div>
+
+        </div>
 
       </div>
 
