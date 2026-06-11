@@ -16,10 +16,11 @@ export default function Home() {
   const [popes, setPopes] = useState<any[]>([]);
   const [events, setEvents] = useState<any[]>([]);
   const [locations, setLocations] = useState<any[]>([]);
+  const [mapMode, setMapMode] = useState<"year" | "journey">("year");
 
   useEffect(() => {
-    loadData();
-  }, [year]);
+  loadData();
+}, [year, mapMode]);
 
   async function loadData() {
     const { data: saintsData } = await supabase
@@ -42,11 +43,30 @@ export default function Home() {
       .order("year", { ascending: false })
       .limit(5);
 
-    const { data: locationData } = await supabase
+    let locationData: any[] | null = [];
+
+if (mapMode === "year") {
+  const result = await supabase
+    .from("locations")
+    .select("*, saints(name)")
+    .lte("start_year", year)
+    .gte("end_year", year);
+
+  locationData = result.data;
+}
+
+if (mapMode === "journey") {
+  const saintIds = saintsData?.map((saint) => saint.id) || [];
+
+  if (saintIds.length > 0) {
+    const result = await supabase
       .from("locations")
       .select("*, saints(name)")
-      .lte("start_year", year)
-      .gte("end_year", year);
+      .in("saint_id", saintIds);
+
+    locationData = result.data;
+  }
+}
 
     setSaints(saintsData || []);
     setPopes(popeData || []);
@@ -114,6 +134,29 @@ export default function Home() {
         <h2 className="text-2xl font-bold mb-4">
           Mapa Histórico
         </h2>
+        <div className="flex gap-2 mb-4">
+  <button
+    onClick={() => setMapMode("year")}
+    className={`px-4 py-2 rounded-lg border ${
+      mapMode === "year"
+        ? "bg-black text-white"
+        : "bg-white"
+    }`}
+  >
+    Locais do ano
+  </button>
+
+  <button
+    onClick={() => setMapMode("journey")}
+    className={`px-4 py-2 rounded-lg border ${
+      mapMode === "journey"
+        ? "bg-black text-white"
+        : "bg-white"
+    }`}
+  >
+    Trajetória dos santos vivos
+  </button>
+</div>
 
         <MapView locations={locations} />
 
