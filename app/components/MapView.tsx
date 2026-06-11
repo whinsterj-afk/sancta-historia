@@ -1,6 +1,7 @@
 "use client";
 
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { useEffect } from "react";
+import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import L from "leaflet";
 
 type Location = {
@@ -29,6 +30,53 @@ const defaultIcon = L.icon({
   shadowSize: [41, 41],
 });
 
+function FitMapToLocations({
+  locations,
+}: {
+  locations: Location[];
+}) {
+  const map = useMap();
+
+  useEffect(() => {
+    const validLocations = locations.filter((location) => {
+      const lat = Number(location.latitude);
+      const lng = Number(location.longitude);
+
+      return Number.isFinite(lat) && Number.isFinite(lng);
+    });
+
+    if (validLocations.length === 0) {
+      map.setView([20, 0], 2);
+      return;
+    }
+
+    if (validLocations.length === 1) {
+      const location = validLocations[0];
+
+      map.setView(
+        [Number(location.latitude), Number(location.longitude)],
+        6
+      );
+
+      return;
+    }
+
+    const bounds = L.latLngBounds(
+      validLocations.map((location) => [
+        Number(location.latitude),
+        Number(location.longitude),
+      ])
+    );
+
+    map.fitBounds(bounds, {
+      padding: [50, 50],
+      maxZoom: 7,
+    });
+  }, [locations, map]);
+
+  return null;
+}
+
 export default function MapView({
   locations,
 }: {
@@ -37,11 +85,13 @@ export default function MapView({
   return (
     <div className="h-[420px] w-full overflow-hidden rounded-xl border">
       <MapContainer
-        center={[31.7683, 35.2137]}
-        zoom={3}
+        center={[20, 0]}
+        zoom={2}
         scrollWheelZoom={true}
         className="h-full w-full"
       >
+        <FitMapToLocations locations={locations} />
+
         <TileLayer
           attribution='&copy; OpenStreetMap contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
