@@ -111,7 +111,7 @@ if (mapMode === "journey") {
           setYear(typedYear);
         }
       }}
-      className="w-32 border rounded-lg px-3 py-2 text-lg"
+      className="w-32 border border-[#c9b895] rounded-lg px-3 py-2 text-lg bg-[#fffaf0]"
     />
   </div>
 
@@ -121,7 +121,7 @@ if (mapMode === "journey") {
         <button
           key={quickYear}
           onClick={() => setYear(quickYear)}
-          className="px-3 py-1 border rounded-lg text-sm hover:bg-gray-100"
+          className="px-3 py-1 border border-[#c9b895] rounded-lg text-sm bg-[#fffaf0] hover:bg-[#eadfcb] transition"
         >
           {quickYear}
         </button>
