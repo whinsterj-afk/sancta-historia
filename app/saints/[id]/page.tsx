@@ -1,22 +1,7 @@
 import Link from "next/link";
 import { supabase } from "@/lib/supabase";
 import SaintLocationsMap from "@/app/components/SaintLocationsMap";
-
-function formatYear(year: number | null, note?: string | null) {
-  if (note) {
-    return note;
-  }
-
-  if (year === null || year === undefined) {
-    return "Não confirmado";
-  }
-
-  if (year < 0) {
-    return `${Math.abs(year)} a.C.`;
-  }
-
-  return `${year} d.C.`;
-}
+import { formatYear, formatYearRange } from "@/lib/formatYear";
 
 export default async function SaintPage({
   params,
@@ -96,8 +81,12 @@ export default async function SaintPage({
         </h1>
 
         <p className="text-xl text-[#4b3a2a]">
-  {formatYear(saint.birth_year, saint.birth_year_note)} —{" "}
-  {formatYear(saint.death_year, saint.death_year_note)}
+  {formatYearRange(
+  saint.birth_year,
+  saint.death_year,
+  saint.birth_year_note,
+  saint.death_year_note
+)}
 </p>
 
         {saint.famous_quote && (

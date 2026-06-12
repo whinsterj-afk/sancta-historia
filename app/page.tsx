@@ -4,6 +4,11 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { supabase } from "@/lib/supabase";
+import {
+  formatYear,
+  formatYearRange,
+  formatYearRangeShort,
+} from "@/lib/formatYear";
 
 const MapView = dynamic(() => import("./components/MapView"), {
   ssr: false,
@@ -184,7 +189,7 @@ if (mapMode === "journey") {
 
       <div className="mb-8">
   <h2 className="text-2xl font-semibold mb-4">
-    Ano Selecionado: {year}
+    Ano selecionado: {formatYear(year)}
   </h2>
 
   <div className="flex flex-col md:flex-row gap-4 md:items-center mb-4">
@@ -280,7 +285,7 @@ if (mapMode === "journey") {
               </h3>
 
               <p className="text-sm text-gray-500">
-                {pope.start_year} - {pope.end_year}
+                {formatYearRange(pope.start_year, pope.end_year)}
               </p>
 
               <p className="mt-2 text-sm">
@@ -309,7 +314,12 @@ if (mapMode === "journey") {
                 </Link>
 
                 <p className="text-sm text-gray-500">
-                  {saint.birth_year} - {saint.death_year}
+                  {formatYearRangeShort(
+  saint.birth_year,
+  saint.death_year,
+  saint.birth_year_note,
+  saint.death_year_note
+)}
                 </p>
 
                 <p className="text-sm">
@@ -332,7 +342,7 @@ if (mapMode === "journey") {
                 className="border-b pb-2"
               >
                 <h3 className="font-semibold">
-                  {event.year} — {event.title}
+                  {formatYear(event.year)} — {event.title}
                 </h3>
 
                 <p className="text-sm text-gray-600">

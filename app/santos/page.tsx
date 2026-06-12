@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { supabase } from "@/lib/supabase";
+import { formatYearRangeShort } from "@/lib/formatYear";
 
 type Saint = {
   id: number;
@@ -73,7 +74,12 @@ export default function SantosPage() {
             </h2>
 
             <p className="text-sm text-[#6b543d] mt-1">
-              {saint.birth_year} — {saint.death_year}
+              {formatYearRangeShort(
+  saint.birth_year,
+  saint.death_year,
+  saint.birth_year_note,
+  saint.death_year_note
+)}
             </p>
 
             <p className="text-sm mt-3 text-[#4b3a2a]">

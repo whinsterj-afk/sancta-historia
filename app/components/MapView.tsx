@@ -10,6 +10,7 @@ import {
   useMap,
 } from "react-leaflet";
 import L from "leaflet";
+import { formatYearRange } from "@/lib/formatYear";
 
 type Location = {
   id: number;
@@ -145,7 +146,7 @@ export default function MapView({
               <br />
               {location.saints?.name}
               <br />
-              {location.start_year} - {location.end_year}
+              {formatYearRange(location.start_year, location.end_year)}
               <br />
               {location.description}
             </Popup>
