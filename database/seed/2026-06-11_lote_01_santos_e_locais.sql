@@ -1,0 +1,18 @@
+-- ============================================================
+-- Sancta Historia
+-- Seed de dados — Lote 01 de santos e locais históricos
+-- Data: 2026-06-11
+--
+-- Conteúdo:
+-- - Inserção/atualização de 50 santos essenciais
+-- - Inserção dos locais históricos relacionados
+-- - Conversão de anos aproximados para campos numéricos
+-- - Uso de notas textuais para datas incertas
+--
+-- Observação:
+-- Este script já foi executado no Supabase e gerou:
+-- - 81 santos no total
+-- - 142 locais no total
+--
+-- Não execute novamente sem revisar duplicidades.
+-- ============================================================

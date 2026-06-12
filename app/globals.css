@@ -24,10 +24,12 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.leaflet-container {
-  font-family: inherit;
-}
-
 input[type="range"] {
   accent-color: var(--accent);
+}
+
+.mapboxgl-popup-content {
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(43, 27, 16, 0.2);
+  font-family: inherit;
 }

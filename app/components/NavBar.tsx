@@ -11,13 +11,25 @@ export default function NavBar() {
           Sancta Historia
         </Link>
 
-        <div className="flex gap-4 text-sm font-medium text-[#4b3a2a]">
+        <div className="flex flex-wrap gap-4 text-sm font-medium text-[#4b3a2a]">
           <Link href="/" className="hover:text-[#8b5e24]">
             Timeline
           </Link>
 
           <Link href="/santos" className="hover:text-[#8b5e24]">
             Santos
+          </Link>
+
+          <Link href="/papas" className="hover:text-[#8b5e24]">
+            Papas
+          </Link>
+
+          <Link href="/eventos" className="hover:text-[#8b5e24]">
+            Eventos
+          </Link>
+
+          <Link href="/locais" className="hover:text-[#8b5e24]">
+            Locais
           </Link>
 
           <Link href="/#mapa" className="hover:text-[#8b5e24]">

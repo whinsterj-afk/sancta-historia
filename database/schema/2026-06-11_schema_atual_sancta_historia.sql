@@ -1,4 +1,3 @@
-```sql
 -- ============================================================
 -- Sancta Historia
 -- Snapshot da estrutura atual do banco de dados
@@ -202,4 +201,3 @@ using (true);
 -- group by name
 -- having count(*) > 1
 -- order by name;
-```

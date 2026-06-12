@@ -1,23 +1,11 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import type { Location } from "@/lib/types";
 
 const MapView = dynamic(() => import("./MapView"), {
   ssr: false,
 });
-
-type Location = {
-  id: number;
-  location_name: string;
-  latitude: number | string;
-  longitude: number | string;
-  start_year: number;
-  end_year: number;
-  description: string | null;
-  saints?: {
-    name: string;
-  } | null;
-};
 
 export default function SaintLocationsMap({
   locations,
