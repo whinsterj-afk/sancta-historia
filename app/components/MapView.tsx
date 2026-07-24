@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import { setWorkerUrl } from "maplibre-gl";
 import Map, {
   FullscreenControl,
   Layer,
@@ -10,11 +11,17 @@ import Map, {
   ScaleControl,
   Source,
   type MapRef,
-} from "react-map-gl/mapbox";
+} from "react-map-gl/maplibre";
 import { formatYearRange } from "@/lib/formatYear";
 import type { Location } from "@/lib/types";
 
-const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN || "";
+// Turbopack não resolve o worker que o maplibre-gl cria dinamicamente via
+// Blob + import.meta.url em tempo de execução (o carregamento de tiles trava
+// em silêncio). Servimos o worker CSP-safe (autocontido) via rota própria.
+setWorkerUrl("/maplibre-worker/maplibre-gl-csp-worker.js");
+
+const MAPTILER_KEY = process.env.NEXT_PUBLIC_MAPTILER_KEY || "";
+const MAP_STYLE = `https://api.maptiler.com/maps/basic-v2/style.json?key=${MAPTILER_KEY}`;
 
 function getValidLocations(locations: Location[]) {
   return locations.filter((location) => {
@@ -28,13 +35,16 @@ function getValidLocations(locations: Location[]) {
 export default function MapView({
   locations,
   showPath = false,
+  variant = "panel",
 }: {
   locations: Location[];
   showPath?: boolean;
+  variant?: "panel" | "background";
 }) {
   const mapRef = useRef<MapRef>(null);
   const [selected, setSelected] = useState<Location | null>(null);
   const [loaded, setLoaded] = useState(false);
+  const [mapError, setMapError] = useState(false);
 
   const validLocations = useMemo(() => getValidLocations(locations), [locations]);
 
@@ -98,33 +108,40 @@ export default function MapView({
     );
   }, [loaded, validLocations]);
 
-  if (!MAPBOX_TOKEN) {
+  if (!MAPTILER_KEY || mapError) {
     return (
-      <div className="flex h-[420px] w-full items-center justify-center rounded-xl border border-[#c9b895] bg-[#fffaf0] p-6 text-center text-[#4b3a2a]">
-        Configure <code className="mx-1 rounded bg-white px-1">NEXT_PUBLIC_MAPBOX_TOKEN</code>
-        para exibir o mapa Mapbox.
-      </div>
+      <MapFallback variant={variant} mapError={mapError} />
     );
   }
 
   return (
-    <div className="h-[500px] w-full overflow-hidden rounded-xl border border-[#c9b895] shadow-sm">
+    <div
+      className={
+        variant === "background"
+          ? "h-full w-full overflow-hidden"
+          : "h-[500px] w-full overflow-hidden rounded-xl border border-[#c9b895] shadow-sm"
+      }
+    >
       <Map
         ref={mapRef}
-        mapboxAccessToken={MAPBOX_TOKEN}
         initialViewState={{
           latitude: 40,
           longitude: 25,
           zoom: 2.5,
         }}
-        mapStyle="mapbox://styles/mapbox/light-v11"
+        mapStyle={MAP_STYLE}
         onClick={() => setSelected(null)}
+        onError={() => setMapError(true)}
         onLoad={() => setLoaded(true)}
         style={{ height: "100%", width: "100%" }}
       >
-        <NavigationControl position="bottom-right" />
-        <FullscreenControl position="bottom-right" />
-        <ScaleControl position="bottom-left" unit="metric" />
+        {variant === "panel" && (
+          <>
+            <NavigationControl position="bottom-right" />
+            <FullscreenControl position="bottom-right" />
+            <ScaleControl position="bottom-left" unit="metric" />
+          </>
+        )}
 
         {pathGeoJson.features.length > 0 && (
           <Source id="saint-journey" type="geojson" data={pathGeoJson}>
@@ -192,6 +209,35 @@ export default function MapView({
           </Popup>
         )}
       </Map>
+    </div>
+  );
+}
+
+function MapFallback({
+  mapError,
+  variant,
+}: {
+  mapError: boolean;
+  variant: "panel" | "background";
+}) {
+  return (
+    <div
+      className={`relative flex w-full items-center justify-center overflow-hidden p-6 text-center ${
+        variant === "background"
+          ? "h-full bg-[#d8c7aa] text-[#2d2119]"
+          : "h-[420px] rounded-xl border border-[#c9b895] bg-[#fffaf0] text-[#4b3a2a]"
+      }`}
+    >
+      <div className="absolute inset-0 opacity-55 [background-image:linear-gradient(30deg,rgba(71,55,38,.18)_12%,transparent_12.5%,transparent_87%,rgba(71,55,38,.18)_87.5%,rgba(71,55,38,.18)),linear-gradient(150deg,rgba(71,55,38,.18)_12%,transparent_12.5%,transparent_87%,rgba(71,55,38,.18)_87.5%,rgba(71,55,38,.18)),linear-gradient(30deg,rgba(71,55,38,.18)_12%,transparent_12.5%,transparent_87%,rgba(71,55,38,.18)_87.5%,rgba(71,55,38,.18)),linear-gradient(150deg,rgba(71,55,38,.18)_12%,transparent_12.5%,transparent_87%,rgba(71,55,38,.18)_87.5%,rgba(71,55,38,.18))] [background-position:0_0,0_0,34px_60px,34px_60px] [background-size:68px_120px]" />
+      <div className="relative max-w-sm rounded-lg border border-[#6e5535]/20 bg-[#fffaf0]/82 p-4 shadow-[0_18px_50px_rgba(0,0,0,0.18)] backdrop-blur">
+        <p className="text-sm font-semibold">
+          {mapError ? "Mapa indisponivel neste dispositivo." : "Configure a chave do MapTiler."}
+        </p>
+        <p className="mt-2 text-xs leading-5 opacity-80">
+          Verifique a chave <code>NEXT_PUBLIC_MAPTILER_KEY</code> e os
+          domínios permitidos no MapTiler.
+        </p>
+      </div>
     </div>
   );
 }

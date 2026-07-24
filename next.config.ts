@@ -15,7 +15,6 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
-  transpilePackages: ["mapbox-gl"],
   async headers() {
     return [
       {

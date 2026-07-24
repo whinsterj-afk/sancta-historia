@@ -2,7 +2,7 @@
 
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import { useCallback, useEffect, useState, useTransition } from "react";
+import { useCallback, useEffect, useMemo, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import {
   formatYear,
@@ -51,8 +51,36 @@ export default function TimelineExplorer({
   const [isPending, startTransition] = useTransition();
   const [localYear, setLocalYear] = useState(year);
   const [localMapMode, setLocalMapMode] = useState<TimelineMapMode>(mapMode);
+  const [isScrubbing, setIsScrubbing] = useState(false);
 
-  const updateTimeline = useCallback(
+  const visiblePeople = useMemo(
+    () => [
+      ...popes.slice(0, 2).map((pope) => ({
+        id: `pope-${pope.id}`,
+        href: `/papas/${pope.id}`,
+        name: pope.name,
+        label: "Papa",
+        period: formatYearRange(pope.start_year, pope.end_year),
+        description: pope.description,
+      })),
+      ...saints.slice(0, 5).map((saint) => ({
+        id: `saint-${saint.id}`,
+        href: `/saints/${saint.id}`,
+        name: saint.name,
+        label: "Santo",
+        period: formatYearRangeShort(
+          saint.birth_year,
+          saint.death_year,
+          saint.birth_year_note,
+          saint.death_year_note
+        ),
+        description: saint.short_description,
+      })),
+    ],
+    [popes, saints]
+  );
+
+  const commitTimeline = useCallback(
     (nextYear: number, nextMapMode: TimelineMapMode) => {
       if (nextYear === year && nextMapMode === mapMode) {
         return;
@@ -73,12 +101,35 @@ export default function TimelineExplorer({
   );
 
   useEffect(() => {
+    if (isScrubbing) {
+      return;
+    }
+
     const timer = setTimeout(() => {
-      updateTimeline(localYear, localMapMode);
-    }, 350);
+      commitTimeline(localYear, localMapMode);
+    }, 420);
 
     return () => clearTimeout(timer);
-  }, [localYear, localMapMode, updateTimeline]);
+  }, [commitTimeline, isScrubbing, localMapMode, localYear]);
+
+  useEffect(() => {
+    if (!isScrubbing) {
+      return;
+    }
+
+    function handlePointerUp() {
+      setIsScrubbing(false);
+      commitTimeline(localYear, localMapMode);
+    }
+
+    window.addEventListener("pointerup", handlePointerUp);
+    window.addEventListener("touchend", handlePointerUp);
+
+    return () => {
+      window.removeEventListener("pointerup", handlePointerUp);
+      window.removeEventListener("touchend", handlePointerUp);
+    };
+  }, [commitTimeline, isScrubbing, localMapMode, localYear]);
 
   function setClampedYear(value: number) {
     if (!Number.isFinite(value)) {
@@ -89,193 +140,174 @@ export default function TimelineExplorer({
   }
 
   return (
-    <main className="min-h-screen max-w-7xl mx-auto p-8">
-      <section className="mb-8">
-        <h1 className="text-5xl md:text-6xl font-bold mb-3 tracking-tight text-[#2b1b10]">
-          Sancta Historia
-        </h1>
+    <main className="sancta-map-stage relative min-h-screen overflow-hidden bg-[#11100e] text-[#fffaf0]">
+      <div className="absolute inset-0">
+        <MapView
+          locations={locations}
+          showPath={localMapMode === "journey"}
+          variant="background"
+        />
+      </div>
 
-        <p className="max-w-3xl text-lg text-[#4b3a2a]">
-          Explore 2.000 anos de história da Igreja Católica por santos, papas,
-          eventos históricos e lugares que marcaram a fé cristã.
-        </p>
-      </section>
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(17,16,14,0.78)_0%,rgba(17,16,14,0.42)_31%,rgba(17,16,14,0.08)_58%,rgba(17,16,14,0.28)_100%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(17,16,14,0.62)_0%,rgba(17,16,14,0.08)_30%,rgba(17,16,14,0.18)_58%,rgba(17,16,14,0.76)_100%)]" />
 
-      <section className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
-        <StatCard label="Santos cadastrados" value={stats.saints} />
-        <StatCard label="Papas" value={stats.popes} />
-        <StatCard label="Eventos históricos" value={stats.events} />
-        <StatCard label="Locais no mapa" value={stats.locations} />
-      </section>
+      <section className="pointer-events-none relative z-10 flex min-h-screen flex-col justify-between px-4 pb-36 pt-36 sm:px-6 lg:px-10 lg:pb-40">
+        <div className="max-w-md lg:max-w-lg">
+          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#e0c48e]">
+            {formatYear(localYear)}
+          </p>
+          <h1 className="mt-3 text-4xl font-semibold leading-tight text-white sm:text-5xl">
+            A historia viva da Igreja sobre o mapa
+          </h1>
+          <p className="mt-4 max-w-sm text-sm leading-6 text-[#f4e7d1]/86 sm:text-base">
+            Santos, papas, eventos e lugares aparecem conforme voce percorre a
+            linha do tempo.
+          </p>
+        </div>
 
-      <section className="mb-8 rounded-2xl border border-[#c9b895] bg-[#fffaf0] p-5 shadow-sm">
-        <div className="mb-4 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
-          <div>
-            <p className="text-sm uppercase tracking-[0.24em] text-[#8b5e24]">
-              Linha do tempo
-            </p>
-            <h2 className="text-2xl font-semibold text-[#2b1b10]">
-              Ano selecionado: {formatYear(localYear)}
-            </h2>
-          </div>
-
-          {isPending && (
-            <p className="text-sm text-[#6b543d]">Atualizando contexto...</p>
+        <div
+          key={`${year}-${localMapMode}-${visiblePeople.map((item) => item.id).join("-")}`}
+          className="pointer-events-auto mb-3 flex max-h-[42vh] w-full max-w-sm flex-col gap-3 overflow-hidden lg:mb-0"
+        >
+          {visiblePeople.length === 0 ? (
+            <FloatingEmptyState year={localYear} />
+          ) : (
+            visiblePeople.map((item, index) => (
+              <Link
+                key={item.id}
+                href={item.href}
+                className="timeline-fade group rounded-lg border border-white/14 bg-[#201915]/62 p-4 text-left shadow-[0_18px_50px_rgba(0,0,0,0.28)] backdrop-blur-md transition hover:border-[#e0c48e]/70 hover:bg-[#2d231d]/72"
+                style={{ animationDelay: `${index * 85}ms` }}
+              >
+                <div className="flex items-start justify-between gap-3">
+                  <div>
+                    <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-[#e0c48e]">
+                      {item.label}
+                    </p>
+                    <h2 className="mt-1 text-lg font-semibold leading-tight text-white">
+                      {item.name}
+                    </h2>
+                  </div>
+                  <span className="shrink-0 rounded-full border border-white/12 px-2 py-1 text-xs text-[#f4e7d1]/82">
+                    {item.period}
+                  </span>
+                </div>
+                {item.description && (
+                  <p className="mt-2 overflow-hidden text-sm leading-5 text-[#f4e7d1]/78 [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2]">
+                    {item.description}
+                  </p>
+                )}
+              </Link>
+            ))
           )}
         </div>
-
-        <div className="mb-4 flex flex-col gap-4 md:flex-row md:items-center">
-          <input
-            type="range"
-            min={minYear}
-            max={maxYear}
-            value={localYear}
-            onChange={(event) => setClampedYear(Number(event.target.value))}
-            className="w-full"
-          />
-
-          <input
-            type="number"
-            min={minYear}
-            max={maxYear}
-            value={localYear}
-            onChange={(event) => setClampedYear(Number(event.target.value))}
-            className="w-36 rounded-lg border border-[#c9b895] bg-white px-3 py-2 text-lg"
-          />
-        </div>
-
-        <div className="flex flex-wrap gap-2">
-          {significantYears.map((quickYear) => (
-            <button
-              key={quickYear}
-              type="button"
-              onClick={() => setClampedYear(quickYear)}
-              className="rounded-lg border border-[#c9b895] bg-white px-3 py-1 text-sm text-[#4b3a2a] transition hover:bg-[#eadfcb]"
-            >
-              {quickYear}
-            </button>
-          ))}
-        </div>
       </section>
 
-      <section id="mapa" className="mb-8">
-        <div className="mb-4 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-          <div>
-            <p className="text-sm uppercase tracking-[0.24em] text-[#8b5e24]">
-              Geografia histórica
+      <section className="fixed inset-x-0 bottom-0 z-20 px-3 pb-4 sm:px-6">
+        <div className="mx-auto max-w-5xl rounded-lg border border-white/16 bg-[#211914]/78 p-4 text-[#fffaf0] shadow-[0_-18px_70px_rgba(0,0,0,0.36)] backdrop-blur-xl sm:p-5">
+          <div className="mb-4 flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#e0c48e]">
+                Linha do tempo
+              </p>
+              <h2 className="mt-1 text-2xl font-semibold">
+                {formatYear(localYear)}
+              </h2>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-2">
+              <ModeButton
+                active={localMapMode === "year"}
+                onClick={() => setLocalMapMode("year")}
+              >
+                Locais do ano
+              </ModeButton>
+              <ModeButton
+                active={localMapMode === "journey"}
+                onClick={() => setLocalMapMode("journey")}
+              >
+                Trajetorias
+              </ModeButton>
+              {isPending && (
+                <span className="rounded-full border border-white/12 px-3 py-2 text-xs text-[#f4e7d1]/72">
+                  Atualizando
+                </span>
+              )}
+            </div>
+          </div>
+
+          <div className="grid gap-4 lg:grid-cols-[1fr_8rem] lg:items-center">
+            <input
+              type="range"
+              min={minYear}
+              max={maxYear}
+              value={localYear}
+              onPointerDown={() => setIsScrubbing(true)}
+              onTouchStart={() => setIsScrubbing(true)}
+              onChange={(event) => setClampedYear(Number(event.target.value))}
+              onBlur={() => commitTimeline(localYear, localMapMode)}
+              className="timeline-range w-full"
+              aria-label="Ano da linha do tempo"
+            />
+
+            <input
+              type="number"
+              min={minYear}
+              max={maxYear}
+              value={localYear}
+              onChange={(event) => setClampedYear(Number(event.target.value))}
+              onBlur={() => commitTimeline(localYear, localMapMode)}
+              onKeyDown={(event) => {
+                if (event.key === "Enter") {
+                  commitTimeline(localYear, localMapMode);
+                }
+              }}
+              className="h-11 rounded-md border border-white/18 bg-white/[0.09] px-3 text-center text-lg font-semibold text-white outline-none transition focus:border-[#e0c48e]"
+              aria-label="Ano selecionado"
+            />
+          </div>
+
+          <div className="mt-4 flex gap-2 overflow-x-auto pb-1">
+            {significantYears.map((quickYear) => (
+              <button
+                key={quickYear}
+                type="button"
+                onClick={() => setClampedYear(quickYear)}
+                className="shrink-0 rounded-full border border-white/14 bg-white/[0.08] px-3 py-1.5 text-xs font-medium text-[#f4e7d1] transition hover:border-[#e0c48e] hover:bg-[#e0c48e]/16"
+              >
+                {quickYear}
+              </button>
+            ))}
+          </div>
+
+          <div className="mt-4 grid grid-cols-2 gap-2 text-xs text-[#f4e7d1]/74 sm:grid-cols-4">
+            <StatPill label="Santos" value={stats.saints} />
+            <StatPill label="Papas" value={stats.popes} />
+            <StatPill label="Eventos" value={stats.events} />
+            <StatPill label="Locais" value={locations.length} />
+          </div>
+
+          {events.length > 0 && (
+            <p className="mt-3 truncate text-xs text-[#f4e7d1]/68">
+              {formatYear(events[0].year)} - {events[0].title}
             </p>
-            <h2 className="text-2xl font-bold text-[#2b1b10]">Mapa</h2>
-          </div>
-
-          <div className="flex gap-2">
-            <ModeButton
-              active={localMapMode === "year"}
-              onClick={() => setLocalMapMode("year")}
-            >
-              Locais do ano
-            </ModeButton>
-            <ModeButton
-              active={localMapMode === "journey"}
-              onClick={() => setLocalMapMode("journey")}
-            >
-              Trajetórias
-            </ModeButton>
-          </div>
+          )}
         </div>
-
-        <MapView locations={locations} showPath={mapMode === "journey"} />
-
-        <p className="mt-2 text-sm text-[#6b543d]">
-          Locais exibidos no mapa: {locations.length}
-        </p>
-      </section>
-
-      <section className="grid gap-6 md:grid-cols-3">
-        <InfoPanel title="Papa">
-          {popes.length === 0 && <p>Nenhum papa encontrado.</p>}
-
-          {popes.map((pope) => (
-            <div key={pope.id} className="border-b border-[#c9b895] pb-3">
-              <Link
-                href={`/papas/${pope.id}`}
-                className="font-semibold text-[#2b1b10] hover:text-[#8b5e24]"
-              >
-                {pope.name}
-              </Link>
-              <p className="text-sm text-[#6b543d]">
-                {formatYearRange(pope.start_year, pope.end_year)}
-              </p>
-              {pope.description && (
-                <p className="mt-2 text-sm text-[#4b3a2a]">
-                  {pope.description}
-                </p>
-              )}
-            </div>
-          ))}
-        </InfoPanel>
-
-        <InfoPanel title="Santos vivos">
-          {saints.length === 0 && <p>Nenhum santo encontrado.</p>}
-
-          {saints.map((saint) => (
-            <div key={saint.id} className="border-b border-[#c9b895] pb-3">
-              <Link
-                href={`/saints/${saint.id}`}
-                className="font-semibold text-[#2b1b10] hover:text-[#8b5e24]"
-              >
-                {saint.name}
-              </Link>
-              <p className="text-sm text-[#6b543d]">
-                {formatYearRangeShort(
-                  saint.birth_year,
-                  saint.death_year,
-                  saint.birth_year_note,
-                  saint.death_year_note
-                )}
-              </p>
-              {saint.short_description && (
-                <p className="mt-2 text-sm text-[#4b3a2a]">
-                  {saint.short_description}
-                </p>
-              )}
-            </div>
-          ))}
-        </InfoPanel>
-
-        <InfoPanel title="Eventos históricos">
-          {events.length === 0 && <p>Nenhum evento encontrado.</p>}
-
-          {events.map((event) => (
-            <div key={event.id} className="border-b border-[#c9b895] pb-3">
-              <Link
-                href={`/eventos/${event.id}`}
-                className="font-semibold text-[#2b1b10] hover:text-[#8b5e24]"
-              >
-                {formatYear(event.year)} - {event.title}
-              </Link>
-              {event.category && (
-                <p className="mt-1 text-xs uppercase tracking-wide text-[#8b5e24]">
-                  {event.category}
-                </p>
-              )}
-              {event.description && (
-                <p className="mt-2 text-sm text-[#4b3a2a]">
-                  {event.description}
-                </p>
-              )}
-            </div>
-          ))}
-        </InfoPanel>
       </section>
     </main>
   );
 }
 
-function StatCard({ label, value }: { label: string; value: number }) {
+function FloatingEmptyState({ year }: { year: number }) {
   return (
-    <div className="rounded-2xl border border-[#c9b895] bg-[#fffaf0] p-4 shadow-sm">
-      <p className="text-3xl font-bold text-[#5f3b16]">{value}</p>
-      <p className="text-sm text-[#4b3a2a]">{label}</p>
+    <div className="timeline-fade rounded-lg border border-white/14 bg-[#201915]/62 p-4 shadow-[0_18px_50px_rgba(0,0,0,0.28)] backdrop-blur-md">
+      <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#e0c48e]">
+        {formatYear(year)}
+      </p>
+      <p className="mt-2 text-sm leading-5 text-[#f4e7d1]/82">
+        Nenhum santo ou papa encontrado para este recorte.
+      </p>
     </div>
   );
 }
@@ -293,10 +325,10 @@ function ModeButton({
     <button
       type="button"
       onClick={onClick}
-      className={`rounded-lg border px-4 py-2 text-sm transition ${
+      className={`rounded-full border px-3 py-2 text-xs font-semibold transition ${
         active
-          ? "border-[#2b1b10] bg-[#2b1b10] text-[#fffaf0]"
-          : "border-[#c9b895] bg-[#fffaf0] text-[#4b3a2a] hover:bg-[#eadfcb]"
+          ? "border-[#e0c48e] bg-[#e0c48e] text-[#211914]"
+          : "border-white/14 bg-white/[0.08] text-[#f4e7d1] hover:border-[#e0c48e] hover:bg-[#e0c48e]/16"
       }`}
     >
       {children}
@@ -304,17 +336,10 @@ function ModeButton({
   );
 }
 
-function InfoPanel({
-  children,
-  title,
-}: {
-  children: React.ReactNode;
-  title: string;
-}) {
+function StatPill({ label, value }: { label: string; value: number }) {
   return (
-    <div className="rounded-2xl border border-[#c9b895] bg-[#fffaf0] p-6 shadow-sm">
-      <h2 className="mb-4 text-2xl font-bold text-[#2b1b10]">{title}</h2>
-      <div className="space-y-3 text-[#4b3a2a]">{children}</div>
+    <div className="rounded-md border border-white/10 bg-white/[0.07] px-3 py-2">
+      <span className="font-semibold text-white">{value}</span> {label}
     </div>
   );
 }
