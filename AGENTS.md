@@ -114,15 +114,19 @@ aberto por cima do mapa ao selecionar um santo ou evento.
 ## Estrutura do projeto
 
 ```
+proxy.ts                 # (raiz) refresca a sessão Supabase a cada request —
+                          # é o "middleware.ts" do Next.js 16, renomeado
+
 app/
   layout.tsx           # fontes (Cinzel/Cormorant Garamond) e shell HTML
   page.tsx              # composição principal: busca, painéis, mapa, timeline
   page.module.css        # posicionamento absoluto e responsividade da tela do mapa
   globals.css            # identidade visual (paleta ink/gold), painéis, marcadores do mapa
-  saints/[id]/page.tsx    # página dedicada de um santo
+  saints/[id]/page.tsx    # página dedicada de um santo, com contador de devotos
+  auth/callback/route.ts  # troca o "code" do OAuth (Google/Microsoft) pela sessão
 
 components/
-  TopBar.tsx             # cabeçalho: brasão, busca com sugestões, "Sobre" e "Legenda do mapa"
+  TopBar.tsx             # cabeçalho: brasão, busca com sugestões, "Sobre", "Legenda do mapa" e conta
   Timeline.tsx           # slider de ano, eras nomeadas, pontífice vigente
   FactsPanel.tsx          # painel esquerdo: fatos históricos do período
   SaintsPanel.tsx         # painel direito: santos vivos no período, favoritos
@@ -130,11 +134,17 @@ components/
   SaintsMap.tsx           # mapa MapLibre: marcadores, zoom/fitBounds, estilo MapTiler
   AboutModal.tsx          # modal "Sobre o projeto" (acionado pelo TopBar)
   MapLegend.tsx           # legenda dos símbolos do mapa (acionada pelo TopBar)
+  AuthModal.tsx           # login com Google/Microsoft (signInWithOAuth), mostrado quando deslogado
+  ProfileModal.tsx        # nome, cidade, país, foto e santo de devoção, mostrado quando logado
   BottomNav.tsx           # navegação inferior por ícones — construída, ainda não usada em app/
   icons.tsx               # ícones SVG inline usados em todo o app
 
 lib/
-  supabase.ts             # cliente Supabase (usa NEXT_PUBLIC_SUPABASE_URL/ANON_KEY)
+  supabase.ts             # cliente Supabase anônimo (dados públicos: mapa, timeline, busca, santo)
+  supabaseBrowserClient.ts # cliente Supabase autenticado para Client Components (@supabase/ssr)
+  supabaseServerClient.ts  # cliente Supabase autenticado para Server Components/Route Handlers
+  useSupabaseSession.ts    # hook de sessão (user atual) via onAuthStateChange
+  searchText.ts            # normalizeSearchTerm, usado pela busca do TopBar e pelo seletor de santo do perfil
   catholicEditorial.ts     # normaliza/revisa textos de santos, eventos e locais vindos do banco
   historicalYear.ts        # formata anos como "d.C."/"a.C." e intervalos de vida
 
@@ -144,11 +154,17 @@ scripts/
   revise-catholic-language.mjs # revisão em lote da linguagem editorial católica
 
 supabase/
-  migrations/              # migrações SQL (schema de trajetórias, políticas RLS)
+  migrations/              # migrações SQL (schema de trajetórias, políticas RLS, perfil/devoção)
   inventory/               # snapshots de inventário antes/depois de migrações
 
 database/                  # scripts SQL históricos anteriores à normalização
 ```
+
+Importante sobre `lib/supabase.ts` vs. `lib/supabaseBrowserClient.ts`/`supabaseServerClient.ts`:
+são clientes deliberadamente separados. `lib/supabase.ts` (chave anônima, sem cookies) continua
+servindo todo o conteúdo público existente — não altere esses call sites para usar os novos
+clientes. Os novos clientes existem só para os fluxos que dependem de sessão (login, perfil,
+upload de avatar, salvar `favorite_saint_id`).
 
 ## 6. Estrutura real do banco de dados
 
@@ -185,6 +201,34 @@ Tabelas da visão de produto que ainda não existem no schema:
 `councils`, `religiousOrders`, `saintRelationships`. Não assuma que
 elas existem — confira `supabase/migrations/` antes de escrever uma
 query contra elas.
+
+### Área de usuário (login, perfil, devoção)
+
+Adicionada em `supabase/migrations/20260726220000_add_user_profiles_and_devotion.sql`.
+
+- `profiles` — `id` (= `auth.users.id`), `display_name`, `avatar_url`,
+  `city`, `country`, `favorite_saint_id` (referencia `public.saints`,
+  não `saints_catalog`, porque `saints_catalog` é uma view e não pode
+  ser alvo de foreign key). **Privada**: RLS só permite ao próprio
+  usuário ler/escrever a própria linha (`auth.uid() = id`); não há
+  leitura pública desta tabela. Criada automaticamente no primeiro
+  login por um trigger em `auth.users` (`handle_new_user`).
+- `saint_devotee_counts` — `saint_id`, `devotee_count`. **Pública**
+  (`to anon, authenticated using (true)`), mas é uma tabela, não uma
+  view sobre `profiles`: uma view `security_invoker` sobre uma tabela
+  com RLS por usuário só mostraria a contagem do próprio usuário (0 ou
+  1), não o total — por isso a contagem é mantida por trigger
+  (`sync_saint_devotee_count`) disparado em insert/update/delete de
+  `profiles.favorite_saint_id`. Ao mudar essa lógica, não substitua a
+  tabela por uma view sem resolver esse problema de novo.
+- Storage: bucket `avatars` (público). Caminho de cada arquivo é
+  `<uid>/avatar.<ext>`; políticas em `storage.objects` restringem
+  insert/update ao dono via `(storage.foldername(name))[1] = auth.uid()`,
+  com select público (a foto é pública por natureza).
+- OAuth: só Google e Microsoft (`azure` no Supabase Auth, cobre
+  Outlook/Live). Configurado no Supabase Dashboard
+  (Authentication → Providers), não neste repositório — as credenciais
+  OAuth não vivem em `.env.local`.
 
 ### Convenções de dados
 
@@ -291,6 +335,18 @@ O que confirmar antes de agir:
   elemento novo renderizado dentro do `TopBar` (modais, popovers)
   precisa herdar `pointer-events: auto` explicitamente ou ficará
   visível porém inerte a cliques.
+- A migração `20260726220000_add_user_profiles_and_devotion.sql`
+  (perfil/devoção) foi escrita seguindo as convenções do schema, mas
+  **não foi aplicada nem validada contra o projeto Supabase real** —
+  não havia CLI do Supabase instalada nem acesso autenticado ao MCP do
+  Supabase nesta sessão. Antes de assumir que `profiles` ou
+  `saint_devotee_counts` existem no banco de produção, confirme
+  rodando a migração e, se possível, `supabase db advisors`.
+- Login com Google/Microsoft depende de configuração externa que não
+  está neste repositório: credenciais OAuth criadas no Google Cloud
+  Console e no Microsoft Entra ID, cadastradas no Supabase Dashboard
+  (Authentication → Providers). Sem isso, `signInWithOAuth` em
+  `AuthModal.tsx` falha ao abrir o provedor.
 - Os rótulos da timeline usam duas alturas alternadas e correção de
   alinhamento nos extremos para evitar colisões. Em telas de até
   `720px`, o marcador visual do ano `33` é ocultado por ficar a menos
