@@ -133,14 +133,14 @@ app/
   auth/confirm/route.ts   # verifica o token_hash do e-mail de confirmação de cadastro
 
 components/
-  TopBar.tsx             # cabeçalho: brasão, busca com sugestões, "Sobre", "Legenda do mapa" e conta
-  Timeline.tsx           # slider de ano, eras nomeadas, pontífice vigente
+  TopBar.tsx             # cabeçalho: brasão, busca com sugestões, "Sobre" e conta
+  Timeline.tsx           # slider de ano, eras nomeadas, pontífice vigente e controle da legenda
   FactsPanel.tsx          # painel esquerdo: fatos históricos do período
   SaintsPanel.tsx         # painel direito: santos vivos no período, favoritos
   MapContextPanel.tsx     # painel de contexto ao selecionar um santo/evento (trajetória, eventos relacionados)
   SaintsMap.tsx           # mapa MapLibre: santos, marcos, estrutura eclesiástica por viewport/zoom, rotas e fitBounds
   AboutModal.tsx          # modal "Sobre o projeto" (acionado pelo TopBar)
-  MapLegend.tsx           # legenda dos símbolos do mapa (acionada pelo TopBar)
+  MapLegend.tsx           # conteúdo da legenda dos símbolos (acionado pela seta acima da timeline)
   AuthModal.tsx           # login com Google (signInWithOAuth) ou e-mail/senha, mostrado quando deslogado
   ProfileModal.tsx        # nome, cidade, país, foto e santo de devoção, mostrado quando logado
   BottomNav.tsx           # navegação inferior por ícones — construída, ainda não usada em app/
@@ -357,7 +357,9 @@ Adicionada em `supabase/migrations/20260726220000_add_user_profiles_and_devotion
   próprios vindos de `timeline_map_landmarks`; rotas históricas
   continuam tracejadas e aparecem ao abrir a trajetória de um santo.
   Durante essa trajetória, os marcos gerais são ocultados para
-  preservar a leitura da rota.
+  preservar a leitura da rota. Sua abertura é controlada pela seta
+  central acima da linha do tempo; não há controle duplicado no
+  `TopBar`.
 - A estrutura eclesiástica também é uma camada real, consultada pelo
   `SaintsMap.tsx` no RPC `ecclesiastical_points_in_view` a cada
   `moveend`. Sedes maiores aparecem primeiro; dioceses e equivalentes

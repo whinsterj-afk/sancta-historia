@@ -2,10 +2,9 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { InfoIcon, LayersIcon, SearchIcon, UserIcon } from "./icons";
+import { InfoIcon, SearchIcon, UserIcon } from "./icons";
 import AboutModal from "./AboutModal";
 import AuthModal from "./AuthModal";
-import MapLegend from "./MapLegend";
 import ProfileModal from "./ProfileModal";
 import { useSupabaseSession } from "@/lib/useSupabaseSession";
 
@@ -32,7 +31,6 @@ export default function TopBar({
 }) {
   const [searchOpen, setSearchOpen] = useState(false);
   const [aboutOpen, setAboutOpen] = useState(false);
-  const [legendOpen, setLegendOpen] = useState(false);
   const [accountOpen, setAccountOpen] = useState(false);
   const searchWrapRef = useRef<HTMLDivElement>(null);
   const { user } = useSupabaseSession();
@@ -62,23 +60,6 @@ export default function TopBar({
         >
           <InfoIcon className="h-8 w-8" />
         </button>
-        <div className="relative">
-          <button
-            type="button"
-            aria-label="Legenda do mapa"
-            title="Legenda do mapa"
-            aria-expanded={legendOpen}
-            className="hero-icon-button"
-            onClick={() => setLegendOpen((value) => !value)}
-          >
-            <LayersIcon className="h-8 w-8" />
-          </button>
-          {legendOpen && (
-            <div className="absolute left-0 top-full mt-2">
-              <MapLegend />
-            </div>
-          )}
-        </div>
         <button
           type="button"
           aria-label={user ? "Meu perfil" : "Entrar"}

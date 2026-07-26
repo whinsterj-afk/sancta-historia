@@ -1,10 +1,17 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import {
   formatHistoricalPeriod,
   formatHistoricalYear,
 } from "@/lib/historicalYear";
-import { ChevronLeftIcon, ChevronRightIcon, CrossIcon } from "./icons";
+import MapLegend from "./MapLegend";
+import {
+  ChevronDownIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  CrossIcon,
+} from "./icons";
 
 export interface Era {
   year: number;
@@ -52,9 +59,34 @@ export default function Timeline({
     end_year: number | null;
   } | null;
 }) {
+  const [legendOpen, setLegendOpen] = useState(false);
+  const legendRef = useRef<HTMLDivElement>(null);
   const eras = [...ERAS, { year: maxYear, label: "Atualidade" }];
   const era = currentEra(year, eras);
   const position = pct(year, maxYear);
+
+  useEffect(() => {
+    if (!legendOpen) return;
+
+    function closeOnOutsideClick(event: PointerEvent) {
+      if (!legendRef.current?.contains(event.target as Node)) {
+        setLegendOpen(false);
+      }
+    }
+
+    function closeOnEscape(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setLegendOpen(false);
+      }
+    }
+
+    document.addEventListener("pointerdown", closeOnOutsideClick);
+    document.addEventListener("keydown", closeOnEscape);
+    return () => {
+      document.removeEventListener("pointerdown", closeOnOutsideClick);
+      document.removeEventListener("keydown", closeOnEscape);
+    };
+  }, [legendOpen]);
 
   function step(direction: -1 | 1) {
     const years = eras.map((e) => e.year);
@@ -68,7 +100,33 @@ export default function Timeline({
   }
 
   return (
-    <div className="historical-timeline">
+    <div className="historical-timeline" ref={legendRef}>
+      <button
+        type="button"
+        className="timeline-legend-trigger"
+        aria-label={
+          legendOpen ? "Fechar legenda do mapa" : "Abrir legenda do mapa"
+        }
+        aria-controls="map-legend-panel"
+        aria-expanded={legendOpen}
+        title={
+          legendOpen ? "Fechar legenda do mapa" : "Abrir legenda do mapa"
+        }
+        onClick={() => setLegendOpen((value) => !value)}
+      >
+        <ChevronDownIcon
+          className={`timeline-legend-chevron ${
+            legendOpen ? "" : "timeline-legend-chevron--closed"
+          }`}
+        />
+      </button>
+
+      {legendOpen && (
+        <div className="timeline-legend-popover">
+          <MapLegend />
+        </div>
+      )}
+
       <div className="timeline-readout">
         <CrossIcon className="timeline-cross h-3.5 w-3.5 text-gold-400" />
         <div className="timeline-date">

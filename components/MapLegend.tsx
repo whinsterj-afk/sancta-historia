@@ -1,8 +1,3 @@
-"use client";
-
-import { useState } from "react";
-import { ChevronDownIcon } from "./icons";
-
 const ROWS = [
   { label: "Santos", swatch: "saint" },
   { label: "Cidades importantes", swatch: "important-city" },
@@ -53,38 +48,39 @@ function Swatch({ kind }: { kind: SwatchKind }) {
 }
 
 export default function MapLegend() {
-  const [open, setOpen] = useState(true);
-
   return (
-    <div className="pointer-events-auto panel-glass border rounded-xl w-64 overflow-hidden">
-      <button
-        type="button"
-        onClick={() => setOpen((v) => !v)}
-        className="flex w-full items-center justify-between px-4 py-3 text-xs tracking-[0.15em] text-gold-300"
-      >
+    <section
+      id="map-legend-panel"
+      className="map-legend panel-glass"
+      aria-labelledby="map-legend-title"
+    >
+      <h2 id="map-legend-title" className="map-legend-title">
         LEGENDA DO MAPA
-        <ChevronDownIcon className={`h-3.5 w-3.5 transition-transform ${open ? "" : "-rotate-90"}`} />
-      </button>
+      </h2>
 
-      {open && (
-        <div className="px-4 pb-4 space-y-2 border-t gold-hairline pt-3">
-          {ROWS.map((row) => (
-            <div key={row.label} className="flex items-center gap-2 text-sm text-parchment-dim">
-              <Swatch kind={row.swatch} />
-              {row.label}
-            </div>
-          ))}
-          <div className="pt-2 text-[10px] tracking-[0.14em] text-gold-500">
-            ESTRUTURA DA IGREJA
+      <div className="map-legend-content">
+        {ROWS.map((row) => (
+          <div
+            key={row.label}
+            className="flex items-center gap-2 text-sm text-parchment-dim"
+          >
+            <Swatch kind={row.swatch} />
+            {row.label}
           </div>
-          {CHURCH_ROWS.map((row) => (
-            <div key={row.label} className="flex items-center gap-2 text-sm text-parchment-dim">
-              <Swatch kind={row.swatch} />
-              {row.label}
-            </div>
-          ))}
+        ))}
+        <div className="pt-2 text-[10px] tracking-[0.14em] text-gold-500">
+          ESTRUTURA DA IGREJA
         </div>
-      )}
-    </div>
+        {CHURCH_ROWS.map((row) => (
+          <div
+            key={row.label}
+            className="flex items-center gap-2 text-sm text-parchment-dim"
+          >
+            <Swatch kind={row.swatch} />
+            {row.label}
+          </div>
+        ))}
+      </div>
+    </section>
   );
 }
