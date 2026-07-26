@@ -76,6 +76,34 @@ database/                  # scripts SQL históricos anteriores à normalizaçã
   precisa herdar `pointer-events: auto` explicitamente ou ficará
   visível porém inerte a cliques.
 
+## Como executar e validar localmente
+
+1. **Confirme a raiz real do checkout antes de executar comandos.**
+   A sessão do agente pode ter sido aberta com um diretório antigo ou
+   renomeado. Use como raiz a pasta que contém `.git`, `package.json`,
+   `app/` e este `AGENTS.md`; não mova nem renomeie o projeto para
+   corrigir um `working-dir` inválido.
+2. **Preserve o ambiente existente.** Há um `package-lock.json`; use
+   `npm` e não troque o gerenciador de pacotes. Não reinstale
+   dependências por rotina quando `node_modules` já estiver íntegro.
+   O `postinstall` prepara o worker do MapLibre em `public/`.
+3. **Antes de iniciar um servidor, verifique as portas 3000–3002.**
+   Se já houver um Next.js deste checkout em execução, reutilize-o em
+   vez de criar outro processo. Caso contrário, execute `npm run dev`
+   na raiz do repositório.
+4. **Considere o projeto pronto somente após uma requisição HTTP.**
+   Confirme que `http://localhost:3000` (ou a porta indicada pelo
+   Next.js) responde com status 200 e confira o terminal do servidor
+   para detectar erros de compilação ou de execução.
+5. **Quando o pedido for explicitamente “rodar o projeto”, mantenha o
+   servidor disponível e informe a URL ao usuário.** Em tarefas de
+   implementação ou diagnóstico que só precisem de uma validação
+   temporária, encerre o servidor ao concluir para não manter locks em
+   `.next` ou `node_modules`.
+6. **Não exponha valores de `.env.local`.** É permitido confirmar que
+   as variáveis necessárias existem, mas nunca imprima chaves do
+   Supabase ou do MapTiler no terminal, em logs ou em respostas.
+
 ## Trabalho simultâneo com outros agentes de IA
 
 Mais de um agente (Codex, Claude Code, etc.) pode estar trabalhando
