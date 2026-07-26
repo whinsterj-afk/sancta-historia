@@ -325,6 +325,21 @@ Adicionada em `supabase/migrations/20260726220000_add_user_profiles_and_devotion
   `{{ .SiteURL }}/auth/confirm?token_hash={{ .TokenHash }}&type=email&next={{ .RedirectTo }}`
   no lugar do link padrão. Sem esse ajuste manual no dashboard, a
   confirmação de cadastro por senha não funciona.
+- `profiles.favorite_parish_id` (adicionada em
+  `supabase/migrations/20260726234500_add_parishes_and_profile_link.sql`)
+  — paróquia à qual o usuário pertence. Referencia
+  **`public.ecclesiastical_jurisdictions(id)`**, não uma tabela
+  `parishes` própria: essa tabela (domínio do Codex, ver "Estrutura
+  real do banco de dados" mais abaixo) já modela paróquia como
+  `canonical_type in ('parish', 'quasi_parish')`, com fontes oficiais e
+  localização própria via `ecclesiastical_sites`. Não crie uma segunda
+  tabela de paróquias — isso já foi tentado e revertido nesta sessão
+  por criar duas fontes de verdade para o mesmo conceito. O seletor em
+  `ProfileModal.tsx` filtra por esses dois `canonical_type`; não há
+  cadastro de paróquia pelo usuário (só lista o que já estiver
+  publicado). Como o Codex só populou `ecclesiastical_jurisdictions`
+  até nível de arquidiocese até agora, a busca fica vazia até paróquias
+  individuais serem carregadas.
 
 ### Convenções de dados
 
