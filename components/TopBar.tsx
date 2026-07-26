@@ -2,9 +2,12 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { InfoIcon, LayersIcon, SearchIcon } from "./icons";
+import { InfoIcon, LayersIcon, SearchIcon, UserIcon } from "./icons";
 import AboutModal from "./AboutModal";
+import AuthModal from "./AuthModal";
 import MapLegend from "./MapLegend";
+import ProfileModal from "./ProfileModal";
+import { useSupabaseSession } from "@/lib/useSupabaseSession";
 
 export interface SearchSuggestion {
   id: number;
@@ -30,7 +33,9 @@ export default function TopBar({
   const [searchOpen, setSearchOpen] = useState(false);
   const [aboutOpen, setAboutOpen] = useState(false);
   const [legendOpen, setLegendOpen] = useState(false);
+  const [accountOpen, setAccountOpen] = useState(false);
   const searchWrapRef = useRef<HTMLDivElement>(null);
+  const { user } = useSupabaseSession();
 
   useEffect(() => {
     if (!searchOpen) return;
@@ -74,6 +79,15 @@ export default function TopBar({
             </div>
           )}
         </div>
+        <button
+          type="button"
+          aria-label={user ? "Meu perfil" : "Entrar"}
+          title={user ? "Meu perfil" : "Entrar"}
+          className="hero-icon-button"
+          onClick={() => setAccountOpen(true)}
+        >
+          <UserIcon className="h-9 w-9" />
+        </button>
       </div>
 
       <div
@@ -161,6 +175,12 @@ export default function TopBar({
       </div>
 
       {aboutOpen && <AboutModal onClose={() => setAboutOpen(false)} />}
+      {accountOpen &&
+        (user ? (
+          <ProfileModal user={user} onClose={() => setAccountOpen(false)} />
+        ) : (
+          <AuthModal onClose={() => setAccountOpen(false)} />
+        ))}
     </header>
   );
 }

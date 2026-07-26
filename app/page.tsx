@@ -24,6 +24,7 @@ import {
   formatHistoricalYear,
   formatLifeSpan,
 } from "@/lib/historicalYear";
+import { normalizeSearchTerm } from "@/lib/searchText";
 import styles from "./page.module.css";
 
 type Saint = SaintLocation & SaintSummary;
@@ -43,15 +44,6 @@ const MAX_TIMEOUT_DELAY = 2_147_000_000;
 
 function clampTimelineYear(value: number, maxYear: number) {
   return Math.min(Math.max(Math.trunc(value), MIN_YEAR), maxYear);
-}
-
-function normalizeSearchTerm(value: string) {
-  return value
-    .normalize("NFD")
-    .replace(/\p{Diacritic}/gu, "")
-    .toLocaleLowerCase("pt-BR")
-    .replace(/[^\p{Letter}\p{Number}]+/gu, " ")
-    .trim();
 }
 
 export default function Home() {
