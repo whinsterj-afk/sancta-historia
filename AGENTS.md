@@ -230,6 +230,28 @@ existem no schema atual; o texto abaixo os substitui.
 - `saint_search_catalog` — usada só para a busca do `TopBar`:
   `id`, `name`, `birth_year`, `death_year`, `short_description`.
 
+### Pesquisa e importação de conteúdo
+
+A migração
+`20260726221526_add_content_research_workflow.sql` cria o schema privado
+`research` para separar coleta e revisão dos dados publicados:
+
+- `research.batches` e `research.batch_sources` organizam lotes e suas
+  fontes;
+- `research.saint_reviews` mantém o checklist dos 93 santos existentes,
+  dividido em lotes de 25, 25, 25 e 18 registros;
+- `research.saint_candidates` recebe novos santos antes da
+  deduplicação e promoção;
+- `research.ecclesiastical_import_rows` recebe circunscrições e locais
+  brutos antes da validação e promoção.
+
+O schema não concede `USAGE` a `anon`, `authenticated` nem
+`service_role` e não deve ser acessado pelo frontend. RLS sem policies
+nessas tabelas é intencional: rascunhos não são dados públicos. O fluxo,
+os critérios de publicação, as fontes iniciais e as fases continentais
+estão em `docs/DATA_RESEARCH.md`; mantenha esse documento sincronizado
+com qualquer mudança no processo.
+
 Tabelas da visão de produto que ainda não existem no schema:
 `councils`, `religiousOrders`, `saintRelationships`. Não assuma que
 elas existem — confira `supabase/migrations/` antes de escrever uma
