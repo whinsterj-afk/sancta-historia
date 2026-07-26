@@ -1043,6 +1043,154 @@ a:focus-visible {
   background: radial-gradient(circle at 40% 30%, #586779, #102231 72%);
 }
 
+.legend-saint-symbol {
+  display: grid;
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  place-items: center;
+  border: 1px solid #d8b876;
+  border-radius: 50%;
+  background: #102231;
+  color: #f8e9b3;
+  font-family: var(--font-display), serif;
+  font-size: 8px;
+}
+
+.legend-route-symbol {
+  width: 18px;
+  flex: 0 0 18px;
+  border-top: 2px dashed var(--gold-400);
+}
+
+.landmark-symbol {
+  position: relative;
+  display: block;
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  color: #f8e9b3;
+}
+
+.landmark-symbol--important-city::before,
+.landmark-symbol--important-city::after {
+  content: "";
+  position: absolute;
+  bottom: 3px;
+  width: 5px;
+  border: 1px solid currentColor;
+  background: #173142;
+}
+
+.landmark-symbol--important-city::before {
+  left: 2px;
+  height: 9px;
+  box-shadow: 8px 2px 0 -1px #173142, 8px 2px 0 0 currentColor;
+}
+
+.landmark-symbol--important-city::after {
+  left: 7px;
+  height: 13px;
+}
+
+.landmark-symbol--episcopal-see::before,
+.landmark-symbol--episcopal-see::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-radius: 1px;
+  background: currentColor;
+  transform: translate(-50%, -50%);
+}
+
+.landmark-symbol--episcopal-see::before {
+  width: 3px;
+  height: 16px;
+}
+
+.landmark-symbol--episcopal-see::after {
+  width: 12px;
+  height: 3px;
+  transform: translate(-50%, -85%);
+}
+
+.landmark-symbol--pilgrimage-site::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  background: currentColor;
+  clip-path: polygon(
+    50% 0,
+    61% 35%,
+    100% 50%,
+    61% 63%,
+    50% 100%,
+    39% 63%,
+    0 50%,
+    39% 35%
+  );
+}
+
+.maplibregl-marker.landmark-map-marker {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #f8e9b3;
+  cursor: pointer;
+}
+
+.landmark-marker-frame {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  border: 1px solid rgba(232, 207, 154, 0.82);
+  background: rgba(11, 23, 33, 0.9);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.42);
+  transform: rotate(45deg);
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.landmark-marker-frame .landmark-symbol {
+  transform: rotate(-45deg);
+}
+
+.landmark-map-marker--important-city .landmark-marker-frame {
+  border-radius: 3px;
+}
+
+.landmark-map-marker--episcopal-see .landmark-marker-frame {
+  border-radius: 50% 50% 4px 50%;
+}
+
+.landmark-map-marker--pilgrimage-site .landmark-marker-frame {
+  border-color: #e8cf9a;
+  background: rgba(74, 48, 22, 0.92);
+}
+
+.maplibregl-marker.landmark-map-marker:hover,
+.maplibregl-marker.landmark-map-marker:focus-visible {
+  z-index: 12;
+}
+
+.maplibregl-marker.landmark-map-marker:hover .landmark-marker-frame,
+.maplibregl-marker.landmark-map-marker:focus-visible .landmark-marker-frame {
+  border-color: #ffe099;
+  box-shadow: 0 7px 20px rgba(0, 0, 0, 0.5), 0 0 0 5px rgba(216, 184, 118, 0.2);
+  transform: rotate(45deg) scale(1.12);
+}
+
+.landmark-popup p {
+  margin: 4px 0 0;
+  color: var(--parchment-dim);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
 .maplibregl-marker.route-map-marker {
   position: absolute;
   width: 34px;

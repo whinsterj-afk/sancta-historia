@@ -4,23 +4,26 @@ import { useState } from "react";
 import { ChevronDownIcon } from "./icons";
 
 const ROWS = [
-  { label: "Cidades importantes", swatch: "dot-filled" },
-  { label: "Sedes episcopais", swatch: "dot-ring" },
-  { label: "Locais de peregrinação", swatch: "pin" },
-  { label: "Rotas históricas", swatch: "dotted" },
+  { label: "Santos", swatch: "saint" },
+  { label: "Cidades importantes", swatch: "important-city" },
+  { label: "Sedes episcopais", swatch: "episcopal-see" },
+  { label: "Locais de peregrinação", swatch: "pilgrimage-site" },
+  { label: "Rotas históricas", swatch: "route" },
 ] as const;
 
 function Swatch({ kind }: { kind: (typeof ROWS)[number]["swatch"] }) {
-  if (kind === "dot-filled") {
-    return <span className="h-2.5 w-2.5 rounded-full bg-gold-400" />;
+  if (kind === "saint") {
+    return <span className="legend-saint-symbol">S</span>;
   }
-  if (kind === "dot-ring") {
-    return <span className="h-2.5 w-2.5 rounded-full border border-gold-400" />;
+  if (kind === "route") {
+    return <span className="legend-route-symbol" />;
   }
-  if (kind === "pin") {
-    return <span className="h-2.5 w-2.5 rotate-45 border border-gold-400" />;
-  }
-  return <span className="h-px w-3 border-t border-dashed border-gold-400" />;
+  return (
+    <span
+      className={`landmark-symbol landmark-symbol--${kind}`}
+      aria-hidden="true"
+    />
+  );
 }
 
 export default function MapLegend() {

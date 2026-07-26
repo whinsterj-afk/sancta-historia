@@ -2,7 +2,10 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
-import SaintsMap, { SaintLocation } from "@/components/SaintsMap";
+import SaintsMap, {
+  type MapLandmark,
+  type SaintLocation,
+} from "@/components/SaintsMap";
 import TopBar, { SearchSuggestion } from "@/components/TopBar";
 import Timeline, {
   BASE_MAX_YEAR,
@@ -56,6 +59,7 @@ export default function Home() {
   const [popes, setPopes] = useState<Pope[]>([]);
   const [events, setEvents] = useState<HistoricalEvent[]>([]);
   const [timelineLocations, setTimelineLocations] = useState<RouteLocation[]>([]);
+  const [mapLandmarks, setMapLandmarks] = useState<MapLandmark[]>([]);
   const [selectedSaintId, setSelectedSaintId] = useState<number | null>(null);
   const [previewSaintId, setPreviewSaintId] = useState<number | null>(null);
   const [selectedEventId, setSelectedEventId] = useState<number | null>(null);
@@ -131,7 +135,13 @@ export default function Home() {
       setLoading(true);
       setLoadError(null);
 
-      const [saintsResult, popeResult, eventResult, locationsResult] =
+      const [
+        saintsResult,
+        popeResult,
+        eventResult,
+        locationsResult,
+        landmarksResult,
+      ] =
         await Promise.all([
           supabase
             .from("saints_catalog")
@@ -159,6 +169,13 @@ export default function Home() {
             .gte("end_year", year)
             .order("sequence_order")
             .order("id"),
+          supabase
+            .from("timeline_map_landmarks")
+            .select("*")
+            .or(`start_year.lte.${year},start_year.is.null`)
+            .or(`end_year.gte.${year},end_year.is.null`)
+            .order("kind")
+            .order("title"),
         ]);
 
       if (!active) return;
@@ -166,7 +183,8 @@ export default function Home() {
         saintsResult.error ??
         popeResult.error ??
         eventResult.error ??
-        locationsResult.error;
+        locationsResult.error ??
+        landmarksResult.error;
       if (firstError) {
         setLoadError("Não foi possível atualizar este período.");
       }
@@ -179,6 +197,7 @@ export default function Home() {
           applyLocationEditorial,
         ) as RouteLocation[],
       );
+      setMapLandmarks((landmarksResult.data ?? []) as MapLandmark[]);
       setLoading(false);
     }
 
@@ -378,6 +397,7 @@ export default function Home() {
     <main className={styles.page}>
       <SaintsMap
         saints={saintContextOpen ? [] : saints}
+        landmarks={saintContextOpen ? [] : mapLandmarks}
         selectedSaintId={selectedSaintId}
         previewSaintId={previewSaintId}
         onSelectSaint={selectSaint}

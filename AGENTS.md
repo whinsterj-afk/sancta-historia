@@ -131,7 +131,7 @@ components/
   FactsPanel.tsx          # painel esquerdo: fatos históricos do período
   SaintsPanel.tsx         # painel direito: santos vivos no período, favoritos
   MapContextPanel.tsx     # painel de contexto ao selecionar um santo/evento (trajetória, eventos relacionados)
-  SaintsMap.tsx           # mapa MapLibre: marcadores, zoom/fitBounds, estilo MapTiler
+  SaintsMap.tsx           # mapa MapLibre: santos, marcos históricos, rotas, zoom/fitBounds
   AboutModal.tsx          # modal "Sobre o projeto" (acionado pelo TopBar)
   MapLegend.tsx           # legenda dos símbolos do mapa (acionada pelo TopBar)
   AuthModal.tsx           # login com Google/Microsoft (signInWithOAuth), mostrado quando deslogado
@@ -194,6 +194,14 @@ existem no schema atual; o texto abaixo os substitui.
   (`exact | year | approximate | range | unknown`),
   `historical_certainty`. Substitui a tabela `locations`/`journeys` da
   visão original.
+- `map_landmarks` — camada editorial de lugares exibidos na legenda:
+  `id`, `place_id` (referencia `places`), `kind`
+  (`important_city | episcopal_see | pilgrimage_site`), `title`,
+  `description`, `start_year`, `end_year`, `source_url`,
+  `is_published`. Possui RLS de leitura pública apenas para registros
+  publicados. A view pública `timeline_map_landmarks` junta esses
+  registros às coordenadas de `places`; `app/page.tsx` filtra o
+  intervalo histórico e entrega os pontos a `SaintsMap.tsx`.
 - `saint_search_catalog` — usada só para a busca do `TopBar`:
   `id`, `name`, `birth_year`, `death_year`, `short_description`.
 
@@ -255,6 +263,13 @@ Adicionada em `supabase/migrations/20260726220000_add_user_profiles_and_devotion
   fato selecionado.
 - O ano selecionado na timeline é persistido em `localStorage`
   (`sancta-historia:selected-year`).
+- A legenda do mapa corresponde a camadas reais: santos usam
+  marcadores circulares com monograma; cidades importantes, sedes
+  episcopais e locais de peregrinação usam símbolos geométricos
+  próprios vindos de `timeline_map_landmarks`; rotas históricas
+  continuam tracejadas e aparecem ao abrir a trajetória de um santo.
+  Durante essa trajetória, os marcos gerais são ocultados para
+  preservar a leitura da rota.
 
 ## 7. Filtros previstos (visão de produto, não implementado)
 

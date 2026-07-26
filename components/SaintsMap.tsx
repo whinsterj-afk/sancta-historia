@@ -23,6 +23,11 @@ type MapCoordinate = [number, number];
 const MAP_GUTTER = 24;
 const MIN_VISIBLE_MAP_WIDTH = 200;
 const MIN_VISIBLE_MAP_HEIGHT = 180;
+const LANDMARK_OFFSETS: MapCoordinate[] = [
+  [0, -18],
+  [17, 10],
+  [-17, 10],
+];
 
 function elementBounds(selector: string) {
   return document.querySelector<HTMLElement>(selector)?.getBoundingClientRect();
@@ -143,8 +148,26 @@ export interface SaintLocation {
   name: string;
 }
 
+export type MapLandmarkKind =
+  | "important_city"
+  | "episcopal_see"
+  | "pilgrimage_site";
+
+export interface MapLandmark {
+  id: number;
+  title: string;
+  description: string | null;
+  kind: MapLandmarkKind;
+  location_name: string;
+  latitude: number;
+  longitude: number;
+  start_year: number | null;
+  end_year: number | null;
+}
+
 export default function SaintsMap({
   saints,
+  landmarks = [],
   selectedSaintId,
   previewSaintId,
   onSelectSaint,
@@ -153,6 +176,7 @@ export default function SaintsMap({
   contextOpen,
 }: {
   saints: SaintLocation[];
+  landmarks?: MapLandmark[];
   selectedSaintId?: number | null;
   previewSaintId?: number | null;
   onSelectSaint?: (saintId: number) => void;
@@ -164,6 +188,7 @@ export default function SaintsMap({
   const mapRef = useRef<MapLibreMap | null>(null);
   const markersRef = useRef<Marker[]>([]);
   const markersBySaintRef = useRef<Map<number, Marker[]>>(new Map());
+  const landmarkMarkersRef = useRef<Marker[]>([]);
   const routeMarkersRef = useRef<Marker[]>([]);
   const refitMapRef = useRef<((duration: number) => void) | null>(null);
 
@@ -322,6 +347,88 @@ export default function SaintsMap({
       duration: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 650,
     });
   }, [previewSaintId, selectedSaintId]);
+
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map) return;
+
+    landmarkMarkersRef.current.forEach((marker) => marker.remove());
+    landmarkMarkersRef.current = [];
+
+    const landmarkCounts = new Map<string, number>();
+    landmarks.forEach((landmark) => {
+      const key = `${landmark.longitude}:${landmark.latitude}`;
+      landmarkCounts.set(key, (landmarkCounts.get(key) ?? 0) + 1);
+    });
+    const landmarkIndexes = new Map<string, number>();
+
+    landmarks.forEach((landmark) => {
+      const latitude = Number(landmark.latitude);
+      const longitude = Number(landmark.longitude);
+      if (
+        !Number.isFinite(latitude) ||
+        !Number.isFinite(longitude) ||
+        latitude < -90 ||
+        latitude > 90 ||
+        longitude < -180 ||
+        longitude > 180
+      ) {
+        return;
+      }
+
+      const markerElement = document.createElement("button");
+      markerElement.type = "button";
+      markerElement.className = `landmark-map-marker landmark-map-marker--${landmark.kind.replaceAll("_", "-")}`;
+      markerElement.setAttribute(
+        "aria-label",
+        `${landmark.title}, ${landmark.location_name}`,
+      );
+      const markerFrame = document.createElement("span");
+      markerFrame.className = "landmark-marker-frame";
+      const markerSymbol = document.createElement("span");
+      markerSymbol.className = `landmark-symbol landmark-symbol--${landmark.kind.replaceAll("_", "-")}`;
+      markerSymbol.setAttribute("aria-hidden", "true");
+      markerFrame.append(markerSymbol);
+      markerElement.append(markerFrame);
+
+      const popupContent = document.createElement("div");
+      popupContent.className = "saint-popup landmark-popup";
+      const popupTitle = document.createElement("strong");
+      popupTitle.textContent = landmark.title;
+      popupContent.append(popupTitle);
+      const popupPlace = document.createElement("span");
+      popupPlace.textContent = landmark.location_name;
+      popupContent.append(popupPlace);
+      if (landmark.description) {
+        const popupDescription = document.createElement("p");
+        popupDescription.textContent = landmark.description;
+        popupContent.append(popupDescription);
+      }
+
+      const coordinateKey = `${landmark.longitude}:${landmark.latitude}`;
+      const coordinateIndex = landmarkIndexes.get(coordinateKey) ?? 0;
+      landmarkIndexes.set(coordinateKey, coordinateIndex + 1);
+      const offset =
+        (landmarkCounts.get(coordinateKey) ?? 0) > 1
+          ? LANDMARK_OFFSETS[coordinateIndex % LANDMARK_OFFSETS.length]
+          : ([0, 0] as MapCoordinate);
+
+      const marker = new Marker({
+        element: markerElement,
+        anchor: "center",
+        offset,
+      })
+        .setLngLat([longitude, latitude])
+        .setPopup(new Popup({ offset: 16 }).setDOMContent(popupContent))
+        .addTo(map);
+      landmarkMarkersRef.current.push(marker);
+    });
+
+    return () => {
+      landmarkMarkersRef.current.forEach((marker) => marker.remove());
+      landmarkMarkersRef.current = [];
+    };
+  }, [landmarks]);
 
   useEffect(() => {
     const map = mapRef.current;
