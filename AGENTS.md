@@ -104,6 +104,43 @@ database/                  # scripts SQL históricos anteriores à normalizaçã
    as variáveis necessárias existem, mas nunca imprima chaves do
    Supabase ou do MapTiler no terminal, em logs ou em respostas.
 
+## Fonte compartilhada de verdade: Codex e Claude Code
+
+Este arquivo é o contrato operacional comum entre os agentes. Codex e
+Claude Code devem seguir o mesmo conteúdo, sem manter versões privadas
+ou pressupostos incompatíveis sobre o projeto.
+
+1. **Leia o `AGENTS.md` inteiro no início de cada tarefa.** Releia-o se
+   o `HEAD` mudar durante o trabalho, pois o outro agente pode ter
+   atualizado as diretrizes ou a arquitetura.
+2. **Mantenha aqui somente conhecimento estável e verificado:**
+   estrutura do projeto, comandos, nomes de variáveis, contratos entre
+   componentes, decisões arquiteturais e armadilhas confirmadas.
+   Conversas, hipóteses, tarefas temporárias e progresso minuto a
+   minuto não pertencem a este arquivo.
+3. **Atualize documentação e implementação juntas.** Toda mudança que
+   torne uma informação deste arquivo incorreta deve corrigir o
+   `AGENTS.md` no mesmo commit da mudança de código. Não registre como
+   concluído algo que ainda não existe no repositório.
+4. **Em caso de divergência, verifique o estado real.** Código,
+   migrações e configuração executável determinam o comportamento
+   atual; a solicitação mais recente do usuário determina a intenção.
+   Depois de confirmar os fatos, corrija este arquivo para eliminar a
+   divergência para o próximo agente.
+5. **Faça handoffs por Git, não por memória de conversa.** Ao concluir
+   um bloco, commite apenas os próprios arquivos e informe commit,
+   arquivos afetados, testes e pendências. O agente que continuar deve
+   começar por `git status`, `git log -1` e, quando necessário,
+   `git show` do commit recebido.
+6. **Não edite em paralelo um arquivo já modificado pelo outro
+   agente.** Mudanças não reconhecidas devem ser preservadas. Trabalhe
+   em arquivos sem sobreposição ou aguarde um commit/handoff; nunca
+   incorpore silenciosamente trabalho alheio ao próprio commit.
+7. **Use UTF-8 e linguagem objetiva.** Registre comandos e
+   identificadores exatamente como existem, sem incluir segredos,
+   caminhos absolutos pessoais ou detalhes específicos de uma única
+   máquina.
+
 ## Trabalho simultâneo com outros agentes de IA
 
 Mais de um agente (Codex, Claude Code, etc.) pode estar trabalhando
@@ -129,9 +166,11 @@ sem querer, no commit de outro. Para evitar isso:
    pare e avise o usuário em vez de seguir. Remova o arquivo assim que
    terminar essa etapa.
 4. **Não deixe servidores de dev (`npm run dev`) rodando
-   indefinidamente** depois de terminar uma tarefa — eles seguram
-   locks de arquivo em `node_modules`/`.next` que atrapalham o outro
-   agente ao mover, apagar ou reinstalar dependências.
+   indefinidamente**, exceto quando o usuário tiver pedido
+   explicitamente para manter o projeto disponível. Ao terminar esse
+   período, encerre o servidor: ele segura locks de arquivo em
+   `node_modules`/`.next` que atrapalham o outro agente ao mover,
+   apagar ou reinstalar dependências.
 5. **Nunca renomeie, mova ou apague o diretório raiz do projeto** sem
    confirmar com o usuário primeiro, mesmo que a tarefa pedida pareça
    incluir isso — um agente pode ter o diretório antigo como
