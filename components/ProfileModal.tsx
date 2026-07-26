@@ -15,9 +15,10 @@ interface SaintOption {
 interface ParishOption {
   id: number;
   name: string;
-  city: string | null;
-  state: string | null;
+  country_code: string | null;
 }
+
+const PARISH_CANONICAL_TYPES = ["parish", "quasi_parish"];
 
 export default function ProfileModal({
   user,
@@ -91,7 +92,7 @@ export default function ProfileModal({
         setFavoriteParishId(data.favorite_parish_id);
         if (data.favorite_parish_id) {
           const { data: parish } = await supabase
-            .from("parishes")
+            .from("ecclesiastical_jurisdictions")
             .select("name")
             .eq("id", data.favorite_parish_id)
             .maybeSingle();
@@ -168,8 +169,9 @@ export default function ProfileModal({
     let active = true;
     const timer = window.setTimeout(async () => {
       const { data } = await supabase
-        .from("parishes")
-        .select("id,name,city,state")
+        .from("ecclesiastical_jurisdictions")
+        .select("id,name,country_code")
+        .in("canonical_type", PARISH_CANONICAL_TYPES)
         .ilike("name", `%${term}%`)
         .order("name")
         .limit(6);
@@ -409,12 +411,8 @@ export default function ProfileModal({
                         <span className="search-result-type">Paróquia</span>
                         <span className="search-result-copy">
                           <strong>{parish.name}</strong>
-                          {(parish.city || parish.state) && (
-                            <small>
-                              {[parish.city, parish.state]
-                                .filter(Boolean)
-                                .join(", ")}
-                            </small>
+                          {parish.country_code && (
+                            <small>{parish.country_code}</small>
                           )}
                         </span>
                       </button>
