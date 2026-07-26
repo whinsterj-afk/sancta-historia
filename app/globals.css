@@ -1134,9 +1134,11 @@ a:focus-visible {
 
 .maplibregl-marker.landmark-map-marker {
   position: absolute;
-  width: 30px;
-  height: 30px;
+  display: grid;
+  width: 22px;
+  height: 22px;
   padding: 0;
+  place-items: center;
   border: 0;
   background: transparent;
   color: #f8e9b3;
@@ -1145,8 +1147,8 @@ a:focus-visible {
 
 .landmark-marker-frame {
   display: grid;
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   place-items: center;
   border: 1px solid rgba(232, 207, 154, 0.82);
   background: rgba(11, 23, 33, 0.9);
@@ -1156,7 +1158,7 @@ a:focus-visible {
 }
 
 .landmark-marker-frame .landmark-symbol {
-  transform: rotate(-45deg);
+  transform: rotate(-45deg) scale(0.66);
 }
 
 .landmark-map-marker--important-city .landmark-marker-frame {
@@ -1180,8 +1182,8 @@ a:focus-visible {
 .maplibregl-marker.landmark-map-marker:hover .landmark-marker-frame,
 .maplibregl-marker.landmark-map-marker:focus-visible .landmark-marker-frame {
   border-color: #ffe099;
-  box-shadow: 0 7px 20px rgba(0, 0, 0, 0.5), 0 0 0 5px rgba(216, 184, 118, 0.2);
-  transform: rotate(45deg) scale(1.12);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5), 0 0 0 3px rgba(216, 184, 118, 0.2);
+  transform: rotate(45deg) scale(1.08);
 }
 
 .landmark-popup p {

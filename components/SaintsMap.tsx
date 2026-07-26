@@ -24,9 +24,9 @@ const MAP_GUTTER = 24;
 const MIN_VISIBLE_MAP_WIDTH = 200;
 const MIN_VISIBLE_MAP_HEIGHT = 180;
 const LANDMARK_OFFSETS: MapCoordinate[] = [
-  [0, -18],
-  [17, 10],
-  [-17, 10],
+  [0, -13],
+  [12, 7],
+  [-12, 7],
 ];
 
 function elementBounds(selector: string) {
