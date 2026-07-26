@@ -123,7 +123,7 @@ export default function Timeline({
             >
               <span className="timeline-tick-dot" />
               <span className="timeline-tick-label">
-                {formatHistoricalYear(e.year)}
+                {e.year === MIN_YEAR ? "0" : formatHistoricalYear(e.year)}
               </span>
             </div>
           ))}
