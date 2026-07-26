@@ -1454,7 +1454,10 @@ a:focus-visible {
 .legend-route-symbol {
   width: 18px;
   flex: 0 0 18px;
-  border-top: 2px dashed var(--gold-400);
+  border-top: 2px dashed #5cecff;
+  filter:
+    drop-shadow(0 -1px 0 #03131d)
+    drop-shadow(0 1px 0 #03131d);
 }
 
 .landmark-symbol {

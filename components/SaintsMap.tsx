@@ -687,10 +687,10 @@ export default function SaintsMap({
           type: "line",
           source: sourceId,
           paint: {
-            "line-color": "#d8b876",
-            "line-width": 10,
-            "line-opacity": 0.16,
-            "line-blur": 4,
+            "line-color": "#03131d",
+            "line-width": 9,
+            "line-opacity": 0.88,
+            "line-blur": 1,
           },
         });
         activeMap.addLayer({
@@ -698,10 +698,10 @@ export default function SaintsMap({
           type: "line",
           source: sourceId,
           paint: {
-            "line-color": "#e8cf9a",
-            "line-width": 3,
-            "line-opacity": 0.92,
-            "line-dasharray": [1.5, 1.2],
+            "line-color": "#5cecff",
+            "line-width": 4,
+            "line-opacity": 1,
+            "line-dasharray": [2, 1.2],
           },
         });
       }

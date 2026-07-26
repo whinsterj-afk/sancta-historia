@@ -370,7 +370,8 @@ Adicionada em `supabase/migrations/20260726220000_add_user_profiles_and_devotion
   marcadores circulares com monograma; cidades importantes, sedes
   episcopais e locais de peregrinação usam símbolos geométricos
   próprios vindos de `timeline_map_landmarks`; rotas históricas
-  continuam tracejadas e aparecem ao abrir a trajetória de um santo.
+  usam tracejado ciano luminoso com contorno escuro e aparecem ao abrir
+  a trajetória de um santo.
   Durante essa trajetória, os marcos gerais são ocultados para
   preservar a leitura da rota. Sua abertura é controlada pela seta
   central acima da linha do tempo; não há controle duplicado no
