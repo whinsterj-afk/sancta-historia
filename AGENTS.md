@@ -232,14 +232,18 @@ existem no schema atual; o texto abaixo os substitui.
 
 ### Pesquisa e importação de conteúdo
 
-A migração
-`20260726221526_add_content_research_workflow.sql` cria o schema privado
-`research` para separar coleta e revisão dos dados publicados:
+As migrações `20260726221526_add_content_research_workflow.sql` e
+`20260726221833_add_saint_revision_drafts.sql` criam o schema privado
+`research` e seu fluxo para separar coleta e revisão dos dados
+publicados:
 
 - `research.batches` e `research.batch_sources` organizam lotes e suas
   fontes;
 - `research.saint_reviews` mantém o checklist dos 93 santos existentes,
   dividido em lotes de 25, 25, 25 e 18 registros;
+- `research.saint_revision_drafts` guarda os valores propostos por campo
+  e `research.saint_revision_draft_sources` liga cada proposta às suas
+  fontes antes da promoção;
 - `research.saint_candidates` recebe novos santos antes da
   deduplicação e promoção;
 - `research.ecclesiastical_import_rows` recebe circunscrições e locais

@@ -40,6 +40,11 @@ Os estados de `research.saint_reviews` são:
 - `blocked`: divergência ou fonte insuficiente registrada em
   `research_notes`.
 
+Cada correção proposta para um santo existente fica em
+`research.saint_revision_drafts`, uma linha por campo. As fontes que
+sustentam o valor ficam em `research.saint_revision_draft_sources`.
+Não escrever o rascunho diretamente em `public.saints`.
+
 Um santo só pode passar a `published` depois de:
 
 - ter nome, datas e lugares conferidos;
@@ -120,13 +125,16 @@ a página institucional genérica.
 
 ## Contrato técnico
 
-A migração
+As migrações
 `supabase/migrations/20260726221526_add_content_research_workflow.sql`
-cria:
+e `supabase/migrations/20260726221833_add_saint_revision_drafts.sql`
+criam:
 
 - `research.batches`;
 - `research.batch_sources`;
 - `research.saint_reviews`;
+- `research.saint_revision_drafts`;
+- `research.saint_revision_draft_sources`;
 - `research.saint_candidates`;
 - `research.ecclesiastical_import_rows`.
 
