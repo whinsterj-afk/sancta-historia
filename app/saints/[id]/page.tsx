@@ -78,6 +78,13 @@ export default async function SaintPage({
     .gte("death_year", saint.birth_year)
     .limit(10);
 
+  const { data: devotion } = await supabase
+    .from("saint_devotee_counts")
+    .select("devotee_count")
+    .eq("saint_id", saint.id)
+    .maybeSingle();
+  const devoteeCount = devotion?.devotee_count ?? 0;
+
   return (
     <main className="min-h-screen bg-ink-950 text-parchment">
       <div className="max-w-6xl mx-auto px-6 py-10">
@@ -97,9 +104,16 @@ export default async function SaintPage({
             <h1 className="font-display text-3xl sm:text-4xl tracking-[0.05em] text-gold-200">
               {saint.name}
             </h1>
-            <p className="text-lg text-gold-400 mt-1">
-              {formatLifeSpan(saint.birth_year, saint.death_year)}
-            </p>
+            <div className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1">
+              <p className="text-lg text-gold-400">
+                {formatLifeSpan(saint.birth_year, saint.death_year)}
+              </p>
+              {devoteeCount > 0 && (
+                <span className="rounded-full border border-gold-500/40 px-2.5 py-0.5 text-xs tracking-[0.05em] text-gold-300">
+                  {devoteeCount} {devoteeCount === 1 ? "devoto" : "devotos"}
+                </span>
+              )}
+            </div>
           </div>
         </div>
 
