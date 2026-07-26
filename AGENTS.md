@@ -139,7 +139,7 @@ components/
   SaintsPanel.tsx         # painel direito: santos vivos no período, favoritos
   MapContextPanel.tsx     # painel de contexto ao selecionar um santo/evento (trajetória, eventos relacionados)
   SaintsMap.tsx           # mapa MapLibre: santos, marcos, estrutura eclesiástica por viewport/zoom, rotas e fitBounds
-  AboutModal.tsx          # modal "Sobre o projeto" (acionado pelo TopBar)
+  AboutModal.tsx          # manifesto/convite à santidade acionado pelo TopBar
   MapLegend.tsx           # conteúdo da legenda dos símbolos (acionado pela seta acima da timeline)
   AuthModal.tsx           # login com Google (signInWithOAuth) ou e-mail/senha, mostrado quando deslogado
   ProfileModal.tsx        # nome, cidade, país, foto e santo de devoção, mostrado quando logado
