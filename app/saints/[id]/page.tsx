@@ -4,6 +4,11 @@ import {
   applyEventEditorial,
   applySaintEditorial,
 } from "@/lib/catholicEditorial";
+import {
+  formatHistoricalPeriod,
+  formatHistoricalYear,
+  formatLifeSpan,
+} from "@/lib/historicalYear";
 import { BookIcon, ChevronLeftIcon, InfoIcon, MedalIcon } from "@/components/icons";
 
 function initials(name: string) {
@@ -93,7 +98,7 @@ export default async function SaintPage({
               {saint.name}
             </h1>
             <p className="text-lg text-gold-400 mt-1">
-              {saint.birth_year} — {saint.death_year}
+              {formatLifeSpan(saint.birth_year, saint.death_year)}
             </p>
           </div>
         </div>
@@ -145,7 +150,10 @@ export default async function SaintPage({
                   <div key={pope.id} className="border-b gold-hairline last:border-0 pb-3">
                     <strong className="text-parchment">{pope.name}</strong>
                     <p className="text-xs text-gold-400 mt-0.5">
-                      {pope.start_year} – {pope.end_year}
+                      {formatHistoricalPeriod(
+                        pope.start_year,
+                        pope.end_year,
+                      )}
                     </p>
                     {pope.description && (
                       <p className="text-sm text-parchment-dim mt-1">{pope.description}</p>
@@ -173,7 +181,7 @@ export default async function SaintPage({
                 {events.map((event) => (
                   <div key={event.id} className="border-b gold-hairline last:border-0 pb-3">
                     <strong className="text-parchment">
-                      {event.year} — {event.title}
+                      {formatHistoricalYear(event.year)} — {event.title}
                     </strong>
                     {event.description && (
                       <p className="text-sm text-parchment-dim mt-1">{event.description}</p>
@@ -208,7 +216,7 @@ export default async function SaintPage({
                       {other.name}
                     </strong>
                     <p className="text-xs text-gold-400 mt-0.5">
-                      {other.birth_year} – {other.death_year}
+                      {formatLifeSpan(other.birth_year, other.death_year)}
                     </p>
                   </Link>
                 ))}

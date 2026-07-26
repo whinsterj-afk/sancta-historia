@@ -24,6 +24,17 @@ export function formatHistoricalPeriod(
   return `${formatHistoricalYear(startYear)}–${formatHistoricalYear(endYear)}`;
 }
 
+export function formatLifeSpan(
+  birthYear: number,
+  deathYear: number | null,
+) {
+  if (deathYear === null) {
+    return `${formatHistoricalYear(birthYear)}–data desconhecida`;
+  }
+
+  return formatHistoricalPeriod(birthYear, deathYear);
+}
+
 export function historicalYearToScale(year: number) {
   return year > 0 ? year - 1 : year;
 }

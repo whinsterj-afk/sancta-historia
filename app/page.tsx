@@ -21,8 +21,8 @@ import {
   applySaintEditorial,
 } from "@/lib/catholicEditorial";
 import {
-  formatHistoricalPeriod,
   formatHistoricalYear,
+  formatLifeSpan,
 } from "@/lib/historicalYear";
 import styles from "./page.module.css";
 
@@ -229,7 +229,7 @@ export default function Home() {
           id: saint.id,
           kind: "saint",
           title: saint.name,
-          subtitle: `${formatHistoricalPeriod(
+          subtitle: `${formatLifeSpan(
             saint.birth_year,
             saint.death_year,
           )}${

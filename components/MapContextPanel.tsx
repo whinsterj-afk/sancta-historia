@@ -3,6 +3,7 @@
 import {
   formatHistoricalPeriod,
   formatHistoricalYear,
+  formatLifeSpan,
 } from "@/lib/historicalYear";
 import { BookIcon, ChevronLeftIcon, MedalIcon } from "./icons";
 
@@ -108,7 +109,7 @@ export default function MapContextPanel({
             </span>
             <h1>{context.saint.name}</h1>
             <p className="context-period">
-              {formatHistoricalPeriod(
+              {formatLifeSpan(
                 context.saint.birth_year,
                 context.saint.death_year,
               )}

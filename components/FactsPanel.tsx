@@ -44,7 +44,7 @@ export default function FactsPanel({
             aria-pressed={selectedEventId === event.id}
             onClick={() => onSelect?.(event)}
           >
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded border border-gold-500/40 bg-ink-800 font-display text-gold-400 text-sm">
+            <div className="flex h-12 w-[4.5rem] shrink-0 items-center justify-center whitespace-nowrap rounded border border-gold-500/40 bg-ink-800 px-1 text-center font-display text-xs leading-tight text-gold-400">
               {formatHistoricalYear(event.year)}
             </div>
             <div className="min-w-0 text-left">
