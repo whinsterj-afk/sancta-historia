@@ -129,7 +129,8 @@ app/
   page.module.css        # posicionamento absoluto e responsividade da tela do mapa
   globals.css            # identidade visual (paleta ink/gold), painéis, marcadores do mapa
   saints/[id]/page.tsx    # página dedicada de um santo, com contador de devotos
-  auth/callback/route.ts  # troca o "code" do OAuth (Google/Microsoft) pela sessão
+  auth/callback/route.ts  # troca o "code" do OAuth (Google) pela sessão
+  auth/confirm/route.ts   # verifica o token_hash do e-mail de confirmação de cadastro
 
 components/
   TopBar.tsx             # cabeçalho: brasão, busca com sugestões, "Sobre", "Legenda do mapa" e conta
@@ -140,7 +141,7 @@ components/
   SaintsMap.tsx           # mapa MapLibre: santos, marcos, estrutura eclesiástica por viewport/zoom, rotas e fitBounds
   AboutModal.tsx          # modal "Sobre o projeto" (acionado pelo TopBar)
   MapLegend.tsx           # legenda dos símbolos do mapa (acionada pelo TopBar)
-  AuthModal.tsx           # login com Google/Microsoft (signInWithOAuth), mostrado quando deslogado
+  AuthModal.tsx           # login com Google (signInWithOAuth) ou e-mail/senha, mostrado quando deslogado
   ProfileModal.tsx        # nome, cidade, país, foto e santo de devoção, mostrado quando logado
   BottomNav.tsx           # navegação inferior por ícones — construída, ainda não usada em app/
   icons.tsx               # ícones SVG inline usados em todo o app
@@ -257,10 +258,20 @@ Adicionada em `supabase/migrations/20260726220000_add_user_profiles_and_devotion
   `<uid>/avatar.<ext>`; políticas em `storage.objects` restringem
   insert/update ao dono via `(storage.foldername(name))[1] = auth.uid()`,
   com select público (a foto é pública por natureza).
-- OAuth: só Google e Microsoft (`azure` no Supabase Auth, cobre
-  Outlook/Live). Configurado no Supabase Dashboard
-  (Authentication → Providers), não neste repositório — as credenciais
-  OAuth não vivem em `.env.local`.
+- Login: OAuth Google (`signInWithOAuth`) ou e-mail/senha
+  (`signUp`/`signInWithPassword`). Microsoft/Azure foi removido — não
+  reintroduza sem pedido explícito. Credenciais do provedor Google são
+  configuradas no Supabase Dashboard (Authentication → Providers), não
+  neste repositório e não em `.env.local`.
+- Cadastro por e-mail/senha depende de confirmação por e-mail (padrão
+  em projetos hospedados no Supabase): `signUp` não retorna sessão até
+  o usuário clicar no link do e-mail. O link precisa apontar para
+  `app/auth/confirm/route.ts` (fluxo PKCE, `verifyOtp` com
+  `token_hash`) — isso exige editar o template "Confirm signup" em
+  Authentication → Email Templates no Supabase Dashboard para usar
+  `{{ .SiteURL }}/auth/confirm?token_hash={{ .TokenHash }}&type=email&next={{ .RedirectTo }}`
+  no lugar do link padrão. Sem esse ajuste manual no dashboard, a
+  confirmação de cadastro por senha não funciona.
 
 ### Convenções de dados
 
@@ -388,11 +399,12 @@ O que confirmar antes de agir:
   Supabase nesta sessão. Antes de assumir que `profiles` ou
   `saint_devotee_counts` existem no banco de produção, confirme
   rodando a migração e, se possível, `supabase db advisors`.
-- Login com Google/Microsoft depende de configuração externa que não
-  está neste repositório: credenciais OAuth criadas no Google Cloud
-  Console e no Microsoft Entra ID, cadastradas no Supabase Dashboard
-  (Authentication → Providers). Sem isso, `signInWithOAuth` em
-  `AuthModal.tsx` falha ao abrir o provedor.
+- Login com Google depende de configuração externa que não está neste
+  repositório: credenciais OAuth criadas no Google Cloud Console,
+  cadastradas no Supabase Dashboard (Authentication → Providers). Sem
+  isso, `signInWithOAuth` em `AuthModal.tsx` falha ao abrir o provedor.
+  Cadastro por e-mail/senha depende do template de e-mail apontado
+  para `/auth/confirm` (ver seção "Área de usuário" acima).
 - Os rótulos da timeline usam duas alturas alternadas e correção de
   alinhamento nos extremos para evitar colisões. Em telas de até
   `720px`, o marcador visual do ano `33` é ocultado por ficar a menos
