@@ -830,7 +830,7 @@ a:focus-visible {
 .timeline-rail {
   position: relative;
   flex: 1;
-  height: 31px;
+  height: 42px;
 }
 
 .timeline-track {
@@ -882,11 +882,29 @@ a:focus-visible {
 }
 
 .timeline-tick-label {
+  --timeline-tick-label-x: 0;
+  --timeline-tick-label-y: 0;
   margin-top: 5px;
   color: rgba(239, 227, 200, 0.68);
   font-size: 9px;
   line-height: 1;
   white-space: nowrap;
+  transform: translate(
+    var(--timeline-tick-label-x),
+    var(--timeline-tick-label-y)
+  );
+}
+
+.timeline-tick--staggered .timeline-tick-label {
+  --timeline-tick-label-y: 11px;
+}
+
+.timeline-tick--start .timeline-tick-label {
+  --timeline-tick-label-x: 50%;
+}
+
+.timeline-tick--end .timeline-tick-label {
+  --timeline-tick-label-x: -50%;
 }
 
 .timeline-range {
@@ -1159,6 +1177,24 @@ a:focus-visible {
     padding-inline: 6px;
   }
 
+  .timeline-date {
+    min-width: 0;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    text-align: center;
+    white-space: normal;
+  }
+
+  .timeline-year {
+    font-size: 21px;
+  }
+
+  .timeline-era {
+    font-size: 9px;
+    line-height: 1.2;
+  }
+
   .timeline-context {
     grid-column: 1 / -1;
     align-items: center;
@@ -1166,6 +1202,14 @@ a:focus-visible {
     border-left: 0;
     margin-top: 4px;
     text-align: center;
+  }
+
+  .timeline-controls {
+    gap: 8px;
+  }
+
+  .timeline-tick--early {
+    display: none;
   }
 
   .maplibregl-ctrl-bottom-right {

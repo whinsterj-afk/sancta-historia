@@ -291,6 +291,13 @@ O que confirmar antes de agir:
   elemento novo renderizado dentro do `TopBar` (modais, popovers)
   precisa herdar `pointer-events: auto` explicitamente ou ficará
   visível porém inerte a cliques.
+- Os rótulos da timeline usam duas alturas alternadas e correção de
+  alinhamento nos extremos para evitar colisões. Em telas de até
+  `720px`, o marcador visual do ano `33` é ocultado por ficar a menos
+  de 5 px do marco `0`, mas a era continua disponível na navegação e
+  no readout. Preserve as classes `timeline-tick--staggered`,
+  `timeline-tick--start`, `timeline-tick--end` e
+  `timeline-tick--early` ao alterar os marcos.
 
 ## Como executar e validar localmente
 

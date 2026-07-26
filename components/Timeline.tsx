@@ -107,10 +107,18 @@ export default function Timeline({
             <span className="timeline-handle" style={{ left: `${position}%` }} />
           </div>
 
-          {eras.map((e) => (
+          {eras.map((e, index) => (
             <div
               key={e.year}
-              className="timeline-tick"
+              className={[
+                "timeline-tick",
+                index % 2 === 1 ? "timeline-tick--staggered" : "",
+                e.year === MIN_YEAR ? "timeline-tick--start" : "",
+                e.year === maxYear ? "timeline-tick--end" : "",
+                e.year === 33 ? "timeline-tick--early" : "",
+              ]
+                .filter(Boolean)
+                .join(" ")}
               style={{ left: `${pct(e.year, maxYear)}%` }}
             >
               <span className="timeline-tick-dot" />
