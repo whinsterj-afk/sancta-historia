@@ -1,5 +1,9 @@
 import Link from "next/link";
 import { supabase } from "@/lib/supabase";
+import {
+  applyEventEditorial,
+  applySaintEditorial,
+} from "@/lib/catholicEditorial";
 import { BookIcon, ChevronLeftIcon, InfoIcon, MedalIcon } from "@/components/icons";
 
 function initials(name: string) {
@@ -19,13 +23,13 @@ export default async function SaintPage({
 }) {
   const { id } = await params;
 
-  const { data: saint } = await supabase
-    .from("saints")
+  const { data: saintRecord } = await supabase
+    .from("saints_catalog")
     .select("*")
     .eq("id", id)
     .single();
 
-  if (!saint) {
+  if (!saintRecord) {
     return (
       <main className="min-h-screen bg-ink-950 text-parchment flex items-center justify-center">
         <div className="text-center">
@@ -44,6 +48,8 @@ export default async function SaintPage({
     );
   }
 
+  const saint = applySaintEditorial(saintRecord);
+
   const { data: popes } = await supabase
     .from("popes")
     .select("*")
@@ -51,15 +57,16 @@ export default async function SaintPage({
     .gte("end_year", saint.birth_year)
     .order("start_year");
 
-  const { data: events } = await supabase
+  const { data: eventRecords } = await supabase
     .from("historical_events")
     .select("*")
     .gte("year", saint.birth_year)
     .lte("year", saint.death_year)
     .order("year");
+  const events = eventRecords?.map(applyEventEditorial);
 
   const { data: contemporaries } = await supabase
-    .from("saints")
+    .from("saints_catalog")
     .select("*")
     .neq("id", saint.id)
     .lte("birth_year", saint.death_year)

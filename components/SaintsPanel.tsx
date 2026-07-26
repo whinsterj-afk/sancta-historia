@@ -1,8 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
-import { BookmarkIcon, ChevronRightIcon, MedalIcon } from "./icons";
+import { BookmarkIcon, MedalIcon } from "./icons";
 
 export interface SaintSummary {
   id: number;
@@ -22,10 +21,18 @@ function initials(name: string) {
     .toUpperCase();
 }
 
-export default function SaintsPanel({ saints }: { saints: SaintSummary[] }) {
-  const [expanded, setExpanded] = useState(false);
+export default function SaintsPanel({
+  saints,
+  selectedSaintId,
+  onSelect,
+  onPreview,
+}: {
+  saints: SaintSummary[];
+  selectedSaintId?: number | null;
+  onSelect?: (saint: SaintSummary) => void;
+  onPreview?: (saintId: number | null) => void;
+}) {
   const [saved, setSaved] = useState<Set<number>>(new Set());
-  const visible = expanded ? saints : saints.slice(0, 4);
 
   function toggleSaved(id: number) {
     setSaved((prev) => {
@@ -45,31 +52,45 @@ export default function SaintsPanel({ saints }: { saints: SaintSummary[] }) {
         </h2>
       </div>
 
-      <div className="thin-scroll overflow-y-auto px-4 py-3 space-y-3">
-        {visible.length === 0 && (
+      <div className="thin-scroll min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 py-3 space-y-3">
+        {saints.length === 0 && (
           <p className="text-sm text-parchment-dim italic">
             Nenhum santo vivo neste período.
           </p>
         )}
 
-        {visible.map((saint) => (
-          <div key={saint.id} className="saint-row flex gap-3 border-b gold-hairline last:border-0 pb-3">
-            <div className="saint-avatar flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-gold-500/60 bg-ink-800 font-display text-gold-300 text-sm">
+        {saints.map((saint) => (
+          <div
+            key={saint.id}
+            className="saint-row flex gap-3 border-b gold-hairline last:border-0 pb-3"
+            data-selected={selectedSaintId === saint.id}
+            onMouseEnter={() => onPreview?.(saint.id)}
+            onMouseLeave={() => onPreview?.(null)}
+          >
+            <button
+              type="button"
+              className="saint-avatar flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-gold-500/60 bg-ink-800 font-display text-gold-300 text-sm"
+              aria-label={`Localizar ${saint.name} no mapa`}
+              aria-pressed={selectedSaintId === saint.id}
+              onClick={() => onSelect?.(saint)}
+            >
               {initials(saint.name)}
-            </div>
+            </button>
             <div className="min-w-0 flex-1">
               <div className="flex items-start justify-between gap-2">
-                <Link
-                  href={`/saints/${saint.id}`}
-                  className="font-semibold text-parchment hover:text-gold-300 transition leading-snug"
+                <button
+                  type="button"
+                  className="saint-name-button font-semibold text-parchment hover:text-gold-300 transition leading-snug"
+                  onClick={() => onSelect?.(saint)}
                 >
                   {saint.name}
-                </Link>
+                </button>
                 <button
                   type="button"
                   onClick={() => toggleSaved(saint.id)}
-                  aria-label="Favoritar"
-                  className="text-gold-400 hover:text-gold-200 transition shrink-0"
+                  aria-label={saved.has(saint.id) ? "Remover dos favoritos" : "Adicionar aos favoritos"}
+                  aria-pressed={saved.has(saint.id)}
+                  className="favorite-button text-gold-400 hover:text-gold-200 transition shrink-0"
                 >
                   <BookmarkIcon className="h-4 w-4" filled={saved.has(saint.id)} />
                 </button>
@@ -86,17 +107,6 @@ export default function SaintsPanel({ saints }: { saints: SaintSummary[] }) {
           </div>
         ))}
       </div>
-
-      {saints.length > 4 && (
-        <button
-          type="button"
-          onClick={() => setExpanded((v) => !v)}
-          className="flex items-center justify-center gap-1 border-t gold-hairline py-3 text-xs tracking-[0.15em] text-gold-300 hover:bg-gold-500/10 transition"
-        >
-          {expanded ? "MOSTRAR MENOS" : "VER TODOS OS SANTOS"}
-          <ChevronRightIcon className={`h-3.5 w-3.5 transition ${expanded ? "rotate-90" : ""}`} />
-        </button>
-      )}
     </aside>
   );
 }

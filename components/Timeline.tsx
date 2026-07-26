@@ -13,42 +13,48 @@ export const ERAS: Era[] = [
   { year: 1054, label: "Cisma do Oriente" },
   { year: 1517, label: "Reforma Protestante" },
   { year: 1917, label: "Aparições de Fátima" },
-  { year: 2025, label: "Atualidade" },
 ];
 
-const MIN_YEAR = 1;
-const MAX_YEAR = 2025;
+export const MIN_YEAR = 1;
+export const BASE_MAX_YEAR = 2025;
+export const DEFAULT_YEAR = 1917;
 
-function currentEra(year: number): Era {
-  let match = ERAS[0];
-  for (const era of ERAS) {
+function currentEra(year: number, eras: Era[]): Era {
+  let match = eras[0];
+  for (const era of eras) {
     if (era.year <= year) match = era;
   }
   return match;
 }
 
-function pct(year: number) {
-  return ((year - MIN_YEAR) / (MAX_YEAR - MIN_YEAR)) * 100;
+function pct(year: number, maxYear: number) {
+  return ((year - MIN_YEAR) / (maxYear - MIN_YEAR)) * 100;
 }
 
 export default function Timeline({
   year,
+  maxYear,
   onChange,
   pope,
 }: {
   year: number;
+  maxYear: number;
   onChange: (year: number) => void;
-  pope?: { name: string; start_year: number; end_year: number } | null;
+  pope?: {
+    name: string;
+    start_year: number;
+    end_year: number | null;
+  } | null;
 }) {
-  const era = currentEra(year);
-  const position = pct(year);
-  const readoutPosition = Math.min(94, Math.max(6, position));
+  const eras = [...ERAS, { year: maxYear, label: "Atualidade" }];
+  const era = currentEra(year, eras);
+  const position = pct(year, maxYear);
 
   function step(direction: -1 | 1) {
-    const years = ERAS.map((e) => e.year);
+    const years = eras.map((e) => e.year);
     if (direction === 1) {
       const next = years.find((y) => y > year);
-      onChange(next ?? MAX_YEAR);
+      onChange(next ?? maxYear);
     } else {
       const prev = [...years].reverse().find((y) => y < year);
       onChange(prev ?? MIN_YEAR);
@@ -57,7 +63,27 @@ export default function Timeline({
 
   return (
     <div className="historical-timeline">
-      <div className="flex items-center gap-3 sm:gap-6">
+      <div className="timeline-readout">
+        <CrossIcon className="timeline-cross h-3.5 w-3.5 text-gold-400" />
+        <div className="timeline-date">
+          <span className="timeline-year">{year}</span>
+          <span className="timeline-era">{era.label}</span>
+        </div>
+        <div className="timeline-context" aria-live="polite">
+          {pope ? (
+            <>
+              <span>{pope.name}</span>
+              <small>
+                Pontificado · {pope.start_year}–{pope.end_year ?? "presente"}
+              </small>
+            </>
+          ) : (
+            <small>Período sem pontífice registrado</small>
+          )}
+        </div>
+      </div>
+
+      <div className="timeline-controls">
         <button
           type="button"
           onClick={() => step(-1)}
@@ -67,51 +93,32 @@ export default function Timeline({
           <ChevronLeftIcon className="h-4 w-4" />
         </button>
 
-        <div className="relative flex-1 h-16">
-          {/* current position readout */}
-          <div
-            className="absolute top-0 -translate-x-1/2 flex flex-col items-center"
-            style={{ left: `${readoutPosition}%` }}
-          >
-            <CrossIcon className="h-3.5 w-3.5 text-gold-400" />
-            <div className="font-display text-lg sm:text-xl leading-tight text-gold-200 mt-0.5">
-              {year}
-            </div>
-            <div className="text-[10px] sm:text-xs tracking-[0.1em] text-gold-400 whitespace-nowrap">
-              {era.label}
-            </div>
-            {pope && (
-              <div className="text-[10px] text-parchment-dim whitespace-nowrap mt-0.5">
-                Papa {pope.name} · {pope.start_year}–{pope.end_year}
-              </div>
-            )}
+        <div className="timeline-rail">
+          <div className="timeline-track">
+            <span className="timeline-progress" style={{ width: `${position}%` }} />
+            <span className="timeline-handle" style={{ left: `${position}%` }} />
           </div>
 
-          {/* track line */}
-          <div className="absolute bottom-4 left-0 right-0 h-px bg-gold-500/30" />
-
-          {/* era ticks */}
-          {ERAS.map((e) => (
+          {eras.map((e) => (
             <div
               key={e.year}
-              className="absolute bottom-0 -translate-x-1/2 flex flex-col items-center"
-              style={{ left: `${pct(e.year)}%` }}
+              className="timeline-tick"
+              style={{ left: `${pct(e.year, maxYear)}%` }}
             >
-              <span className="h-2 w-2 rounded-full border border-gold-500/70 bg-ink-900" />
-              <span className="mt-1 text-[10px] text-parchment-dim whitespace-nowrap hidden sm:block">
-                {e.year}
-              </span>
+              <span className="timeline-tick-dot" />
+              <span className="timeline-tick-label">{e.year}</span>
             </div>
           ))}
 
           <input
             type="range"
             min={MIN_YEAR}
-            max={MAX_YEAR}
+            max={maxYear}
             value={year}
             onChange={(evt) => onChange(Number(evt.target.value))}
             aria-label="Ano selecionado"
-            className="absolute bottom-0 left-0 right-0 h-6 w-full cursor-pointer opacity-0"
+            aria-valuetext={`${year}, ${era.label}`}
+            className="timeline-range"
           />
         </div>
 
