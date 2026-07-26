@@ -75,3 +75,36 @@ database/                  # scripts SQL históricos anteriores à normalizaçã
   elemento novo renderizado dentro do `TopBar` (modais, popovers)
   precisa herdar `pointer-events: auto` explicitamente ou ficará
   visível porém inerte a cliques.
+
+## Trabalho simultâneo com outros agentes de IA
+
+Mais de um agente (Codex, Claude Code, etc.) pode estar trabalhando
+neste repositório ao mesmo tempo, em janelas/sessões diferentes. Isso
+já causou uma sessão onde mudanças de um agente foram parar,
+sem querer, no commit de outro. Para evitar isso:
+
+1. **Antes de tocar em arquivos**, rode `git status` e `git log -1`.
+   Se houver mudanças não commitadas que você não reconhece, elas
+   provavelmente são de outro agente em andamento — não sobrescreva
+   nem descarte; commite-as separadamente ou pergunte ao usuário.
+2. **Commite com frequência**, em blocos pequenos e descritivos.
+   Não deixe um monte de trabalho sem commit por muito tempo: quanto
+   mais tempo passa, maior a chance de outro agente (ou você mesmo,
+   em outra sessão) varrer essas mudanças para um commit que não é
+   seu.
+3. **Antes de qualquer operação destrutiva ou estrutural** (apagar
+   pastas, renomear/mover o diretório do projeto, `git reset --hard`,
+   trocar de branch com mudanças pendentes), crie um arquivo
+   `.agent-lock.json` na raiz com `{ "agent": "...", "task": "...",
+   "startedAt": "<ISO 8601>" }`. Se esse arquivo já existir e for
+   recente (poucos minutos), outro agente provavelmente está ativo:
+   pare e avise o usuário em vez de seguir. Remova o arquivo assim que
+   terminar essa etapa.
+4. **Não deixe servidores de dev (`npm run dev`) rodando
+   indefinidamente** depois de terminar uma tarefa — eles seguram
+   locks de arquivo em `node_modules`/`.next` que atrapalham o outro
+   agente ao mover, apagar ou reinstalar dependências.
+5. **Nunca renomeie, mova ou apague o diretório raiz do projeto** sem
+   confirmar com o usuário primeiro, mesmo que a tarefa pedida pareça
+   incluir isso — um agente pode ter o diretório antigo como
+   `working-dir` fixo, e o rename quebra a sessão dele sem aviso.
