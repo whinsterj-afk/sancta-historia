@@ -30,7 +30,7 @@ export default function TopBar({
   onSelectSuggestion: (suggestion: SearchSuggestion) => void;
 }) {
   const [searchOpen, setSearchOpen] = useState(false);
-  const [aboutOpen, setAboutOpen] = useState(false);
+  const [aboutOpen, setAboutOpen] = useState(true);
   const [accountOpen, setAccountOpen] = useState(false);
   const searchWrapRef = useRef<HTMLDivElement>(null);
   const { user } = useSupabaseSession();
