@@ -12,9 +12,20 @@ export async function GET(request: NextRequest) {
   const type = searchParams.get("type") as EmailOtpType | null;
   const next = searchParams.get("next") ?? "/";
 
-  const redirectTo = request.nextUrl.clone();
-  redirectTo.pathname = next;
-  redirectTo.search = "";
+  // `next` pode chegar como caminho relativo ("/") ou como URL completa
+  // (o Supabase preenche {{ .RedirectTo }} com o valor exato passado em
+  // emailRedirectTo no signUp, que aqui é a origem inteira). Tratar os
+  // dois casos evita colar uma URL absoluta dentro do pathname de outra.
+  function resolveRedirect(target: string) {
+    try {
+      return new URL(target);
+    } catch {
+      const url = request.nextUrl.clone();
+      url.pathname = target;
+      url.search = "";
+      return url;
+    }
+  }
 
   if (tokenHash && type) {
     const supabase = await createSupabaseServerClient();
@@ -24,10 +35,9 @@ export async function GET(request: NextRequest) {
     });
 
     if (!error) {
-      return NextResponse.redirect(redirectTo);
+      return NextResponse.redirect(resolveRedirect(next));
     }
   }
 
-  redirectTo.pathname = "/";
-  return NextResponse.redirect(redirectTo);
+  return NextResponse.redirect(resolveRedirect("/"));
 }
