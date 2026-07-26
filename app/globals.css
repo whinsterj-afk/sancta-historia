@@ -1193,6 +1193,140 @@ a:focus-visible {
   line-height: 1.35;
 }
 
+.maplibregl-marker.church-structure-map-marker {
+  position: absolute;
+  display: grid;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  place-items: center;
+  border: 0;
+  background: transparent;
+  color: #f8e9b3;
+  cursor: pointer;
+}
+
+.church-structure-marker-frame,
+.legend-church-structure {
+  position: relative;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(232, 207, 154, 0.9);
+  background: rgba(16, 34, 49, 0.94);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.42);
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.church-structure-marker-symbol,
+.legend-church-structure > span {
+  position: relative;
+  display: block;
+  width: 60%;
+  height: 60%;
+}
+
+.church-structure-marker-symbol::before,
+.church-structure-marker-symbol::after,
+.legend-church-structure > span::before,
+.legend-church-structure > span::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-radius: 1px;
+  background: currentColor;
+  transform: translate(-50%, -50%);
+}
+
+.church-structure-marker-symbol::before,
+.legend-church-structure > span::before {
+  width: 2px;
+  height: 100%;
+}
+
+.church-structure-marker-symbol::after,
+.legend-church-structure > span::after {
+  width: 76%;
+  height: 2px;
+  transform: translate(-50%, -72%);
+}
+
+.church-structure-map-marker--holy-see .church-structure-marker-frame,
+.legend-church-structure--holy-see {
+  width: 22px;
+  height: 22px;
+  border-width: 2px;
+  border-radius: 50%;
+  background: #4a3016;
+  box-shadow: 0 0 0 2px rgba(232, 207, 154, 0.2), 0 5px 14px rgba(0, 0, 0, 0.48);
+}
+
+.church-structure-map-marker--metropolitan .church-structure-marker-frame,
+.legend-church-structure--metropolitan {
+  width: 19px;
+  height: 19px;
+  clip-path: polygon(50% 0, 92% 24%, 82% 82%, 50% 100%, 18% 82%, 8% 24%);
+  background: #233d4d;
+}
+
+.church-structure-map-marker--diocese .church-structure-marker-frame,
+.legend-church-structure--diocese {
+  width: 16px;
+  height: 16px;
+  transform: rotate(45deg);
+}
+
+.church-structure-map-marker--diocese .church-structure-marker-symbol,
+.legend-church-structure--diocese > span {
+  transform: rotate(-45deg);
+}
+
+.church-structure-map-marker--parish .church-structure-marker-frame,
+.legend-church-structure--parish {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  background: rgba(74, 48, 22, 0.94);
+}
+
+.maplibregl-marker.church-structure-map-marker:hover {
+  z-index: 12;
+}
+
+.maplibregl-marker.church-structure-map-marker:hover .church-structure-marker-frame,
+.maplibregl-marker.church-structure-map-marker:focus-visible .church-structure-marker-frame {
+  border-color: #ffe099;
+  box-shadow: 0 0 0 3px rgba(216, 184, 118, 0.18), 0 6px 16px rgba(0, 0, 0, 0.5);
+  transform: scale(1.12);
+}
+
+.maplibregl-marker.church-structure-map-marker--diocese:hover .church-structure-marker-frame,
+.maplibregl-marker.church-structure-map-marker--diocese:focus-visible .church-structure-marker-frame {
+  transform: rotate(45deg) scale(1.12);
+}
+
+.legend-church-structure {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  box-shadow: none;
+}
+
+.legend-church-structure--parish {
+  width: 12px;
+  height: 12px;
+  margin: 3px;
+  flex-basis: 12px;
+}
+
+.church-structure-popup a {
+  margin-top: 3px;
+  color: var(--gold-300);
+  font-size: 12px;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 .maplibregl-marker.route-map-marker {
   position: absolute;
   width: 34px;

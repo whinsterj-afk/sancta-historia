@@ -398,6 +398,7 @@ export default function Home() {
       <SaintsMap
         saints={saintContextOpen ? [] : saints}
         landmarks={saintContextOpen ? [] : mapLandmarks}
+        selectedYear={year}
         selectedSaintId={selectedSaintId}
         previewSaintId={previewSaintId}
         onSelectSaint={selectSaint}

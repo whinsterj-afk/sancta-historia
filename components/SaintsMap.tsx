@@ -11,6 +11,7 @@ import {
   setWorkerUrl,
 } from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
+import { supabase } from "@/lib/supabase";
 import type { RouteLocation } from "./MapContextPanel";
 
 // maplibre-gl resolves its worker script relative to import.meta.url, which
@@ -165,9 +166,73 @@ export interface MapLandmark {
   end_year: number | null;
 }
 
+type EcclesiasticalMarkerTier =
+  | "holy-see"
+  | "metropolitan"
+  | "diocese"
+  | "parish";
+
+interface EcclesiasticalMapPoint {
+  id: number;
+  name: string;
+  site_type: string;
+  canonical_type: string;
+  jurisdiction_name: string;
+  latitude: number;
+  longitude: number;
+  address: string | null;
+  locality: string | null;
+  country_code: string;
+  official_url: string | null;
+  min_zoom: number;
+}
+
+const CANONICAL_TYPE_LABELS: Record<string, string> = {
+  holy_see: "Santa Sé",
+  metropolitan_archdiocese: "Arquidiocese metropolitana",
+  archdiocese: "Arquidiocese",
+  diocese: "Diocese",
+  eparchy: "Eparquia",
+  territorial_prelature: "Prelazia territorial",
+  territorial_abbey: "Abadia territorial",
+  apostolic_vicariate: "Vicariato apostólico",
+  apostolic_prefecture: "Prefeitura apostólica",
+  apostolic_administration: "Administração apostólica",
+  exarchate: "Exarcado",
+  ordinariate: "Ordinariado",
+  military_ordinariate: "Ordinariado militar",
+  parish: "Paróquia",
+  quasi_parish: "Quase-paróquia",
+};
+
+function ecclesiasticalMarkerTier(
+  point: EcclesiasticalMapPoint,
+): EcclesiasticalMarkerTier {
+  if (point.canonical_type === "holy_see") return "holy-see";
+  if (
+    point.canonical_type === "metropolitan_archdiocese" ||
+    point.canonical_type === "patriarchate" ||
+    point.canonical_type === "major_archiepiscopal_church"
+  ) {
+    return "metropolitan";
+  }
+  if (
+    point.canonical_type === "parish" ||
+    point.canonical_type === "quasi_parish" ||
+    point.site_type === "parish_church" ||
+    point.site_type === "chapel" ||
+    point.site_type === "mission_station" ||
+    point.site_type === "shrine"
+  ) {
+    return "parish";
+  }
+  return "diocese";
+}
+
 export default function SaintsMap({
   saints,
   landmarks = [],
+  selectedYear,
   selectedSaintId,
   previewSaintId,
   onSelectSaint,
@@ -177,6 +242,7 @@ export default function SaintsMap({
 }: {
   saints: SaintLocation[];
   landmarks?: MapLandmark[];
+  selectedYear: number;
   selectedSaintId?: number | null;
   previewSaintId?: number | null;
   onSelectSaint?: (saintId: number) => void;
@@ -189,6 +255,7 @@ export default function SaintsMap({
   const markersRef = useRef<Marker[]>([]);
   const markersBySaintRef = useRef<Map<number, Marker[]>>(new Map());
   const landmarkMarkersRef = useRef<Marker[]>([]);
+  const ecclesiasticalMarkersRef = useRef<Marker[]>([]);
   const routeMarkersRef = useRef<Marker[]>([]);
   const refitMapRef = useRef<((duration: number) => void) | null>(null);
 
@@ -200,6 +267,7 @@ export default function SaintsMap({
       style: `https://api.maptiler.com/maps/019f9748-fef8-71cf-a038-d6a0583942fc/style.json?key=${process.env.NEXT_PUBLIC_MAPTILER_KEY}`,
       center: [15, 40],
       zoom: 2.5,
+      renderWorldCopies: false,
     });
 
     mapRef.current.addControl(new NavigationControl(), "bottom-right");
@@ -429,6 +497,130 @@ export default function SaintsMap({
       landmarkMarkersRef.current = [];
     };
   }, [landmarks]);
+
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map) return;
+
+    let disposed = false;
+    let latestRequest = 0;
+
+    function clearEcclesiasticalMarkers() {
+      ecclesiasticalMarkersRef.current.forEach((marker) => marker.remove());
+      ecclesiasticalMarkersRef.current = [];
+    }
+
+    async function loadEcclesiasticalPoints() {
+      if (!mapRef.current || contextOpen) {
+        clearEcclesiasticalMarkers();
+        return;
+      }
+
+      const activeMap = mapRef.current;
+      const bounds = activeMap.getBounds();
+      const requestId = ++latestRequest;
+      const { data, error } = await supabase.rpc(
+        "ecclesiastical_points_in_view",
+        {
+          min_long: Math.max(-180, bounds.getWest()),
+          min_lat: Math.max(-90, bounds.getSouth()),
+          max_long: Math.min(180, bounds.getEast()),
+          max_lat: Math.min(90, bounds.getNorth()),
+          map_zoom: activeMap.getZoom(),
+          selected_year: selectedYear,
+        },
+      );
+
+      if (disposed || requestId !== latestRequest) return;
+      if (error) {
+        console.error("Falha ao carregar a estrutura eclesiástica:", error);
+        return;
+      }
+
+      clearEcclesiasticalMarkers();
+      ((data ?? []) as EcclesiasticalMapPoint[]).forEach((point) => {
+        const latitude = Number(point.latitude);
+        const longitude = Number(point.longitude);
+        if (
+          !Number.isFinite(latitude) ||
+          !Number.isFinite(longitude) ||
+          latitude < -90 ||
+          latitude > 90 ||
+          longitude < -180 ||
+          longitude > 180
+        ) {
+          return;
+        }
+
+        const tier = ecclesiasticalMarkerTier(point);
+        const element = document.createElement("button");
+        element.type = "button";
+        element.className =
+          `church-structure-map-marker church-structure-map-marker--${tier}`;
+        element.setAttribute(
+          "aria-label",
+          `${CANONICAL_TYPE_LABELS[point.canonical_type] ?? "Estrutura eclesiástica"}: ${point.name}`,
+        );
+        const frame = document.createElement("span");
+        frame.className = "church-structure-marker-frame";
+        const symbol = document.createElement("span");
+        symbol.className = "church-structure-marker-symbol";
+        symbol.setAttribute("aria-hidden", "true");
+        frame.append(symbol);
+        element.append(frame);
+
+        const popupContent = document.createElement("div");
+        popupContent.className = "saint-popup church-structure-popup";
+        const title = document.createElement("strong");
+        title.textContent = point.name;
+        popupContent.append(title);
+        const canonicalType = document.createElement("span");
+        canonicalType.textContent =
+          CANONICAL_TYPE_LABELS[point.canonical_type] ??
+          point.jurisdiction_name;
+        popupContent.append(canonicalType);
+        if (point.address || point.locality) {
+          const place = document.createElement("span");
+          place.textContent = [point.address, point.locality]
+            .filter(Boolean)
+            .join(" — ");
+          popupContent.append(place);
+        }
+        if (point.official_url) {
+          const source = document.createElement("a");
+          source.href = point.official_url;
+          source.target = "_blank";
+          source.rel = "noreferrer";
+          source.textContent = "Fonte oficial";
+          popupContent.append(source);
+        }
+
+        const marker = new Marker({ element, anchor: "center" })
+          .setLngLat([longitude, latitude])
+          .setPopup(new Popup({ offset: 14 }).setDOMContent(popupContent))
+          .addTo(activeMap);
+        ecclesiasticalMarkersRef.current.push(marker);
+      });
+    }
+
+    function startLoading() {
+      void loadEcclesiasticalPoints();
+    }
+
+    if (map.isStyleLoaded()) {
+      startLoading();
+    } else {
+      map.once("load", startLoading);
+    }
+    map.on("moveend", startLoading);
+
+    return () => {
+      disposed = true;
+      map.off("load", startLoading);
+      map.off("moveend", startLoading);
+      clearEcclesiasticalMarkers();
+    };
+  }, [contextOpen, selectedYear]);
 
   useEffect(() => {
     const map = mapRef.current;

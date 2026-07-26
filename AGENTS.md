@@ -131,7 +131,7 @@ components/
   FactsPanel.tsx          # painel esquerdo: fatos históricos do período
   SaintsPanel.tsx         # painel direito: santos vivos no período, favoritos
   MapContextPanel.tsx     # painel de contexto ao selecionar um santo/evento (trajetória, eventos relacionados)
-  SaintsMap.tsx           # mapa MapLibre: santos, marcos históricos, rotas, zoom/fitBounds
+  SaintsMap.tsx           # mapa MapLibre: santos, marcos, estrutura eclesiástica por viewport/zoom, rotas e fitBounds
   AboutModal.tsx          # modal "Sobre o projeto" (acionado pelo TopBar)
   MapLegend.tsx           # legenda dos símbolos do mapa (acionada pelo TopBar)
   AuthModal.tsx           # login com Google/Microsoft (signInWithOAuth), mostrado quando deslogado
@@ -202,6 +202,24 @@ existem no schema atual; o texto abaixo os substitui.
   publicados. A view pública `timeline_map_landmarks` junta esses
   registros às coordenadas de `places`; `app/page.tsx` filtra o
   intervalo histórico e entrega os pontos a `SaintsMap.tsx`.
+- `ecclesiastical_sources` — catálogo de fontes oficiais/canônicas
+  usadas para rastrear os dados da estrutura física e jurisdicional da
+  Igreja.
+- `ecclesiastical_jurisdictions` — entidades canônicas, incluindo
+  Santa Sé, províncias eclesiásticas, arquidioceses, dioceses/eparquias
+  e equivalentes latinos/orientais, foranias/vicariatos e paróquias.
+  `ecclesiastical_relations` registra relações como metrópole,
+  sufragânea e subdivisão; uma província é uma relação/área e não deve
+  gerar um ponto cartográfico duplicado.
+- `ecclesiastical_sites` — locais físicos ligados às jurisdições:
+  sede apostólica, catedral/concatedral, cúria, igreja paroquial,
+  capela, santuário e estação missionária. A coluna geográfica PostGIS
+  `location`, `min_zoom`, vigência histórica e prioridade de exibição
+  alimentam o RPC público `ecclesiastical_points_in_view`, que retorna
+  somente os pontos publicados dentro do viewport, do zoom e do ano
+  selecionado. A migração
+  `20260726213736_add_ecclesiastical_structure.sql` contém o modelo e
+  um piloto rastreável de Santa Sé, Brasília e Formosa.
 - `saint_search_catalog` — usada só para a busca do `TopBar`:
   `id`, `name`, `birth_year`, `death_year`, `short_description`.
 
@@ -270,6 +288,13 @@ Adicionada em `supabase/migrations/20260726220000_add_user_profiles_and_devotion
   continuam tracejadas e aparecem ao abrir a trajetória de um santo.
   Durante essa trajetória, os marcos gerais são ocultados para
   preservar a leitura da rota.
+- A estrutura eclesiástica também é uma camada real, consultada pelo
+  `SaintsMap.tsx` no RPC `ecclesiastical_points_in_view` a cada
+  `moveend`. Sedes maiores aparecem primeiro; dioceses e equivalentes
+  surgem no zoom regional, e paróquias/capelas apenas no zoom local.
+  Seus marcadores têm formas e tamanhos próprios e também são
+  ocultados durante a trajetória de um santo. Não carregue todas as
+  estruturas globais no cliente nem transforme províncias em pontos.
 
 ## 7. Filtros previstos (visão de produto, não implementado)
 
