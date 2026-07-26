@@ -1,5 +1,6 @@
 "use client";
 
+import { formatHistoricalYear } from "@/lib/historicalYear";
 import { BookIcon } from "./icons";
 
 export interface HistoricalEvent {
@@ -44,7 +45,7 @@ export default function FactsPanel({
             onClick={() => onSelect?.(event)}
           >
             <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded border border-gold-500/40 bg-ink-800 font-display text-gold-400 text-sm">
-              {event.year}
+              {formatHistoricalYear(event.year)}
             </div>
             <div className="min-w-0 text-left">
               <h3 className="font-semibold text-parchment leading-snug">{event.title}</h3>

@@ -1,5 +1,11 @@
 "use client";
 
+import {
+  formatHistoricalPeriod,
+  formatHistoricalYear,
+  historicalYearToScale,
+  scaleToHistoricalYear,
+} from "@/lib/historicalYear";
 import { ChevronLeftIcon, ChevronRightIcon, CrossIcon } from "./icons";
 
 export interface Era {
@@ -8,14 +14,18 @@ export interface Era {
 }
 
 export const ERAS: Era[] = [
-  { year: 33, label: "I d.C." },
+  { year: -753, label: "Roma antiga" },
+  { year: -586, label: "Exílio e Segundo Templo" },
+  { year: -332, label: "Mundo helenístico" },
+  { year: -63, label: "Judeia sob Roma" },
+  { year: 33, label: "Igreja apostólica" },
   { year: 400, label: "Concílios e Padres" },
   { year: 1054, label: "Cisma do Oriente" },
   { year: 1517, label: "Reforma Protestante" },
   { year: 1917, label: "Aparições de Fátima" },
 ];
 
-export const MIN_YEAR = 1;
+export const MIN_YEAR = -753;
 export const BASE_MAX_YEAR = 2025;
 export const DEFAULT_YEAR = 1917;
 
@@ -28,7 +38,9 @@ function currentEra(year: number, eras: Era[]): Era {
 }
 
 function pct(year: number, maxYear: number) {
-  return ((year - MIN_YEAR) / (maxYear - MIN_YEAR)) * 100;
+  const min = historicalYearToScale(MIN_YEAR);
+  const max = historicalYearToScale(maxYear);
+  return ((historicalYearToScale(year) - min) / (max - min)) * 100;
 }
 
 export default function Timeline({
@@ -66,7 +78,7 @@ export default function Timeline({
       <div className="timeline-readout">
         <CrossIcon className="timeline-cross h-3.5 w-3.5 text-gold-400" />
         <div className="timeline-date">
-          <span className="timeline-year">{year}</span>
+          <span className="timeline-year">{formatHistoricalYear(year)}</span>
           <span className="timeline-era">{era.label}</span>
         </div>
         <div className="timeline-context" aria-live="polite">
@@ -74,7 +86,9 @@ export default function Timeline({
             <>
               <span>{pope.name}</span>
               <small>
-                Pontificado · {pope.start_year}–{pope.end_year ?? "presente"}
+                Pontificado ·{" "}
+                {formatHistoricalPeriod(pope.start_year, pope.end_year) ??
+                  "presente"}
               </small>
             </>
           ) : (
@@ -106,18 +120,22 @@ export default function Timeline({
               style={{ left: `${pct(e.year, maxYear)}%` }}
             >
               <span className="timeline-tick-dot" />
-              <span className="timeline-tick-label">{e.year}</span>
+              <span className="timeline-tick-label">
+                {formatHistoricalYear(e.year)}
+              </span>
             </div>
           ))}
 
           <input
             type="range"
-            min={MIN_YEAR}
-            max={maxYear}
-            value={year}
-            onChange={(evt) => onChange(Number(evt.target.value))}
+            min={historicalYearToScale(MIN_YEAR)}
+            max={historicalYearToScale(maxYear)}
+            value={historicalYearToScale(year)}
+            onChange={(evt) =>
+              onChange(scaleToHistoricalYear(Number(evt.target.value)))
+            }
             aria-label="Ano selecionado"
-            aria-valuetext={`${year}, ${era.label}`}
+            aria-valuetext={`${formatHistoricalYear(year)}, ${era.label}`}
             className="timeline-range"
           />
         </div>

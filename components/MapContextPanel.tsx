@@ -1,5 +1,9 @@
 "use client";
 
+import {
+  formatHistoricalPeriod,
+  formatHistoricalYear,
+} from "@/lib/historicalYear";
 import { BookIcon, ChevronLeftIcon, MedalIcon } from "./icons";
 
 export interface SaintContextDetail {
@@ -65,9 +69,7 @@ export type MapContext =
     };
 
 function formatPeriod(location: RouteLocation) {
-  if (!location.start_year && !location.end_year) return null;
-  if (location.start_year === location.end_year) return String(location.start_year);
-  return [location.start_year, location.end_year].filter(Boolean).join("–");
+  return formatHistoricalPeriod(location.start_year, location.end_year);
 }
 
 export default function MapContextPanel({
@@ -106,7 +108,10 @@ export default function MapContextPanel({
             </span>
             <h1>{context.saint.name}</h1>
             <p className="context-period">
-              {context.saint.birth_year}–{context.saint.death_year}
+              {formatHistoricalPeriod(
+                context.saint.birth_year,
+                context.saint.death_year,
+              )}
               {context.saint.religious_order && ` · ${context.saint.religious_order}`}
             </p>
             {context.saint.short_description && (
@@ -155,7 +160,7 @@ export default function MapContextPanel({
                 <div className="context-event-list">
                   {context.events.slice(0, 4).map((event) => (
                     <article key={event.id}>
-                      <span>{event.year}</span>
+                      <span>{formatHistoricalYear(event.year)}</span>
                       <div>
                         <strong>{event.title}</strong>
                         {event.description && <p>{event.description}</p>}
@@ -199,7 +204,7 @@ export default function MapContextPanel({
             </span>
             <h1>{context.event.title}</h1>
             <p className="context-period">
-              {context.event.year}
+              {formatHistoricalYear(context.event.year)}
               {context.event.category && ` · ${context.event.category}`}
             </p>
           </header>

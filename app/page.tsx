@@ -20,6 +20,10 @@ import {
   applyLocationEditorial,
   applySaintEditorial,
 } from "@/lib/catholicEditorial";
+import {
+  formatHistoricalPeriod,
+  formatHistoricalYear,
+} from "@/lib/historicalYear";
 import styles from "./page.module.css";
 
 type Saint = SaintLocation & SaintSummary;
@@ -153,7 +157,7 @@ export default function Home() {
             .select("*")
             .lte("year", year)
             .order("year", { ascending: false })
-            .limit(5),
+            .limit(12),
           supabase
             .from("timeline_saint_points")
             .select("*")
@@ -225,7 +229,10 @@ export default function Home() {
           id: saint.id,
           kind: "saint",
           title: saint.name,
-          subtitle: `${saint.birth_year}–${saint.death_year}${
+          subtitle: `${formatHistoricalPeriod(
+            saint.birth_year,
+            saint.death_year,
+          )}${
             saint.short_description ? ` · ${saint.short_description}` : ""
           }`,
           year: Math.min(Math.max(year, saint.birth_year), saint.death_year),
@@ -239,7 +246,9 @@ export default function Home() {
           id: event.id,
           kind: "event",
           title: event.title,
-          subtitle: `${event.year}${event.description ? ` · ${event.description}` : ""}`,
+          subtitle: `${formatHistoricalYear(event.year)}${
+            event.description ? ` · ${event.description}` : ""
+          }`,
           year: event.year,
           };
         },

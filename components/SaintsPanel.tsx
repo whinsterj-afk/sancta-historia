@@ -1,5 +1,6 @@
 "use client";
 
+import { formatHistoricalPeriod } from "@/lib/historicalYear";
 import { useState } from "react";
 import { BookmarkIcon, MedalIcon } from "./icons";
 
@@ -96,7 +97,7 @@ export default function SaintsPanel({
                 </button>
               </div>
               <p className="text-xs text-gold-400 mt-0.5">
-                {saint.birth_year}–{saint.death_year}
+                {formatHistoricalPeriod(saint.birth_year, saint.death_year)}
               </p>
               {saint.short_description && (
                 <p className="text-sm text-parchment-dim mt-1 leading-snug line-clamp-2">

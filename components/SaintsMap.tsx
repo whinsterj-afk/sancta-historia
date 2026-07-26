@@ -172,8 +172,7 @@ export default function SaintsMap({
 
     mapRef.current = new MapLibreMap({
       container: containerRef.current,
-      style:
-        "https://api.maptiler.com/maps/019f9748-fef8-71cf-a038-d6a0583942fc/style.json?key=kdSeGcKZzX2dbBiw5pOr",
+      style: `https://api.maptiler.com/maps/019f9748-fef8-71cf-a038-d6a0583942fc/style.json?key=${process.env.NEXT_PUBLIC_MAPTILER_KEY}`,
       center: [15, 40],
       zoom: 2.5,
     });
