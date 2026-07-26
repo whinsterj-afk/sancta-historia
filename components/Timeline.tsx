@@ -16,7 +16,7 @@ export const ERAS: Era[] = [
   { year: 33, label: "Igreja apostólica" },
   { year: 400, label: "Concílios e Padres" },
   { year: 1054, label: "Cisma do Oriente" },
-  { year: 1517, label: "Reforma Protestante" },
+  { year: 1545, label: "Concílio de Trento" },
   { year: 1917, label: "Aparições de Fátima" },
 ];
 

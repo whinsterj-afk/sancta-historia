@@ -56,6 +56,12 @@ Diretrizes de aplicação:
   de fontes incertas (podem ter ressalva de datação).
 - Isso vale para todo o conteúdo: biografias de santos, descrições de
   fatos históricos, textos de interface, páginas dos papas.
+- Os marcos principais da linha do tempo devem priorizar acontecimentos
+  da vida da Igreja, como concílios, pontificados, aparições e movimentos
+  de renovação católica. Não use rupturas ou movimentos contrários à
+  Igreja como nomes de era; quando forem historicamente indispensáveis,
+  trate-os apenas no contexto necessário e a partir da perspectiva
+  católica.
 - Essa regra já está em aplicação hoje: `lib/catholicEditorial.ts`
   mantém revisões manuais de textos vindos do Supabase por
   `id`, e `scripts/revise-catholic-language.mjs` faz a revisão em
@@ -395,6 +401,8 @@ O que confirmar antes de agir:
   “Transição a.C./d.C.”. Preserve as classes
   `timeline-tick--staggered`, `timeline-tick--start`,
   `timeline-tick--end` e `timeline-tick--early` ao alterar os marcos.
+  O marco moderno inicial é `1545`, “Concílio de Trento”; não restaure
+  “Reforma Protestante” como era principal nem como fato autônomo.
 
 ## Como executar e validar localmente
 
