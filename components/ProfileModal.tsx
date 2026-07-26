@@ -12,6 +12,13 @@ interface SaintOption {
   death_year: number;
 }
 
+interface ParishOption {
+  id: number;
+  name: string;
+  city: string | null;
+  state: string | null;
+}
+
 export default function ProfileModal({
   user,
   onClose,
@@ -22,6 +29,7 @@ export default function ProfileModal({
   const [supabase] = useState(() => createSupabaseBrowserClient());
   const fileInputRef = useRef<HTMLInputElement>(null);
   const saintFieldRef = useRef<HTMLDivElement>(null);
+  const parishFieldRef = useRef<HTMLDivElement>(null);
 
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
@@ -39,13 +47,20 @@ export default function ProfileModal({
   const [saintResults, setSaintResults] = useState<SaintOption[]>([]);
   const [saintDropdownOpen, setSaintDropdownOpen] = useState(false);
 
+  const [favoriteParishId, setFavoriteParishId] = useState<number | null>(null);
+  const [parishQuery, setParishQuery] = useState("");
+  const [parishResults, setParishResults] = useState<ParishOption[]>([]);
+  const [parishDropdownOpen, setParishDropdownOpen] = useState(false);
+
   useEffect(() => {
     let active = true;
 
     async function loadProfile() {
       const { data, error: loadError } = await supabase
         .from("profiles")
-        .select("display_name, avatar_url, city, country, favorite_saint_id")
+        .select(
+          "display_name, avatar_url, city, country, favorite_saint_id, favorite_parish_id",
+        )
         .eq("id", user.id)
         .maybeSingle();
 
@@ -72,6 +87,16 @@ export default function ProfileModal({
             .maybeSingle();
           if (active && saint) setSaintQuery(saint.name);
         }
+
+        setFavoriteParishId(data.favorite_parish_id);
+        if (data.favorite_parish_id) {
+          const { data: parish } = await supabase
+            .from("parishes")
+            .select("name")
+            .eq("id", data.favorite_parish_id)
+            .maybeSingle();
+          if (active && parish) setParishQuery(parish.name);
+        }
       }
 
       setLoading(false);
@@ -97,6 +122,19 @@ export default function ProfileModal({
   }, [saintDropdownOpen]);
 
   useEffect(() => {
+    if (!parishDropdownOpen) return;
+
+    function handlePointerDown(event: MouseEvent) {
+      if (!parishFieldRef.current?.contains(event.target as Node)) {
+        setParishDropdownOpen(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handlePointerDown);
+    return () => document.removeEventListener("mousedown", handlePointerDown);
+  }, [parishDropdownOpen]);
+
+  useEffect(() => {
     const term = saintQuery.trim();
     if (!saintDropdownOpen || term.length < 2) {
       return;
@@ -120,6 +158,30 @@ export default function ProfileModal({
       window.clearTimeout(timer);
     };
   }, [saintQuery, saintDropdownOpen, supabase]);
+
+  useEffect(() => {
+    const term = parishQuery.trim();
+    if (!parishDropdownOpen || term.length < 2) {
+      return;
+    }
+
+    let active = true;
+    const timer = window.setTimeout(async () => {
+      const { data } = await supabase
+        .from("parishes")
+        .select("id,name,city,state")
+        .ilike("name", `%${term}%`)
+        .order("name")
+        .limit(6);
+
+      if (active) setParishResults(data ?? []);
+    }, 250);
+
+    return () => {
+      active = false;
+      window.clearTimeout(timer);
+    };
+  }, [parishQuery, parishDropdownOpen, supabase]);
 
   async function handleAvatarChange(event: React.ChangeEvent<HTMLInputElement>) {
     const file = event.target.files?.[0];
@@ -159,6 +221,7 @@ export default function ProfileModal({
       city: city.trim() || null,
       country: country.trim() || null,
       favorite_saint_id: favoriteSaintId,
+      favorite_parish_id: favoriteParishId,
     });
 
     setSaving(false);
@@ -304,6 +367,71 @@ export default function ProfileModal({
                   className="self-start text-[11px] text-parchment-dim underline hover:text-gold-300"
                 >
                   Remover santo de devoção
+                </button>
+              )}
+            </div>
+
+            <div ref={parishFieldRef} className="relative flex flex-col gap-1 text-xs text-gold-400">
+              Paróquia
+              <input
+                value={parishQuery}
+                onFocus={() => setParishDropdownOpen(true)}
+                onChange={(event) => {
+                  const value = event.target.value;
+                  setParishQuery(value);
+                  setParishDropdownOpen(true);
+                  if (value.trim().length < 2) setParishResults([]);
+                }}
+                placeholder="Buscar uma paróquia…"
+                className="rounded-md border border-gold-500/30 bg-ink-900 px-3 py-2 text-sm text-parchment outline-none focus:border-gold-300"
+              />
+              {parishDropdownOpen && parishQuery.trim().length >= 2 && (
+                <div
+                  className="search-results"
+                  style={{ position: "absolute", top: "100%", left: 0, right: 0, width: "auto" }}
+                >
+                  {parishResults.length === 0 ? (
+                    <p className="search-empty">
+                      Nenhuma paróquia cadastrada com esse nome ainda.
+                    </p>
+                  ) : (
+                    parishResults.map((parish) => (
+                      <button
+                        key={parish.id}
+                        type="button"
+                        className="search-result"
+                        onClick={() => {
+                          setFavoriteParishId(parish.id);
+                          setParishQuery(parish.name);
+                          setParishDropdownOpen(false);
+                        }}
+                      >
+                        <span className="search-result-type">Paróquia</span>
+                        <span className="search-result-copy">
+                          <strong>{parish.name}</strong>
+                          {(parish.city || parish.state) && (
+                            <small>
+                              {[parish.city, parish.state]
+                                .filter(Boolean)
+                                .join(", ")}
+                            </small>
+                          )}
+                        </span>
+                      </button>
+                    ))
+                  )}
+                </div>
+              )}
+              {favoriteParishId && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setFavoriteParishId(null);
+                    setParishQuery("");
+                  }}
+                  className="self-start text-[11px] text-parchment-dim underline hover:text-gold-300"
+                >
+                  Remover paróquia
                 </button>
               )}
             </div>
