@@ -110,8 +110,8 @@ export default function AboutModal({ onClose }: { onClose: () => void }) {
             <div>
               <h3>Conheça suas vidas</h3>
               <p>
-                Descubra como pessoas reais responderam a Deus entre lutas,
-                escolhas, quedas e uma fidelidade capaz de transformar o mundo.
+                Veja como pessoas reais responderam a Deus e transformaram o
+                mundo pela fidelidade.
               </p>
             </div>
           </section>
@@ -123,8 +123,8 @@ export default function AboutModal({ onClose }: { onClose: () => void }) {
             <div>
               <h3>Percorra a Igreja</h3>
               <p>
-                Atravesse continentes e séculos, seguindo os caminhos dos
-                santos, dos papas e das comunidades que guardaram a fé.
+                Atravesse séculos e continentes pelos caminhos dos santos, dos
+                papas e das comunidades.
               </p>
             </div>
           </section>
@@ -136,8 +136,8 @@ export default function AboutModal({ onClose }: { onClose: () => void }) {
             <div>
               <h3>Encontre seus passos</h3>
               <p>
-                Deixe que o testemunho dos santos ilumine o seu tempo e recorde
-                a vocação que também foi confiada a você.
+                Deixe o testemunho dos santos iluminar a vocação confiada
+                também a você.
               </p>
             </div>
           </section>
