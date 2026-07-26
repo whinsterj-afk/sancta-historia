@@ -191,6 +191,8 @@ const CANONICAL_TYPE_LABELS: Record<string, string> = {
   holy_see: "Santa Sé",
   metropolitan_archdiocese: "Arquidiocese metropolitana",
   archdiocese: "Arquidiocese",
+  metropolitan_archeparchy: "Arquieparquia metropolitana",
+  archeparchy: "Arquieparquia",
   diocese: "Diocese",
   eparchy: "Eparquia",
   territorial_prelature: "Prelazia territorial",
@@ -211,6 +213,7 @@ function ecclesiasticalMarkerTier(
   if (point.canonical_type === "holy_see") return "holy-see";
   if (
     point.canonical_type === "metropolitan_archdiocese" ||
+    point.canonical_type === "metropolitan_archeparchy" ||
     point.canonical_type === "patriarchate" ||
     point.canonical_type === "major_archiepiscopal_church"
   ) {

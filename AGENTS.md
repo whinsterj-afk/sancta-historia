@@ -159,9 +159,12 @@ scripts/
   copy-maplibre-worker.mjs   # postinstall: copia o worker do maplibre-gl para public/
   audit-normalized-data.mjs  # auditoria dos dados normalizados no Supabase
   revise-catholic-language.mjs # revisão em lote da linguagem editorial católica
+  fetch-wikidata-archdioceses.mjs # coleta e audita o snapshot aberto de arquidioceses/arquieparquias
+  generate-archdiocese-migration.mjs # gera a migração idempotente a partir do snapshot
 
 supabase/
   migrations/              # migrações SQL (schema de trajetórias, políticas RLS, perfil/devoção)
+  data/                    # snapshots rastreáveis usados por migrações geradas
   inventory/               # snapshots de inventário antes/depois de migrações
 
 database/                  # scripts SQL históricos anteriores à normalização
@@ -227,6 +230,27 @@ existem no schema atual; o texto abaixo os substitui.
   selecionado. A migração
   `20260726213736_add_ecclesiastical_structure.sql` contém o modelo e
   um piloto rastreável de Santa Sé, Brasília e Formosa.
+- As migrações `20260726230811_import_global_archdioceses.sql` e
+  `20260726231807_sync_global_archdioceses.sql` promoveram 658
+  arquidioceses, arquieparquias e patriarcados territoriais ativos do
+  snapshot aberto de
+  26/07/2026: 543 arquidioceses metropolitanas, 45 arquidioceses não
+  metropolitanas, 38 arquieparquias metropolitanas, 29
+  arquieparquias e 3 patriarcados territoriais. Cada registro preserva
+  identificadores Wikidata,
+  Catholic-Hierarchy e GCatholic quando disponíveis em
+  `research.ecclesiastical_jurisdiction_identifiers`. As 658 sedes
+  estão publicadas no mapa; Brasília reutiliza a jurisdição e a
+  catedral já existentes, sem duplicá-las.
+- As coordenadas desse lote representam a sede ou a cidade da
+  circunscrição e têm `location_accuracy = 'approximate'`. Datas de
+  elevação só foram publicadas quando confirmadas por ato da Santa Sé;
+  nos demais registros o cadastro representa o estado atual e não deve
+  ser interpretado como uma reconstrução histórica completa. A
+  migração `20260726231015_fix_ecclesiastical_zoom_threshold.sql`
+  garante que os limiares decimais de zoom sejam inclusivos, e
+  `20260726231906_promote_patriarchate_zoom.sql` mantém patriarcados no
+  mesmo nível visual das estruturas metropolitanas.
 - `saint_search_catalog` — usada só para a busca do `TopBar`:
   `id`, `name`, `birth_year`, `death_year`, `short_description`.
 
@@ -248,6 +272,9 @@ publicados:
   deduplicação e promoção;
 - `research.ecclesiastical_import_rows` recebe circunscrições e locais
   brutos antes da validação e promoção.
+- `research.ecclesiastical_jurisdiction_identifiers` preserva os
+  identificadores externos das circunscrições promovidas e a fonte de
+  cada identificador.
 
 O schema não concede `USAGE` a `anon`, `authenticated` nem
 `service_role` e não deve ser acessado pelo frontend. RLS sem policies

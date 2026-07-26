@@ -97,6 +97,54 @@ atualizada prevista, mas exige assinatura. Não comprar acesso nem
 automatizar extração sem aprovação do usuário e verificação dos termos
 de uso.
 
+### Lote mundial de arquidioceses concluído
+
+O snapshot aberto de 26 de julho de 2026 foi promovido ao Supabase pelas
+migrações `20260726230811_import_global_archdioceses.sql` e
+`20260726231807_sync_global_archdioceses.sql`. Ele contém 658
+arquidioceses, equivalentes orientais e patriarcados territoriais
+ativos:
+
+| Tipo | Registros |
+| --- | ---: |
+| Arquidiocese metropolitana | 543 |
+| Arquidiocese não metropolitana | 45 |
+| Arquieparquia metropolitana | 38 |
+| Arquieparquia | 29 |
+| Patriarcado territorial | 3 |
+| **Total** | **658** |
+
+Distribuição usada para conferir a cobertura dos lotes: África 100,
+Américas 203, Ásia 152, Europa 188 e Oceania 15. As 658 linhas foram
+promovidas e possuem um local publicado; a linha de Brasília reutiliza
+a jurisdição e a catedral existentes.
+
+O conjunto-base vem do Wikidata Query Service sob CC0. Mudanças
+recentes que ainda estavam incompletas ou classificadas como dioceses
+no conjunto aberto foram verificadas por atos da Santa Sé, incluindo
+Santiago del Estero, Ndola, Joinville, Chapecó, Calicut, São José do
+Rio Preto, Berbérati e as arquieparquias metropolitanas siro-malabares
+de Faridabad, Kalyan, Shamshabad e Ujjain. A auditoria recursiva também
+inclui classes alternativas de arquidiocese e os patriarcados
+territoriais de Jerusalém, Lisboa e Veneza; patriarcados apenas
+titulares ou honoríficos e ordinariatos militares ficam excluídos.
+
+As coordenadas são aproximadas e representam a sede ou a cidade da
+circunscrição. O ano de criação original informado pelo Wikidata fica
+somente no payload de pesquisa; `erected_year` e `valid_from_year` são
+preenchidos apenas quando a elevação atual foi confirmada em ato
+oficial. Portanto, os demais pontos formam um cadastro mundial atual,
+não uma reconstrução completa das fronteiras e categorias em cada ano
+da linha do tempo.
+
+Para atualizar o lote, gere novamente o snapshot e a migração, revise
+o diff e só então aplique ao Supabase:
+
+```powershell
+node scripts/fetch-wikidata-archdioceses.mjs --output supabase/data/archdioceses-wikidata.json
+node scripts/generate-archdiocese-migration.mjs supabase/data/archdioceses-wikidata.json supabase/migrations/<timestamp>_import_global_archdioceses.sql
+```
+
 Cada registro bruto entra em
 `research.ecclesiastical_import_rows`. A promoção ocorre somente após:
 
@@ -118,6 +166,9 @@ massa; usar instância própria ou provedor com licença compatível.
 - Dicastério para o Culto Divino e a Disciplina dos Sacramentos;
 - *Catholic Church Statistics 2025*;
 - Annuario Pontificio Digital.
+- Wikidata Query Service — arquidioceses católicas (CC0);
+- boletins individuais da Santa Sé usados para confirmar elevações
+  recentes.
 
 `public.research_sources` guarda metadados da fonte. A citação de uma
 página ou documento específico deve usar a URL específica, não apenas
@@ -137,6 +188,16 @@ criam:
 - `research.saint_revision_draft_sources`;
 - `research.saint_candidates`;
 - `research.ecclesiastical_import_rows`.
+
+A migração `20260726230811_import_global_archdioceses.sql` acrescenta
+`research.ecclesiastical_jurisdiction_identifiers` e promove o primeiro
+lote mundial; `20260726231807_sync_global_archdioceses.sql` registra a
+auditoria recursiva final. A migração
+`20260726231015_fix_ecclesiastical_zoom_threshold.sql` corrige a
+comparação entre `real` e `double precision` para que pontos apareçam
+exatamente nos níveis de zoom configurados, e
+`20260726231906_promote_patriarchate_zoom.sql` posiciona os
+patriarcados no nível de zoom das estruturas metropolitanas.
 
 O schema `research` não é exposto ao Data API e não concede `USAGE` a
 `anon`, `authenticated` ou `service_role`. Não acessar essas tabelas
