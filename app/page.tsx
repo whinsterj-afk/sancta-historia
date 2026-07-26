@@ -41,6 +41,10 @@ type ContextTarget = { kind: "saint" | "event"; id: number };
 const SELECTED_YEAR_STORAGE_KEY = "sancta-historia:selected-year";
 const MAX_TIMEOUT_DELAY = 2_147_000_000;
 
+function clampTimelineYear(value: number, maxYear: number) {
+  return Math.min(Math.max(Math.trunc(value), MIN_YEAR), maxYear);
+}
+
 function normalizeSearchTerm(value: string) {
   return value
     .normalize("NFD")
@@ -99,16 +103,14 @@ export default function Home() {
 
     const restorePreference = window.setTimeout(() => {
       try {
-        const storedYear = Number(
-          window.localStorage.getItem(SELECTED_YEAR_STORAGE_KEY),
+        const storedValue = window.localStorage.getItem(
+          SELECTED_YEAR_STORAGE_KEY,
         );
+        const storedYear =
+          storedValue === null ? Number.NaN : Number(storedValue);
 
-        if (
-          Number.isInteger(storedYear) &&
-          storedYear >= MIN_YEAR &&
-          storedYear <= maxYear
-        ) {
-          setYear(storedYear);
+        if (Number.isInteger(storedYear)) {
+          setYear(clampTimelineYear(storedYear, maxYear));
         }
       } catch {
         // Storage can be unavailable in hardened/private browser contexts.
@@ -355,7 +357,7 @@ export default function Home() {
 
   function selectSuggestion(suggestion: SearchSuggestion) {
     setQuery(suggestion.title);
-    setYear(suggestion.year);
+    setYear(clampTimelineYear(suggestion.year, maxYear));
     if (suggestion.kind === "saint") {
       setSelectedSaintId(suggestion.id);
       setSelectedEventId(null);
@@ -420,7 +422,7 @@ export default function Home() {
             onSelect={(event) => {
               setSelectedEventId(event.id);
               setSelectedSaintId(null);
-              setYear(event.year);
+              setYear(clampTimelineYear(event.year, maxYear));
               setContextTarget({ kind: "event", id: event.id });
             }}
           />
@@ -450,7 +452,7 @@ export default function Home() {
             year={year}
             maxYear={maxYear}
             onChange={(nextYear) => {
-              setYear(nextYear);
+              setYear(clampTimelineYear(nextYear, maxYear));
               setSelectedEventId(null);
               setSelectedSaintId(null);
             }}

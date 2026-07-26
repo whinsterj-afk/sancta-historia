@@ -202,6 +202,13 @@ query contra elas.
 - Variáveis de ambiente (`.env.local`, ver `.env.example`):
   `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`,
   `NEXT_PUBLIC_MAPTILER_KEY`.
+- A linha do tempo navegável vai do marco `0` até o ano civil atual.
+  O marco `0` representa a transição a.C./d.C. e agrega no painel
+  lateral os fatos anteriores a Cristo por meio da consulta
+  `historical_events.year <= 0`; cada card preserva e formata seu ano
+  histórico real como `a.C.`. Seleções e preferências persistidas com
+  ano negativo são posicionadas no marco `0`, sem perder o contexto do
+  fato selecionado.
 - O ano selecionado na timeline é persistido em `localStorage`
   (`sancta-historia:selected-year`).
 

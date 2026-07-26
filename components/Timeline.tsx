@@ -3,8 +3,6 @@
 import {
   formatHistoricalPeriod,
   formatHistoricalYear,
-  historicalYearToScale,
-  scaleToHistoricalYear,
 } from "@/lib/historicalYear";
 import { ChevronLeftIcon, ChevronRightIcon, CrossIcon } from "./icons";
 
@@ -14,10 +12,7 @@ export interface Era {
 }
 
 export const ERAS: Era[] = [
-  { year: -753, label: "Roma antiga" },
-  { year: -586, label: "Exílio e Segundo Templo" },
-  { year: -332, label: "Mundo helenístico" },
-  { year: -63, label: "Judeia sob Roma" },
+  { year: 0, label: "Origens do Cristianismo" },
   { year: 33, label: "Igreja apostólica" },
   { year: 400, label: "Concílios e Padres" },
   { year: 1054, label: "Cisma do Oriente" },
@@ -25,7 +20,7 @@ export const ERAS: Era[] = [
   { year: 1917, label: "Aparições de Fátima" },
 ];
 
-export const MIN_YEAR = -753;
+export const MIN_YEAR = 0;
 export const BASE_MAX_YEAR = 2025;
 export const DEFAULT_YEAR = 1917;
 
@@ -38,9 +33,8 @@ function currentEra(year: number, eras: Era[]): Era {
 }
 
 function pct(year: number, maxYear: number) {
-  const min = historicalYearToScale(MIN_YEAR);
-  const max = historicalYearToScale(maxYear);
-  return ((historicalYearToScale(year) - min) / (max - min)) * 100;
+  const range = Math.max(maxYear - MIN_YEAR, 1);
+  return ((year - MIN_YEAR) / range) * 100;
 }
 
 export default function Timeline({
@@ -128,12 +122,10 @@ export default function Timeline({
 
           <input
             type="range"
-            min={historicalYearToScale(MIN_YEAR)}
-            max={historicalYearToScale(maxYear)}
-            value={historicalYearToScale(year)}
-            onChange={(evt) =>
-              onChange(scaleToHistoricalYear(Number(evt.target.value)))
-            }
+            min={MIN_YEAR}
+            max={maxYear}
+            value={year}
+            onChange={(evt) => onChange(Number(evt.target.value))}
             aria-label="Ano selecionado"
             aria-valuetext={`${formatHistoricalYear(year)}, ${era.label}`}
             className="timeline-range"
