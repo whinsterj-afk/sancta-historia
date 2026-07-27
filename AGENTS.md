@@ -167,6 +167,11 @@ supabase/
   data/                    # snapshots rastreáveis usados por migrações geradas
   inventory/               # snapshots de inventário antes/depois de migrações
 
+docs/
+  DATA_RESEARCH.md         # processo de coleta, revisão, fontes e promoção de conteúdo
+  PROJECT_AUDIT.md         # auditoria técnica ampla do Codex, realizada em 2026-07-26
+  AUDIT_COMPARISON.md      # síntese crítica entre as auditorias do Codex e do Claude Code
+
 database/                  # scripts SQL históricos anteriores à normalização
 ```
 
@@ -354,7 +359,8 @@ Adicionada em `supabase/migrations/20260726220000_add_user_profiles_and_devotion
 
 ## Dados e configuração
 
-- Variáveis de ambiente (`.env.local`, ver `.env.example`):
+- Variáveis de ambiente (`.env.local`; ainda não existe `.env.example` no
+  repositório, portanto preserve a lista abaixo neste documento):
   `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`,
   `NEXT_PUBLIC_MAPTILER_KEY`.
 - A linha do tempo navegável vai do marco `0` até o ano civil atual.
@@ -463,13 +469,15 @@ O que confirmar antes de agir:
   elemento novo renderizado dentro do `TopBar` (modais, popovers)
   precisa herdar `pointer-events: auto` explicitamente ou ficará
   visível porém inerte a cliques.
-- A migração `20260726220000_add_user_profiles_and_devotion.sql`
-  (perfil/devoção) foi escrita seguindo as convenções do schema, mas
-  **não foi aplicada nem validada contra o projeto Supabase real** —
-  não havia CLI do Supabase instalada nem acesso autenticado ao MCP do
-  Supabase nesta sessão. Antes de assumir que `profiles` ou
-  `saint_devotee_counts` existem no banco de produção, confirme
-  rodando a migração e, se possível, `supabase db advisors`.
+- `profiles`, `saint_devotee_counts`, o bucket `avatars` e
+  `profiles.favorite_parish_id` existem no projeto Supabase ao vivo e
+  foram inspecionados em modo somente leitura em 26/07/2026. Entretanto,
+  o histórico remoto retornou 14 migrações enquanto o repositório tinha
+  20 arquivos SQL; as versões de perfil/paróquia não aparecem com os
+  mesmos nomes no registro remoto. Antes de aplicar a próxima mudança
+  estrutural, reconcilie a cadeia local/remota para garantir que um
+  ambiente novo possa ser reconstruído. Evidências e consulta estão em
+  `docs/PROJECT_AUDIT.md`.
 - Login com Google depende de configuração externa que não está neste
   repositório: credenciais OAuth criadas no Google Cloud Console,
   cadastradas no Supabase Dashboard (Authentication → Providers). Sem
