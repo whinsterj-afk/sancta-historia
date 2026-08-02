@@ -238,7 +238,10 @@ existem no schema atual; o texto abaixo os substitui.
 - `parish_search_catalog` — view pública `security_invoker` para busca
   normalizada de paróquias por nome, cidade, estado ou país. Reutiliza
   `normalize_catalog_text`, respeita o RLS das tabelas-base e alimenta o
-  seletor de paróquia em `ProfileModal.tsx`.
+  seletor de paróquia em `ProfileModal.tsx` e a busca do `TopBar`. Também
+  expõe as coordenadas e o intervalo de exibição do local principal para
+  que a seleção centralize o mapa no zoom local e preserve o ano quando
+  possível.
 - As migrações `20260726230811_import_global_archdioceses.sql` e
   `20260726231807_sync_global_archdioceses.sql` promoveram 658
   arquidioceses, arquieparquias e patriarcados territoriais ativos do

@@ -10,8 +10,8 @@ import { BookIcon, ChevronLeftIcon, MedalIcon } from "./icons";
 export interface SaintContextDetail {
   id: number;
   name: string;
-  birth_year: number;
-  death_year: number;
+  birth_year: number | null;
+  death_year: number | null;
   birth_place: string | null;
   death_place: string | null;
   short_description: string | null;

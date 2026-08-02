@@ -149,6 +149,12 @@ export interface SaintLocation {
   name: string;
 }
 
+export interface MapFocusTarget {
+  id: number;
+  latitude: number;
+  longitude: number;
+}
+
 export type MapLandmarkKind =
   | "important_city"
   | "episcopal_see"
@@ -232,6 +238,22 @@ function ecclesiasticalMarkerTier(
   return "diocese";
 }
 
+// Falhas de rede chegam como Error, cujos name e message não são
+// enumeráveis: console.error as imprime como "{}" e esconde a causa real —
+// projeto pausado, offline ou consulta cancelada. Erros do PostgREST, ao
+// contrário, são objetos comuns com message/code/details/hint.
+function describeQueryError(error: unknown): string {
+  if (error instanceof Error) {
+    return `${error.name}: ${error.message}`;
+  }
+  if (error && typeof error === "object") {
+    const { message, code, details, hint } = error as Record<string, unknown>;
+    const parts = [message, code, details, hint].filter(Boolean);
+    if (parts.length > 0) return parts.join(" · ");
+  }
+  return String(error);
+}
+
 export default function SaintsMap({
   saints,
   landmarks = [],
@@ -242,6 +264,7 @@ export default function SaintsMap({
   timelineLocations,
   routeLocations,
   contextOpen,
+  focusTarget,
 }: {
   saints: SaintLocation[];
   landmarks?: MapLandmark[];
@@ -252,6 +275,7 @@ export default function SaintsMap({
   timelineLocations?: RouteLocation[];
   routeLocations?: RouteLocation[];
   contextOpen: boolean;
+  focusTarget?: MapFocusTarget | null;
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<MapLibreMap | null>(null);
@@ -389,10 +413,11 @@ export default function SaintsMap({
       });
 
     refitMapRef.current = refitSaints;
+    if (focusTarget) return;
     refitSaints(
       window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 1000,
     );
-  }, [contextOpen, onSelectSaint, saints, timelineLocations]);
+  }, [contextOpen, focusTarget, onSelectSaint, saints, timelineLocations]);
 
   useEffect(() => {
     const activeId = previewSaintId ?? selectedSaintId;
@@ -418,6 +443,44 @@ export default function SaintsMap({
       duration: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 650,
     });
   }, [previewSaintId, selectedSaintId]);
+
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map || !focusTarget) return;
+
+    const latitude = Number(focusTarget.latitude);
+    const longitude = Number(focusTarget.longitude);
+    if (
+      !Number.isFinite(latitude) ||
+      !Number.isFinite(longitude) ||
+      latitude < -90 ||
+      latitude > 90 ||
+      longitude < -180 ||
+      longitude > 180
+    ) {
+      return;
+    }
+
+    const focus = () => {
+      map.easeTo({
+        center: [longitude, latitude],
+        zoom: Math.max(map.getZoom(), 11.2),
+        duration: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+          ? 0
+          : 800,
+      });
+    };
+
+    if (map.isStyleLoaded()) {
+      focus();
+    } else {
+      map.once("load", focus);
+    }
+
+    return () => {
+      map.off("load", focus);
+    };
+  }, [focusTarget]);
 
   useEffect(() => {
     const map = mapRef.current;
@@ -507,6 +570,9 @@ export default function SaintsMap({
 
     let disposed = false;
     let latestRequest = 0;
+    // Sem isto, uma consulta em voo sobrevive à troca de ano ou ao recarregar
+    // e só falha depois, sem ninguém para tratá-la.
+    const inFlight = new AbortController();
 
     function clearEcclesiasticalMarkers() {
       ecclesiasticalMarkersRef.current.forEach((marker) => marker.remove());
@@ -522,21 +588,25 @@ export default function SaintsMap({
       const activeMap = mapRef.current;
       const bounds = activeMap.getBounds();
       const requestId = ++latestRequest;
-      const { data, error } = await supabase.rpc(
-        "ecclesiastical_points_in_view",
-        {
+      const { data, error } = await supabase
+        .rpc("ecclesiastical_points_in_view", {
           min_long: Math.max(-180, bounds.getWest()),
           min_lat: Math.max(-90, bounds.getSouth()),
           max_long: Math.min(180, bounds.getEast()),
           max_lat: Math.min(90, bounds.getNorth()),
           map_zoom: activeMap.getZoom(),
           selected_year: selectedYear,
-        },
-      );
+        })
+        .abortSignal(inFlight.signal);
 
       if (disposed || requestId !== latestRequest) return;
       if (error) {
-        console.error("Falha ao carregar a estrutura eclesiástica:", error);
+        // Cancelar a consulta é o comportamento esperado, não uma falha.
+        if (inFlight.signal.aborted) return;
+        console.error(
+          "Falha ao carregar a estrutura eclesiástica:",
+          describeQueryError(error),
+        );
         return;
       }
 
@@ -619,6 +689,7 @@ export default function SaintsMap({
 
     return () => {
       disposed = true;
+      inFlight.abort();
       map.off("load", startLoading);
       map.off("moveend", startLoading);
       clearEcclesiasticalMarkers();

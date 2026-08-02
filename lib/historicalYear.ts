@@ -25,9 +25,15 @@ export function formatHistoricalPeriod(
 }
 
 export function formatLifeSpan(
-  birthYear: number,
+  birthYear: number | null,
   deathYear: number | null,
 ) {
+  if (birthYear === null && deathYear === null) {
+    return "datas desconhecidas";
+  }
+  if (birthYear === null) {
+    return `data desconhecida–${formatHistoricalYear(deathYear!)}`;
+  }
   if (deathYear === null) {
     return `${formatHistoricalYear(birthYear)}–data desconhecida`;
   }

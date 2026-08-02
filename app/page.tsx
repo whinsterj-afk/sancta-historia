@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
 import SaintsMap, {
+  type MapFocusTarget,
   type MapLandmark,
   type SaintLocation,
 } from "@/components/SaintsMap";
@@ -17,6 +18,7 @@ import SaintsPanel, { SaintSummary } from "@/components/SaintsPanel";
 import MapContextPanel, {
   MapContext,
   RouteLocation,
+  type SaintContextDetail,
 } from "@/components/MapContextPanel";
 import {
   applyEventEditorial,
@@ -30,7 +32,11 @@ import {
 import { normalizeSearchTerm } from "@/lib/searchText";
 import styles from "./page.module.css";
 
-type Saint = SaintLocation & SaintSummary;
+type Saint = SaintLocation &
+  SaintSummary & {
+    display_start_year: number;
+    display_end_year: number;
+  } & SaintContextDetail;
 
 interface Pope {
   id: number;
@@ -63,6 +69,8 @@ export default function Home() {
   const [selectedSaintId, setSelectedSaintId] = useState<number | null>(null);
   const [previewSaintId, setPreviewSaintId] = useState<number | null>(null);
   const [selectedEventId, setSelectedEventId] = useState<number | null>(null);
+  const [mapFocusTarget, setMapFocusTarget] =
+    useState<MapFocusTarget | null>(null);
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState<SearchSuggestion[]>([]);
   const [searching, setSearching] = useState(false);
@@ -143,12 +151,15 @@ export default function Home() {
         landmarksResult,
       ] =
         await Promise.all([
+          // display_* cobrem os santos sem ano confirmado; filtrar por
+          // birth_year/death_year descartava 15 deles, entre eles Nossa
+          // Senhora e São José, porque null nunca satisfaz a comparação.
           supabase
             .from("saints_catalog")
             .select("*")
-            .lte("birth_year", year)
-            .gte("death_year", year)
-            .order("birth_year"),
+            .lte("display_start_year", year)
+            .gte("display_end_year", year)
+            .order("display_start_year"),
           supabase
             .from("popes")
             .select("*")
@@ -218,7 +229,7 @@ export default function Home() {
       setSearching(true);
       const normalizedTerm = normalizeSearchTerm(term);
 
-      const [saintsResult, eventsResult] = await Promise.all([
+      const [saintsResult, eventsResult, parishesResult] = await Promise.all([
         supabase
           .from("saint_search_catalog")
           .select("id,name,birth_year,death_year,short_description")
@@ -231,6 +242,14 @@ export default function Home() {
           .ilike("title", `%${term}%`)
           .order("year", { ascending: false })
           .limit(4),
+        supabase
+          .from("parish_search_catalog")
+          .select(
+            "id,name,locality,admin_area,country_code,latitude,longitude,display_start_year,display_end_year",
+          )
+          .ilike("search_text", `%${normalizedTerm}%`)
+          .order("name")
+          .limit(5),
       ]);
 
       if (!active) return;
@@ -238,6 +257,9 @@ export default function Home() {
       const saintSuggestions: SearchSuggestion[] = (saintsResult.data ?? []).map(
         (record) => {
           const saint = applySaintEditorial(record);
+          const startYear =
+            saint.birth_year ?? saint.death_year ?? year;
+          const endYear = saint.death_year ?? saint.birth_year ?? year;
           return {
           id: saint.id,
           kind: "saint",
@@ -248,7 +270,7 @@ export default function Home() {
           )}${
             saint.short_description ? ` · ${saint.short_description}` : ""
           }`,
-          year: Math.min(Math.max(year, saint.birth_year), saint.death_year),
+          year: Math.min(Math.max(year, startYear), endYear),
           };
         },
       );
@@ -267,7 +289,38 @@ export default function Home() {
         },
       );
 
-      setSuggestions([...saintSuggestions, ...eventSuggestions]);
+      const parishSuggestions: SearchSuggestion[] = (
+        parishesResult.data ?? []
+      ).flatMap((record) => {
+        const latitude = Number(record.latitude);
+        const longitude = Number(record.longitude);
+        if (!Number.isFinite(latitude) || !Number.isFinite(longitude)) {
+          return [];
+        }
+
+        const startYear = record.display_start_year ?? MIN_YEAR;
+        const endYear = record.display_end_year ?? maxYear;
+
+        return [
+          {
+            id: record.id,
+            kind: "parish" as const,
+            title: record.name,
+            subtitle:
+              [record.locality, record.admin_area].filter(Boolean).join(" · ") ||
+              record.country_code,
+            year: Math.min(Math.max(year, startYear), endYear),
+            latitude,
+            longitude,
+          },
+        ];
+      });
+
+      setSuggestions([
+        ...saintSuggestions,
+        ...eventSuggestions,
+        ...parishSuggestions,
+      ]);
       setSearching(false);
     }, 250);
 
@@ -275,9 +328,10 @@ export default function Home() {
       active = false;
       window.clearTimeout(timer);
     };
-  }, [query, year]);
+  }, [maxYear, query, year]);
 
   const selectSaint = useCallback((saintId: number) => {
+    setMapFocusTarget(null);
     setSelectedSaintId(saintId);
     setSelectedEventId(null);
     setContextTarget({ kind: "saint", id: saintId });
@@ -327,7 +381,9 @@ export default function Home() {
         return;
       }
 
-      const saint = applySaintEditorial(saintResult.data);
+      const saint = applySaintEditorial(saintResult.data) as Saint;
+      const saintStartYear = saint.birth_year ?? saint.display_start_year;
+      const saintEndYear = saint.death_year ?? saint.display_end_year;
       const [locationsResult, eventsResult] = await Promise.all([
         supabase
           .from("timeline_saint_points")
@@ -338,8 +394,8 @@ export default function Home() {
         supabase
           .from("historical_events")
           .select("*")
-          .gte("year", saint.birth_year)
-          .lte("year", saint.death_year)
+          .gte("year", saintStartYear)
+          .lte("year", saintEndYear)
           .order("year")
           .limit(8),
       ]);
@@ -370,13 +426,30 @@ export default function Home() {
     setQuery(suggestion.title);
     setYear(clampTimelineYear(suggestion.year, maxYear));
     if (suggestion.kind === "saint") {
+      setMapFocusTarget(null);
       setSelectedSaintId(suggestion.id);
       setSelectedEventId(null);
       setContextTarget({ kind: "saint", id: suggestion.id });
-    } else {
+    } else if (suggestion.kind === "event") {
+      setMapFocusTarget(null);
       setSelectedEventId(suggestion.id);
       setSelectedSaintId(null);
       setContextTarget({ kind: "event", id: suggestion.id });
+    } else if (
+      suggestion.latitude !== undefined &&
+      suggestion.longitude !== undefined
+    ) {
+      setSelectedEventId(null);
+      setSelectedSaintId(null);
+      setPreviewSaintId(null);
+      setContextTarget(null);
+      setMapContext(null);
+      setContextError(null);
+      setMapFocusTarget({
+        id: suggestion.id,
+        latitude: suggestion.latitude,
+        longitude: suggestion.longitude,
+      });
     }
   }
 
@@ -405,6 +478,7 @@ export default function Home() {
         timelineLocations={timelineLocations}
         routeLocations={routeLocations}
         contextOpen={contextOpen}
+        focusTarget={mapFocusTarget}
       />
       <div className={styles.goldWash} aria-hidden="true" />
 
@@ -433,6 +507,7 @@ export default function Home() {
             events={events}
             selectedEventId={selectedEventId}
             onSelect={(event) => {
+              setMapFocusTarget(null);
               setSelectedEventId(event.id);
               setSelectedSaintId(null);
               setYear(clampTimelineYear(event.year, maxYear));
@@ -465,6 +540,7 @@ export default function Home() {
             year={year}
             maxYear={maxYear}
             onChange={(nextYear) => {
+              setMapFocusTarget(null);
               setYear(clampTimelineYear(nextYear, maxYear));
               setSelectedEventId(null);
               setSelectedSaintId(null);

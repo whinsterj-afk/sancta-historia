@@ -10,10 +10,12 @@ import { useSupabaseSession } from "@/lib/useSupabaseSession";
 
 export interface SearchSuggestion {
   id: number;
-  kind: "saint" | "event";
+  kind: "saint" | "event" | "parish";
   title: string;
   subtitle: string;
   year: number;
+  latitude?: number;
+  longitude?: number;
 }
 
 export default function TopBar({
@@ -100,12 +102,12 @@ export default function TopBar({
         <label className="hero-search">
           <SearchIcon className="h-5 w-5 shrink-0" />
           <input
-            aria-label="Buscar santo ou evento"
+            aria-label="Buscar santo, evento ou paróquia"
             role="combobox"
             aria-expanded={searchOpen}
             aria-controls="historical-search-results"
             autoComplete="off"
-            placeholder="Buscar santo ou evento"
+            placeholder="Buscar santo, evento ou paróquia"
             value={query}
             onChange={(event) => {
               onQueryChange(event.target.value);
@@ -143,7 +145,11 @@ export default function TopBar({
                 }}
               >
                 <span className="search-result-type">
-                  {suggestion.kind === "saint" ? "Santo" : "Evento"}
+                  {suggestion.kind === "saint"
+                    ? "Santo"
+                    : suggestion.kind === "event"
+                      ? "Evento"
+                      : "Paróquia"}
                 </span>
                 <span className="search-result-copy">
                   <strong>{suggestion.title}</strong>
