@@ -1,0 +1,1682 @@
+[
+  {
+    "jurisdiction": {
+      "slug": "paroquia-catedral-nossa-senhora-da-boa-viagem-0",
+      "name": "Catedral Nossa Senhora da Boa Viagem",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1709,
+      "description": "Paróquia Catedral Nossa Senhora da Boa Viagem localizada em Belo Horizonte, estado de Minas Gerais.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-catedral-nossa-senhora-da-boa-viagem-0",
+      "name": "Catedral Nossa Senhora da Boa Viagem",
+      "site_type": "cathedral",
+      "address": "R. Sergipe, 175 - Funcionários",
+      "locality": "Belo Horizonte",
+      "admin_area": "Minas Gerais",
+      "country_code": "BR",
+      "longitude": -43.9351,
+      "latitude": -19.9272,
+      "min_zoom": 10,
+      "display_rank": 3,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-santuario-basilica-de-nossa-senhora-da-piedade-1",
+      "name": "Santuário Basílica de Nossa Senhora da Piedade",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1767,
+      "description": "Paróquia Santuário Basílica de Nossa Senhora da Piedade localizada em Caeté, estado de Minas Gerais.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-santuario-basilica-de-nossa-senhora-da-piedade-1",
+      "name": "Santuário Basílica de Nossa Senhora da Piedade",
+      "site_type": "shrine",
+      "address": "Serra da Piedade, s/n",
+      "locality": "Caeté",
+      "admin_area": "Minas Gerais",
+      "country_code": "BR",
+      "longitude": -43.6765,
+      "latitude": -19.8211,
+      "min_zoom": 10,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-sao-jose-centro-bh-2",
+      "name": "Paróquia São José (Centro BH)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1900,
+      "description": "Paróquia Paróquia São José (Centro BH) localizada em Belo Horizonte, estado de Minas Gerais.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-sao-jose-centro-bh-2",
+      "name": "Paróquia São José (Centro BH)",
+      "site_type": "parish_church",
+      "address": "R. dos Tudilhes, 520 - Centro",
+      "locality": "Belo Horizonte",
+      "admin_area": "Minas Gerais",
+      "country_code": "BR",
+      "longitude": -43.9372,
+      "latitude": -19.919,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-nossa-senhora-do-carmo-savassi-3",
+      "name": "Paróquia Nossa Senhora do Carmo (Savassi)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1940,
+      "description": "Paróquia Paróquia Nossa Senhora do Carmo (Savassi) localizada em Belo Horizonte, estado de Minas Gerais.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-nossa-senhora-do-carmo-savassi-3",
+      "name": "Paróquia Nossa Senhora do Carmo (Savassi)",
+      "site_type": "parish_church",
+      "address": "R. Grão Mogol, 502 - Carmo",
+      "locality": "Belo Horizonte",
+      "admin_area": "Minas Gerais",
+      "country_code": "BR",
+      "longitude": -43.9358,
+      "latitude": -19.9395,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-basilica-de-nossa-senhora-de-lourdes-4",
+      "name": "Basílica de Nossa Senhora de Lourdes",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1923,
+      "description": "Paróquia Basílica de Nossa Senhora de Lourdes localizada em Belo Horizonte, estado de Minas Gerais.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-basilica-de-nossa-senhora-de-lourdes-4",
+      "name": "Basílica de Nossa Senhora de Lourdes",
+      "site_type": "shrine",
+      "address": "R. da Bahia, 1596 - Lourdes",
+      "locality": "Belo Horizonte",
+      "admin_area": "Minas Gerais",
+      "country_code": "BR",
+      "longitude": -43.9412,
+      "latitude": -19.9288,
+      "min_zoom": 10,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-santuario-de-sao-judas-tadeu-5",
+      "name": "Santuário de São Judas Tadeu",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1954,
+      "description": "Paróquia Santuário de São Judas Tadeu localizada em Belo Horizonte, estado de Minas Gerais.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-santuario-de-sao-judas-tadeu-5",
+      "name": "Santuário de São Judas Tadeu",
+      "site_type": "shrine",
+      "address": "R. Restinga, 240 - Graça",
+      "locality": "Belo Horizonte",
+      "admin_area": "Minas Gerais",
+      "country_code": "BR",
+      "longitude": -43.9288,
+      "latitude": -19.9052,
+      "min_zoom": 10,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-santuario-de-saude-e-paz-beato-padre-eustaquio-6",
+      "name": "Santuário de Saúde e Paz (Beato Padre Eustáquio)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1943,
+      "description": "Paróquia Santuário de Saúde e Paz (Beato Padre Eustáquio) localizada em Belo Horizonte, estado de Minas Gerais.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-santuario-de-saude-e-paz-beato-padre-eustaquio-6",
+      "name": "Santuário de Saúde e Paz (Beato Padre Eustáquio)",
+      "site_type": "shrine",
+      "address": "R. Padre Eustáquio, 2400",
+      "locality": "Belo Horizonte",
+      "admin_area": "Minas Gerais",
+      "country_code": "BR",
+      "longitude": -43.9712,
+      "latitude": -19.9145,
+      "min_zoom": 10,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-sao-francisco-de-assis-pampulha-7",
+      "name": "Paróquia São Francisco de Assis (Pampulha)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1943,
+      "description": "Paróquia Paróquia São Francisco de Assis (Pampulha) localizada em Belo Horizonte, estado de Minas Gerais.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-sao-francisco-de-assis-pampulha-7",
+      "name": "Paróquia São Francisco de Assis (Pampulha)",
+      "site_type": "shrine",
+      "address": "Av. Otacílio Negrão de Lima, 3000 - Pampulha",
+      "locality": "Belo Horizonte",
+      "admin_area": "Minas Gerais",
+      "country_code": "BR",
+      "longitude": -43.9785,
+      "latitude": -19.8582,
+      "min_zoom": 10,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-nossa-senhora-da-consolacao-e-correia-santo-agostinho-8",
+      "name": "Paróquia Nossa Senhora da Consolacão e Correia (Santo Agostinho)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1952,
+      "description": "Paróquia Paróquia Nossa Senhora da Consolacão e Correia (Santo Agostinho) localizada em Belo Horizonte, estado de Minas Gerais.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-nossa-senhora-da-consolacao-e-correia-santo-agostinho-8",
+      "name": "Paróquia Nossa Senhora da Consolacão e Correia (Santo Agostinho)",
+      "site_type": "parish_church",
+      "address": "R. Manaus, 120 - Santo Agostinho",
+      "locality": "Belo Horizonte",
+      "admin_area": "Minas Gerais",
+      "country_code": "BR",
+      "longitude": -43.9512,
+      "latitude": -19.9285,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-santa-teresinha-sion-9",
+      "name": "Paróquia Santa Teresinha (Sion)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1938,
+      "description": "Paróquia Paróquia Santa Teresinha (Sion) localizada em Belo Horizonte, estado de Minas Gerais.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-santa-teresinha-sion-9",
+      "name": "Paróquia Santa Teresinha (Sion)",
+      "site_type": "parish_church",
+      "address": "Praça Santa Teresinha, 45 - Sion",
+      "locality": "Belo Horizonte",
+      "admin_area": "Minas Gerais",
+      "country_code": "BR",
+      "longitude": -43.9285,
+      "latitude": -19.9512,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-nossa-senhora-das-dores-floresta-10",
+      "name": "Paróquia Nossa Senhora das Dores (Floresta)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1925,
+      "description": "Paróquia Paróquia Nossa Senhora das Dores (Floresta) localizada em Belo Horizonte, estado de Minas Gerais.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-nossa-senhora-das-dores-floresta-10",
+      "name": "Paróquia Nossa Senhora das Dores (Floresta)",
+      "site_type": "parish_church",
+      "address": "R. Silva Jardim, 100 - Floresta",
+      "locality": "Belo Horizonte",
+      "admin_area": "Minas Gerais",
+      "country_code": "BR",
+      "longitude": -43.9242,
+      "latitude": -19.9112,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-santo-antonio-gutierrez-11",
+      "name": "Paróquia Santo Antônio (Gutierrez)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1960,
+      "description": "Paróquia Paróquia Santo Antônio (Gutierrez) localizada em Belo Horizonte, estado de Minas Gerais.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-santo-antonio-gutierrez-11",
+      "name": "Paróquia Santo Antônio (Gutierrez)",
+      "site_type": "parish_church",
+      "address": "Av. do Contorno, 6735 - Gutierrez",
+      "locality": "Belo Horizonte",
+      "admin_area": "Minas Gerais",
+      "country_code": "BR",
+      "longitude": -43.9582,
+      "latitude": -19.9382,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-nossa-senhora-de-goncalo-contagem-12",
+      "name": "Paróquia Nossa Senhora de Gonçalo (Contagem)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1725,
+      "description": "Paróquia Paróquia Nossa Senhora de Gonçalo (Contagem) localizada em Contagem, estado de Minas Gerais.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-nossa-senhora-de-goncalo-contagem-12",
+      "name": "Paróquia Nossa Senhora de Gonçalo (Contagem)",
+      "site_type": "parish_church",
+      "address": "Praça Silviano Brandão - Centro",
+      "locality": "Contagem",
+      "admin_area": "Minas Gerais",
+      "country_code": "BR",
+      "longitude": -44.0535,
+      "latitude": -19.9328,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-cristo-luz-dos-povos-contagem-13",
+      "name": "Paróquia Cristo Luz dos Povos (Contagem)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1980,
+      "description": "Paróquia Paróquia Cristo Luz dos Povos (Contagem) localizada em Contagem, estado de Minas Gerais.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-cristo-luz-dos-povos-contagem-13",
+      "name": "Paróquia Cristo Luz dos Povos (Contagem)",
+      "site_type": "parish_church",
+      "address": "R. do Registro - Eldorado",
+      "locality": "Contagem",
+      "admin_area": "Minas Gerais",
+      "country_code": "BR",
+      "longitude": -44.0812,
+      "latitude": -19.9452,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-nossa-senhora-do-carmo-betim-14",
+      "name": "Paróquia Nossa Senhora do Carmo (Betim)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1711,
+      "description": "Paróquia Paróquia Nossa Senhora do Carmo (Betim) localizada em Betim, estado de Minas Gerais.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-nossa-senhora-do-carmo-betim-14",
+      "name": "Paróquia Nossa Senhora do Carmo (Betim)",
+      "site_type": "parish_church",
+      "address": "Praça N. Sra. do Carmo - Centro",
+      "locality": "Betim",
+      "admin_area": "Minas Gerais",
+      "country_code": "BR",
+      "longitude": -44.1985,
+      "latitude": -19.9678,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-nossa-senhora-da-conceicao-sabara-15",
+      "name": "Paróquia Nossa Senhora da Conceição (Sabará)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1701,
+      "description": "Paróquia Paróquia Nossa Senhora da Conceição (Sabará) localizada em Sabará, estado de Minas Gerais.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-nossa-senhora-da-conceicao-sabara-15",
+      "name": "Paróquia Nossa Senhora da Conceição (Sabará)",
+      "site_type": "parish_church",
+      "address": "Praça Getúlio Vargas - Centro",
+      "locality": "Sabará",
+      "admin_area": "Minas Gerais",
+      "country_code": "BR",
+      "longitude": -43.8055,
+      "latitude": -19.8912,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-o-de-sabara-nossa-senhora-do-o-16",
+      "name": "Paróquia Ó de Sabará (Nossa Senhora do Ó)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1717,
+      "description": "Paróquia Paróquia Ó de Sabará (Nossa Senhora do Ó) localizada em Sabará, estado de Minas Gerais.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-o-de-sabara-nossa-senhora-do-o-16",
+      "name": "Paróquia Ó de Sabará (Nossa Senhora do Ó)",
+      "site_type": "shrine",
+      "address": "Largo do Ó - Sabará",
+      "locality": "Sabará",
+      "admin_area": "Minas Gerais",
+      "country_code": "BR",
+      "longitude": -43.8112,
+      "latitude": -19.8885,
+      "min_zoom": 10,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-santa-luzia-santa-luzia-17",
+      "name": "Paróquia Santa Luzia (Santa Luzia)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1744,
+      "description": "Paróquia Paróquia Santa Luzia (Santa Luzia) localizada em Santa Luzia, estado de Minas Gerais.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-santa-luzia-santa-luzia-17",
+      "name": "Paróquia Santa Luzia (Santa Luzia)",
+      "site_type": "parish_church",
+      "address": "R. Direita - Centro Histórico",
+      "locality": "Santa Luzia",
+      "admin_area": "Minas Gerais",
+      "country_code": "BR",
+      "longitude": -43.8512,
+      "latitude": -19.7682,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-santo-antonio-nova-lima-18",
+      "name": "Paróquia Santo Antônio (Nova Lima)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1748,
+      "description": "Paróquia Paróquia Santo Antônio (Nova Lima) localizada em Nova Lima, estado de Minas Gerais.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-santo-antonio-nova-lima-18",
+      "name": "Paróquia Santo Antônio (Nova Lima)",
+      "site_type": "parish_church",
+      "address": "Praça Bernardino de Lima - Centro",
+      "locality": "Nova Lima",
+      "admin_area": "Minas Gerais",
+      "country_code": "BR",
+      "longitude": -43.8482,
+      "latitude": -19.9852,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-nossa-senhora-da-conceicao-pedro-leopoldo-19",
+      "name": "Paróquia Nossa Senhora da Conceição (Pedro Leopoldo)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1920,
+      "description": "Paróquia Paróquia Nossa Senhora da Conceição (Pedro Leopoldo) localizada em Pedro Leopoldo, estado de Minas Gerais.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-nossa-senhora-da-conceicao-pedro-leopoldo-19",
+      "name": "Paróquia Nossa Senhora da Conceição (Pedro Leopoldo)",
+      "site_type": "parish_church",
+      "address": "Praça Chico Xavier - Centro",
+      "locality": "Pedro Leopoldo",
+      "admin_area": "Minas Gerais",
+      "country_code": "BR",
+      "longitude": -44.0412,
+      "latitude": -19.6182,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-catedral-de-santo-antonio-sete-lagoas-20",
+      "name": "Catedral de Santo Antônio (Sete Lagoas)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1841,
+      "description": "Paróquia Catedral de Santo Antônio (Sete Lagoas) localizada em Sete Lagoas, estado de Minas Gerais.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-catedral-de-santo-antonio-sete-lagoas-20",
+      "name": "Catedral de Santo Antônio (Sete Lagoas)",
+      "site_type": "cathedral",
+      "address": "Praça Barão do Rio Branco - Centro",
+      "locality": "Sete Lagoas",
+      "admin_area": "Minas Gerais",
+      "country_code": "BR",
+      "longitude": -44.2452,
+      "latitude": -19.4612,
+      "min_zoom": 10,
+      "display_rank": 3,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-catedral-basilica-da-se-de-mariana-21",
+      "name": "Catedral Basílica da Sé de Mariana",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1704,
+      "description": "Paróquia Catedral Basílica da Sé de Mariana localizada em Mariana, estado de Minas Gerais.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-catedral-basilica-da-se-de-mariana-21",
+      "name": "Catedral Basílica da Sé de Mariana",
+      "site_type": "cathedral",
+      "address": "Praça Cláudio Manoel - Centro",
+      "locality": "Mariana",
+      "admin_area": "Minas Gerais",
+      "country_code": "BR",
+      "longitude": -43.4162,
+      "latitude": -20.3782,
+      "min_zoom": 10,
+      "display_rank": 3,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-basilica-de-nossa-senhora-do-pilar-ouro-preto-22",
+      "name": "Basílica de Nossa Senhora do Pilar (Ouro Preto)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1696,
+      "description": "Paróquia Basílica de Nossa Senhora do Pilar (Ouro Preto) localizada em Ouro Preto, estado de Minas Gerais.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-basilica-de-nossa-senhora-do-pilar-ouro-preto-22",
+      "name": "Basílica de Nossa Senhora do Pilar (Ouro Preto)",
+      "site_type": "shrine",
+      "address": "Praça Mons. João Castilho - Pilar",
+      "locality": "Ouro Preto",
+      "admin_area": "Minas Gerais",
+      "country_code": "BR",
+      "longitude": -43.5085,
+      "latitude": -20.3855,
+      "min_zoom": 10,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-igreja-de-sao-francisco-de-assis-ouro-preto-23",
+      "name": "Igreja de São Francisco de Assis (Ouro Preto)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1766,
+      "description": "Paróquia Igreja de São Francisco de Assis (Ouro Preto) localizada em Ouro Preto, estado de Minas Gerais.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-igreja-de-sao-francisco-de-assis-ouro-preto-23",
+      "name": "Igreja de São Francisco de Assis (Ouro Preto)",
+      "site_type": "parish_church",
+      "address": "Largo de Coimbra - Centro",
+      "locality": "Ouro Preto",
+      "admin_area": "Minas Gerais",
+      "country_code": "BR",
+      "longitude": -43.5028,
+      "latitude": -20.3868,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-nossa-senhora-da-conceicao-de-antonio-dias-24",
+      "name": "Paróquia Nossa Senhora da Conceição de Antônio Dias",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1699,
+      "description": "Paróquia Paróquia Nossa Senhora da Conceição de Antônio Dias localizada em Ouro Preto, estado de Minas Gerais.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-nossa-senhora-da-conceicao-de-antonio-dias-24",
+      "name": "Paróquia Nossa Senhora da Conceição de Antônio Dias",
+      "site_type": "parish_church",
+      "address": "Praça Antônio Dias - Ouro Preto",
+      "locality": "Ouro Preto",
+      "admin_area": "Minas Gerais",
+      "country_code": "BR",
+      "longitude": -43.5012,
+      "latitude": -20.3882,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-santuario-do-bom-jesus-de-matosinhos-25",
+      "name": "Santuário do Bom Jesus de Matosinhos",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1757,
+      "description": "Paróquia Santuário do Bom Jesus de Matosinhos localizada em Congonhas, estado de Minas Gerais.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-santuario-do-bom-jesus-de-matosinhos-25",
+      "name": "Santuário do Bom Jesus de Matosinhos",
+      "site_type": "shrine",
+      "address": "Praça Basílica - Centro",
+      "locality": "Congonhas",
+      "admin_area": "Minas Gerais",
+      "country_code": "BR",
+      "longitude": -43.8585,
+      "latitude": -20.4998,
+      "min_zoom": 10,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-nossa-senhora-da-conceicao-conselheiro-lafaiete-26",
+      "name": "Paróquia Nossa Senhora da Conceição (Conselheiro Lafaiete)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1709,
+      "description": "Paróquia Paróquia Nossa Senhora da Conceição (Conselheiro Lafaiete) localizada em Conselheiro Lafaiete, estado de Minas Gerais.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-nossa-senhora-da-conceicao-conselheiro-lafaiete-26",
+      "name": "Paróquia Nossa Senhora da Conceição (Conselheiro Lafaiete)",
+      "site_type": "parish_church",
+      "address": "Praça Barão de Queluz - Centro",
+      "locality": "Conselheiro Lafaiete",
+      "admin_area": "Minas Gerais",
+      "country_code": "BR",
+      "longitude": -43.7858,
+      "latitude": -20.6612,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-catedral-basilica-de-nossa-senhora-do-pilar-sao-joao-del-rei-27",
+      "name": "Catedral Basílica de Nossa Senhora do Pilar (São João del-Rei)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1721,
+      "description": "Paróquia Catedral Basílica de Nossa Senhora do Pilar (São João del-Rei) localizada em São João del-Rei, estado de Minas Gerais.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-catedral-basilica-de-nossa-senhora-do-pilar-sao-joao-del-rei-27",
+      "name": "Catedral Basílica de Nossa Senhora do Pilar (São João del-Rei)",
+      "site_type": "cathedral",
+      "address": "R. Getúlio Vargas - Centro",
+      "locality": "São João del-Rei",
+      "admin_area": "Minas Gerais",
+      "country_code": "BR",
+      "longitude": -44.2612,
+      "latitude": -21.1352,
+      "min_zoom": 10,
+      "display_rank": 3,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-igreja-de-sao-francisco-de-assis-sao-joao-del-rei-28",
+      "name": "Igreja de São Francisco de Assis (São João del-Rei)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1774,
+      "description": "Paróquia Igreja de São Francisco de Assis (São João del-Rei) localizada em São João del-Rei, estado de Minas Gerais.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-igreja-de-sao-francisco-de-assis-sao-joao-del-rei-28",
+      "name": "Igreja de São Francisco de Assis (São João del-Rei)",
+      "site_type": "parish_church",
+      "address": "Praça Frei Orlando - Centro",
+      "locality": "São João del-Rei",
+      "admin_area": "Minas Gerais",
+      "country_code": "BR",
+      "longitude": -44.2588,
+      "latitude": -21.1378,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-matriz-de-santo-antonio-tiradentes-29",
+      "name": "Matriz de Santo Antônio (Tiradentes)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1710,
+      "description": "Paróquia Matriz de Santo Antônio (Tiradentes) localizada em Tiradentes, estado de Minas Gerais.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-matriz-de-santo-antonio-tiradentes-29",
+      "name": "Matriz de Santo Antônio (Tiradentes)",
+      "site_type": "shrine",
+      "address": "R. da Câmara - Centro",
+      "locality": "Tiradentes",
+      "admin_area": "Minas Gerais",
+      "country_code": "BR",
+      "longitude": -44.1785,
+      "latitude": -21.1102,
+      "min_zoom": 10,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-nossa-senhora-das-merces-tiradentes-30",
+      "name": "Paróquia Nossa Senhora das Mercês (Tiradentes)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1759,
+      "description": "Paróquia Paróquia Nossa Senhora das Mercês (Tiradentes) localizada em Tiradentes, estado de Minas Gerais.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-nossa-senhora-das-merces-tiradentes-30",
+      "name": "Paróquia Nossa Senhora das Mercês (Tiradentes)",
+      "site_type": "parish_church",
+      "address": "Largo das Mercês - Tiradentes",
+      "locality": "Tiradentes",
+      "admin_area": "Minas Gerais",
+      "country_code": "BR",
+      "longitude": -44.1752,
+      "latitude": -21.1112,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-catedral-metropolitana-santo-antonio-diamantina-31",
+      "name": "Catedral Metropolitana Santo Antônio (Diamantina)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1750,
+      "description": "Paróquia Catedral Metropolitana Santo Antônio (Diamantina) localizada em Diamantina, estado de Minas Gerais.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-catedral-metropolitana-santo-antonio-diamantina-31",
+      "name": "Catedral Metropolitana Santo Antônio (Diamantina)",
+      "site_type": "cathedral",
+      "address": "Praça Dom João - Centro",
+      "locality": "Diamantina",
+      "admin_area": "Minas Gerais",
+      "country_code": "BR",
+      "longitude": -43.6012,
+      "latitude": -18.2452,
+      "min_zoom": 10,
+      "display_rank": 3,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-nossa-senhora-da-conceicao-serro-32",
+      "name": "Paróquia Nossa Senhora da Conceição (Serro)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1713,
+      "description": "Paróquia Paróquia Nossa Senhora da Conceição (Serro) localizada em Serro, estado de Minas Gerais.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-nossa-senhora-da-conceicao-serro-32",
+      "name": "Paróquia Nossa Senhora da Conceição (Serro)",
+      "site_type": "parish_church",
+      "address": "Praça João Pinheiro - Centro",
+      "locality": "Serro",
+      "admin_area": "Minas Gerais",
+      "country_code": "BR",
+      "longitude": -43.3782,
+      "latitude": -18.6052,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-catedral-metropolitana-santo-antonio-juiz-de-fora-33",
+      "name": "Catedral Metropolitana Santo Antônio (Juiz de Fora)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1850,
+      "description": "Paróquia Catedral Metropolitana Santo Antônio (Juiz de Fora) localizada em Juiz de Fora, estado de Minas Gerais.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-catedral-metropolitana-santo-antonio-juiz-de-fora-33",
+      "name": "Catedral Metropolitana Santo Antônio (Juiz de Fora)",
+      "site_type": "cathedral",
+      "address": "R. Santo Antônio, 1201 - Centro",
+      "locality": "Juiz de Fora",
+      "admin_area": "Minas Gerais",
+      "country_code": "BR",
+      "longitude": -43.3485,
+      "latitude": -21.7612,
+      "min_zoom": 10,
+      "display_rank": 3,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-sao-mateus-juiz-de-fora-34",
+      "name": "Paróquia São Mateus (Juiz de Fora)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1928,
+      "description": "Paróquia Paróquia São Mateus (Juiz de Fora) localizada em Juiz de Fora, estado de Minas Gerais.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-sao-mateus-juiz-de-fora-34",
+      "name": "Paróquia São Mateus (Juiz de Fora)",
+      "site_type": "parish_church",
+      "address": "R. São Mateus, 629 - São Mateus",
+      "locality": "Juiz de Fora",
+      "admin_area": "Minas Gerais",
+      "country_code": "BR",
+      "longitude": -43.3512,
+      "latitude": -21.7712,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-nossa-senhora-da-gloria-juiz-de-fora-35",
+      "name": "Paróquia Nossa Senhora da Glória (Juiz de Fora)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1924,
+      "description": "Paróquia Paróquia Nossa Senhora da Glória (Juiz de Fora) localizada em Juiz de Fora, estado de Minas Gerais.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-nossa-senhora-da-gloria-juiz-de-fora-35",
+      "name": "Paróquia Nossa Senhora da Glória (Juiz de Fora)",
+      "site_type": "parish_church",
+      "address": "Av. dos Andradas, 855 - Morro da Glória",
+      "locality": "Juiz de Fora",
+      "admin_area": "Minas Gerais",
+      "country_code": "BR",
+      "longitude": -43.3542,
+      "latitude": -21.7512,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-santa-rita-de-cassia-vicosa-36",
+      "name": "Paróquia Santa Rita de Cássia (Viçosa)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1800,
+      "description": "Paróquia Paróquia Santa Rita de Cássia (Viçosa) localizada em Viçosa, estado de Minas Gerais.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-santa-rita-de-cassia-vicosa-36",
+      "name": "Paróquia Santa Rita de Cássia (Viçosa)",
+      "site_type": "parish_church",
+      "address": "Praça Silviano Brandão - Centro",
+      "locality": "Viçosa",
+      "admin_area": "Minas Gerais",
+      "country_code": "BR",
+      "longitude": -42.8818,
+      "latitude": -20.7545,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-basilica-de-sao-jose-operario-barbacena-37",
+      "name": "Basílica de São José Operário (Barbacena)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1950,
+      "description": "Paróquia Basílica de São José Operário (Barbacena) localizada em Barbacena, estado de Minas Gerais.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-basilica-de-sao-jose-operario-barbacena-37",
+      "name": "Basílica de São José Operário (Barbacena)",
+      "site_type": "shrine",
+      "address": "Praça Dom Silvério - São José",
+      "locality": "Barbacena",
+      "admin_area": "Minas Gerais",
+      "country_code": "BR",
+      "longitude": -43.7712,
+      "latitude": -21.2255,
+      "min_zoom": 10,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-nossa-senhora-da-piedade-barbacena-38",
+      "name": "Paróquia Nossa Senhora da Piedade (Barbacena)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1725,
+      "description": "Paróquia Paróquia Nossa Senhora da Piedade (Barbacena) localizada em Barbacena, estado de Minas Gerais.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-nossa-senhora-da-piedade-barbacena-38",
+      "name": "Paróquia Nossa Senhora da Piedade (Barbacena)",
+      "site_type": "parish_church",
+      "address": "Praça dos Andradas - Centro",
+      "locality": "Barbacena",
+      "admin_area": "Minas Gerais",
+      "country_code": "BR",
+      "longitude": -43.7745,
+      "latitude": -21.2212,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-januario-uba-39",
+      "name": "Paróquia Januário (Ubá)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1854,
+      "description": "Paróquia Paróquia Januário (Ubá) localizada em Ubá, estado de Minas Gerais.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-januario-uba-39",
+      "name": "Paróquia Januário (Ubá)",
+      "site_type": "parish_church",
+      "address": "Praça São Januário - Centro",
+      "locality": "Ubá",
+      "admin_area": "Minas Gerais",
+      "country_code": "BR",
+      "longitude": -42.9412,
+      "latitude": -21.1212,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-sao-paulo-muriae-40",
+      "name": "Paróquia São Paulo (Muriaé)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1840,
+      "description": "Paróquia Paróquia São Paulo (Muriaé) localizada em Muriaé, estado de Minas Gerais.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-sao-paulo-muriae-40",
+      "name": "Paróquia São Paulo (Muriaé)",
+      "site_type": "parish_church",
+      "address": "Praça Coronel Pacheco de Medeiros - Centro",
+      "locality": "Muriaé",
+      "admin_area": "Minas Gerais",
+      "country_code": "BR",
+      "longitude": -42.3682,
+      "latitude": -21.1352,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-sant-ana-cataguases-41",
+      "name": "Paróquia Sant'Ana (Cataguases)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1837,
+      "description": "Paróquia Paróquia Sant'Ana (Cataguases) localizada em Cataguases, estado de Minas Gerais.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-sant-ana-cataguases-41",
+      "name": "Paróquia Sant'Ana (Cataguases)",
+      "site_type": "parish_church",
+      "address": "Praça Rui Barbosa - Centro",
+      "locality": "Cataguases",
+      "admin_area": "Minas Gerais",
+      "country_code": "BR",
+      "longitude": -42.6952,
+      "latitude": -21.3882,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-catedral-de-sao-sebastiao-leopoldina-42",
+      "name": "Catedral de São Sebastião (Leopoldina)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1854,
+      "description": "Paróquia Catedral de São Sebastião (Leopoldina) localizada em Leopoldina, estado de Minas Gerais.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-catedral-de-sao-sebastiao-leopoldina-42",
+      "name": "Catedral de São Sebastião (Leopoldina)",
+      "site_type": "cathedral",
+      "address": "Praça Dom Helder Câmara - Centro",
+      "locality": "Leopoldina",
+      "admin_area": "Minas Gerais",
+      "country_code": "BR",
+      "longitude": -42.6421,
+      "latitude": -21.5321,
+      "min_zoom": 10,
+      "display_rank": 3,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-catedral-metropolitana-bom-jesus-pouso-alegre-43",
+      "name": "Catedral Metropolitana Bom Jesus (Pouso Alegre)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1849,
+      "description": "Paróquia Catedral Metropolitana Bom Jesus (Pouso Alegre) localizada em Pouso Alegre, estado de Minas Gerais.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-catedral-metropolitana-bom-jesus-pouso-alegre-43",
+      "name": "Catedral Metropolitana Bom Jesus (Pouso Alegre)",
+      "site_type": "cathedral",
+      "address": "Praça Senador José Bento - Centro",
+      "locality": "Pouso Alegre",
+      "admin_area": "Minas Gerais",
+      "country_code": "BR",
+      "longitude": -45.9362,
+      "latitude": -22.2302,
+      "min_zoom": 10,
+      "display_rank": 3,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-nossa-senhora-da-saude-pocos-de-caldas-44",
+      "name": "Paróquia Nossa Senhora da Saúde (Poços de Caldas)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1898,
+      "description": "Paróquia Paróquia Nossa Senhora da Saúde (Poços de Caldas) localizada em Poços de Caldas, estado de Minas Gerais.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-nossa-senhora-da-saude-pocos-de-caldas-44",
+      "name": "Paróquia Nossa Senhora da Saúde (Poços de Caldas)",
+      "site_type": "parish_church",
+      "address": "Praça Pedro Sanches - Centro",
+      "locality": "Poços de Caldas",
+      "admin_area": "Minas Gerais",
+      "country_code": "BR",
+      "longitude": -46.5682,
+      "latitude": -21.7885,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-catedral-de-nossa-senhora-do-carmo-varginha-45",
+      "name": "Catedral de Nossa Senhora do Carmo (Varginha)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1920,
+      "description": "Paróquia Catedral de Nossa Senhora do Carmo (Varginha) localizada em Varginha, estado de Minas Gerais.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-catedral-de-nossa-senhora-do-carmo-varginha-45",
+      "name": "Catedral de Nossa Senhora do Carmo (Varginha)",
+      "site_type": "cathedral",
+      "address": "Praça Dom Cabral - Centro",
+      "locality": "Varginha",
+      "admin_area": "Minas Gerais",
+      "country_code": "BR",
+      "longitude": -45.4321,
+      "latitude": -21.5542,
+      "min_zoom": 10,
+      "display_rank": 3,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-nossa-senhora-da-conceicao-itajuba-46",
+      "name": "Paróquia Nossa Senhora da Conceição (Itajubá)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1822,
+      "description": "Paróquia Paróquia Nossa Senhora da Conceição (Itajubá) localizada em Itajubá, estado de Minas Gerais.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-nossa-senhora-da-conceicao-itajuba-46",
+      "name": "Paróquia Nossa Senhora da Conceição (Itajubá)",
+      "site_type": "parish_church",
+      "address": "Praça Theodomiro Santiago - Centro",
+      "locality": "Itajubá",
+      "admin_area": "Minas Gerais",
+      "country_code": "BR",
+      "longitude": -45.4582,
+      "latitude": -22.4252,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-senhor-bom-jesus-dos-passos-passos-47",
+      "name": "Paróquia Senhor Bom Jesus dos Passos (Passos)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1835,
+      "description": "Paróquia Paróquia Senhor Bom Jesus dos Passos (Passos) localizada em Passos, estado de Minas Gerais.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-senhor-bom-jesus-dos-passos-passos-47",
+      "name": "Paróquia Senhor Bom Jesus dos Passos (Passos)",
+      "site_type": "parish_church",
+      "address": "Praça Mons. Messias Bragança - Centro",
+      "locality": "Passos",
+      "admin_area": "Minas Gerais",
+      "country_code": "BR",
+      "longitude": -46.6095,
+      "latitude": -20.7185,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-sao-lourenco-sao-lourenco-48",
+      "name": "Paróquia São Lourenço (São Lourenço)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1935,
+      "description": "Paróquia Paróquia São Lourenço (São Lourenço) localizada em São Lourenço, estado de Minas Gerais.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-sao-lourenco-sao-lourenco-48",
+      "name": "Paróquia São Lourenço (São Lourenço)",
+      "site_type": "parish_church",
+      "address": "Praça Duque de Caxias - Centro",
+      "locality": "São Lourenço",
+      "admin_area": "Minas Gerais",
+      "country_code": "BR",
+      "longitude": -45.0542,
+      "latitude": -22.1182,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-catedral-metropolitana-sagrado-coracao-de-jesus-uberaba-49",
+      "name": "Catedral Metropolitana Sagrado Coração de Jesus (Uberaba)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1907,
+      "description": "Paróquia Catedral Metropolitana Sagrado Coração de Jesus (Uberaba) localizada em Uberaba, estado de Minas Gerais.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-catedral-metropolitana-sagrado-coracao-de-jesus-uberaba-49",
+      "name": "Catedral Metropolitana Sagrado Coração de Jesus (Uberaba)",
+      "site_type": "cathedral",
+      "address": "Praça Dom Eduardo - Centro",
+      "locality": "Uberaba",
+      "admin_area": "Minas Gerais",
+      "country_code": "BR",
+      "longitude": -47.9312,
+      "latitude": -19.7485,
+      "min_zoom": 10,
+      "display_rank": 3,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-catedral-santa-teresinha-uberlandia-50",
+      "name": "Catedral Santa Teresinha (Uberlândia)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1941,
+      "description": "Paróquia Catedral Santa Teresinha (Uberlândia) localizada em Uberlândia, estado de Minas Gerais.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-catedral-santa-teresinha-uberlandia-50",
+      "name": "Catedral Santa Teresinha (Uberlândia)",
+      "site_type": "cathedral",
+      "address": "Praça Tubal Vilela - Centro",
+      "locality": "Uberlândia",
+      "admin_area": "Minas Gerais",
+      "country_code": "BR",
+      "longitude": -48.2772,
+      "latitude": -18.9185,
+      "min_zoom": 10,
+      "display_rank": 3,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-nossa-senhora-das-dores-uberlandia-51",
+      "name": "Paróquia Nossa Senhora das Dores (Uberlândia)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1955,
+      "description": "Paróquia Paróquia Nossa Senhora das Dores (Uberlândia) localizada em Uberlândia, estado de Minas Gerais.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-nossa-senhora-das-dores-uberlandia-51",
+      "name": "Paróquia Nossa Senhora das Dores (Uberlândia)",
+      "site_type": "parish_church",
+      "address": "Praça Adolfo Fonseca - Fundinho",
+      "locality": "Uberlândia",
+      "admin_area": "Minas Gerais",
+      "country_code": "BR",
+      "longitude": -48.2682,
+      "latitude": -18.9252,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-sao-domingos-araxa-52",
+      "name": "Paróquia São Domingos (Araxá)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1791,
+      "description": "Paróquia Paróquia São Domingos (Araxá) localizada em Araxá, estado de Minas Gerais.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-sao-domingos-araxa-52",
+      "name": "Paróquia São Domingos (Araxá)",
+      "site_type": "parish_church",
+      "address": "Praça São Domingos - Centro",
+      "locality": "Araxá",
+      "admin_area": "Minas Gerais",
+      "country_code": "BR",
+      "longitude": -46.9412,
+      "latitude": -19.5935,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-catedral-de-santo-antonio-patos-de-minas-53",
+      "name": "Catedral de Santo Antônio (Patos de Minas)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1892,
+      "description": "Paróquia Catedral de Santo Antônio (Patos de Minas) localizada em Patos de Minas, estado de Minas Gerais.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-catedral-de-santo-antonio-patos-de-minas-53",
+      "name": "Catedral de Santo Antônio (Patos de Minas)",
+      "site_type": "cathedral",
+      "address": "Praça Desembargador Frederico - Centro",
+      "locality": "Patos de Minas",
+      "admin_area": "Minas Gerais",
+      "country_code": "BR",
+      "longitude": -46.5182,
+      "latitude": -18.5882,
+      "min_zoom": 10,
+      "display_rank": 3,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-catedral-de-sao-sebastiao-coronel-fabriciano-ipatinga-54",
+      "name": "Catedral de São Sebastião (Coronel Fabriciano / Ipatinga)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1948,
+      "description": "Paróquia Catedral de São Sebastião (Coronel Fabriciano / Ipatinga) localizada em Coronel Fabriciano, estado de Minas Gerais.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-catedral-de-sao-sebastiao-coronel-fabriciano-ipatinga-54",
+      "name": "Catedral de São Sebastião (Coronel Fabriciano / Ipatinga)",
+      "site_type": "cathedral",
+      "address": "Praça Louis Ensch - Centro",
+      "locality": "Coronel Fabriciano",
+      "admin_area": "Minas Gerais",
+      "country_code": "BR",
+      "longitude": -42.6282,
+      "latitude": -19.5182,
+      "min_zoom": 10,
+      "display_rank": 3,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-catedral-de-santo-antonio-governador-valadares-55",
+      "name": "Catedral de Santo Antônio (Governador Valadares)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1915,
+      "description": "Paróquia Catedral de Santo Antônio (Governador Valadares) localizada em Governador Valadares, estado de Minas Gerais.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-catedral-de-santo-antonio-governador-valadares-55",
+      "name": "Catedral de Santo Antônio (Governador Valadares)",
+      "site_type": "cathedral",
+      "address": "Praça Manuel da Silva Neto - Centro",
+      "locality": "Governador Valadares",
+      "admin_area": "Minas Gerais",
+      "country_code": "BR",
+      "longitude": -41.9482,
+      "latitude": -18.8521,
+      "min_zoom": 10,
+      "display_rank": 3,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-catedral-nossa-senhora-aparecida-montes-claros-56",
+      "name": "Catedral Nossa Senhora Aparecida (Montes Claros)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1950,
+      "description": "Paróquia Catedral Nossa Senhora Aparecida (Montes Claros) localizada em Montes Claros, estado de Minas Gerais.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-catedral-nossa-senhora-aparecida-montes-claros-56",
+      "name": "Catedral Nossa Senhora Aparecida (Montes Claros)",
+      "site_type": "cathedral",
+      "address": "Praça Pio XII - Centro",
+      "locality": "Montes Claros",
+      "admin_area": "Minas Gerais",
+      "country_code": "BR",
+      "longitude": -43.8612,
+      "latitude": -16.7252,
+      "min_zoom": 10,
+      "display_rank": 3,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-nossa-senhora-da-conceicao-januaria-57",
+      "name": "Paróquia Nossa Senhora da Conceição (Januária)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1835,
+      "description": "Paróquia Paróquia Nossa Senhora da Conceição (Januária) localizada em Januária, estado de Minas Gerais.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-nossa-senhora-da-conceicao-januaria-57",
+      "name": "Paróquia Nossa Senhora da Conceição (Januária)",
+      "site_type": "parish_church",
+      "address": "Praça Getúlio Vargas - Centro",
+      "locality": "Januária",
+      "admin_area": "Minas Gerais",
+      "country_code": "BR",
+      "longitude": -44.3682,
+      "latitude": -15.4852,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-catedral-de-imaculada-conceicao-teofilo-otoni-58",
+      "name": "Catedral de Imaculada Conceição (Teófilo Otoni)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1858,
+      "description": "Paróquia Catedral de Imaculada Conceição (Teófilo Otoni) localizada em Teófilo Otoni, estado de Minas Gerais.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-catedral-de-imaculada-conceicao-teofilo-otoni-58",
+      "name": "Catedral de Imaculada Conceição (Teófilo Otoni)",
+      "site_type": "cathedral",
+      "address": "Praça Tiradentes - Centro",
+      "locality": "Teófilo Otoni",
+      "admin_area": "Minas Gerais",
+      "country_code": "BR",
+      "longitude": -41.5052,
+      "latitude": -17.8582,
+      "min_zoom": 10,
+      "display_rank": 3,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-basilica-de-sao-geraldo-curvelo-59",
+      "name": "Basílica de São Geraldo (Curvelo)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1906,
+      "description": "Paróquia Basílica de São Geraldo (Curvelo) localizada em Curvelo, estado de Minas Gerais.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-basilica-de-sao-geraldo-curvelo-59",
+      "name": "Basílica de São Geraldo (Curvelo)",
+      "site_type": "shrine",
+      "address": "Praça Basílica - Centro",
+      "locality": "Curvelo",
+      "admin_area": "Minas Gerais",
+      "country_code": "BR",
+      "longitude": -44.4312,
+      "latitude": -18.7562,
+      "min_zoom": 10,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  }
+]

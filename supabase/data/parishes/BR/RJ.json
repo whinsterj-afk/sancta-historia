@@ -1,0 +1,1878 @@
+[
+  {
+    "jurisdiction": {
+      "slug": "paroquia-catedral-metropolitana-de-sao-sebastiao-0",
+      "name": "Catedral Metropolitana de São Sebastião",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1676,
+      "description": "Paróquia Catedral Metropolitana de São Sebastião localizada em Rio de Janeiro, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-catedral-metropolitana-de-sao-sebastiao-0",
+      "name": "Catedral Metropolitana de São Sebastião",
+      "site_type": "cathedral",
+      "address": "Av. Chile, 245 - Centro",
+      "locality": "Rio de Janeiro",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -43.1806,
+      "latitude": -22.9108,
+      "min_zoom": 10,
+      "display_rank": 3,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-igreja-da-candelaria-nossa-senhora-da-candelaria-1",
+      "name": "Igreja da Candelária (Nossa Senhora da Candelária)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1609,
+      "description": "Paróquia Igreja da Candelária (Nossa Senhora da Candelária) localizada em Rio de Janeiro, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-igreja-da-candelaria-nossa-senhora-da-candelaria-1",
+      "name": "Igreja da Candelária (Nossa Senhora da Candelária)",
+      "site_type": "parish_church",
+      "address": "Praça Pio X, s/n - Centro",
+      "locality": "Rio de Janeiro",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -43.1775,
+      "latitude": -22.9008,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-santuario-de-nossa-senhora-da-penha-2",
+      "name": "Santuário de Nossa Senhora da Penha",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1635,
+      "description": "Paróquia Santuário de Nossa Senhora da Penha localizada em Rio de Janeiro, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-santuario-de-nossa-senhora-da-penha-2",
+      "name": "Santuário de Nossa Senhora da Penha",
+      "site_type": "shrine",
+      "address": "Praça Nossa Senhora da Penha, s/n - Penha",
+      "locality": "Rio de Janeiro",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -43.2778,
+      "latitude": -22.8447,
+      "min_zoom": 10,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-igreja-de-nossa-senhora-da-gloria-do-outeiro-3",
+      "name": "Igreja de Nossa Senhora da Glória do Outeiro",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1739,
+      "description": "Paróquia Igreja de Nossa Senhora da Glória do Outeiro localizada em Rio de Janeiro, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-igreja-de-nossa-senhora-da-gloria-do-outeiro-3",
+      "name": "Igreja de Nossa Senhora da Glória do Outeiro",
+      "site_type": "shrine",
+      "address": "Praça N. Sra. da Glória, 135 - Glória",
+      "locality": "Rio de Janeiro",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -43.1739,
+      "latitude": -22.9211,
+      "min_zoom": 10,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-sao-jose-centro-4",
+      "name": "Paróquia São José (Centro)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1608,
+      "description": "Paróquia Paróquia São José (Centro) localizada em Rio de Janeiro, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-sao-jose-centro-4",
+      "name": "Paróquia São José (Centro)",
+      "site_type": "parish_church",
+      "address": "Av. Pres. Antônio Carlos, s/n - Centro",
+      "locality": "Rio de Janeiro",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -43.1728,
+      "latitude": -22.9042,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-nossa-senhora-de-copacabana-5",
+      "name": "Paróquia Nossa Senhora de Copacabana",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1908,
+      "description": "Paróquia Paróquia Nossa Senhora de Copacabana localizada em Rio de Janeiro, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-nossa-senhora-de-copacabana-5",
+      "name": "Paróquia Nossa Senhora de Copacabana",
+      "site_type": "parish_church",
+      "address": "R. Hilário de Gouveia, 36 - Copacabana",
+      "locality": "Rio de Janeiro",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -43.1838,
+      "latitude": -22.9691,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-nossa-senhora-da-paz-6",
+      "name": "Paróquia Nossa Senhora da Paz",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1918,
+      "description": "Paróquia Paróquia Nossa Senhora da Paz localizada em Rio de Janeiro, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-nossa-senhora-da-paz-6",
+      "name": "Paróquia Nossa Senhora da Paz",
+      "site_type": "parish_church",
+      "address": "R. Visconde de Pirajá, 339 - Ipanema",
+      "locality": "Rio de Janeiro",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -43.2045,
+      "latitude": -22.9839,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-sao-francisco-xavier-7",
+      "name": "Paróquia São Francisco Xavier",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1568,
+      "description": "Paróquia Paróquia São Francisco Xavier localizada em Rio de Janeiro, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-sao-francisco-xavier-7",
+      "name": "Paróquia São Francisco Xavier",
+      "site_type": "parish_church",
+      "address": "R. São Francisco Xavier, 75 - Tijuca",
+      "locality": "Rio de Janeiro",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -43.2241,
+      "latitude": -22.9189,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-nossa-senhora-da-conceicao-santa-cruz-8",
+      "name": "Paróquia Nossa Senhora da Conceição (Santa Cruz)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1567,
+      "description": "Paróquia Paróquia Nossa Senhora da Conceição (Santa Cruz) localizada em Rio de Janeiro, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-nossa-senhora-da-conceicao-santa-cruz-8",
+      "name": "Paróquia Nossa Senhora da Conceição (Santa Cruz)",
+      "site_type": "parish_church",
+      "address": "Praça Fernando Barata Ribeiro - Santa Cruz",
+      "locality": "Rio de Janeiro",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -43.6845,
+      "latitude": -22.9158,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-sao-joao-batista-botafogo-9",
+      "name": "Paróquia São João Batista (Botafogo)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1809,
+      "description": "Paróquia Paróquia São João Batista (Botafogo) localizada em Rio de Janeiro, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-sao-joao-batista-botafogo-9",
+      "name": "Paróquia São João Batista (Botafogo)",
+      "site_type": "parish_church",
+      "address": "R. Voluntários da Pátria, 287 - Botafogo",
+      "locality": "Rio de Janeiro",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -43.1915,
+      "latitude": -22.956,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-santuario-de-sao-judas-tadeu-10",
+      "name": "Paróquia Santuário de São Judas Tadeu",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1945,
+      "description": "Paróquia Paróquia Santuário de São Judas Tadeu localizada em Rio de Janeiro, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-santuario-de-sao-judas-tadeu-10",
+      "name": "Paróquia Santuário de São Judas Tadeu",
+      "site_type": "shrine",
+      "address": "R. Cosme Velho, 290 - Cosme Velho",
+      "locality": "Rio de Janeiro",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -43.2001,
+      "latitude": -22.9412,
+      "min_zoom": 10,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-nossa-senhora-da-conceicao-gavea-11",
+      "name": "Paróquia Nossa Senhora da Conceição (Gávea)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1853,
+      "description": "Paróquia Paróquia Nossa Senhora da Conceição (Gávea) localizada em Rio de Janeiro, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-nossa-senhora-da-conceicao-gavea-11",
+      "name": "Paróquia Nossa Senhora da Conceição (Gávea)",
+      "site_type": "parish_church",
+      "address": "R. Marquês de São Vicente, 19 - Gávea",
+      "locality": "Rio de Janeiro",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -43.2268,
+      "latitude": -22.9745,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-sao-jose-da-lagoa-12",
+      "name": "Paróquia São José da Lagoa",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1942,
+      "description": "Paróquia Paróquia São José da Lagoa localizada em Rio de Janeiro, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-sao-jose-da-lagoa-12",
+      "name": "Paróquia São José da Lagoa",
+      "site_type": "parish_church",
+      "address": "Av. Borges de Medeiros, 2735 - Lagoa",
+      "locality": "Rio de Janeiro",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -43.212,
+      "latitude": -22.9712,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-nossa-senhora-da-apresentacao-iraja-13",
+      "name": "Paróquia Nossa Senhora da Apresentação (Irajá)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1644,
+      "description": "Paróquia Paróquia Nossa Senhora da Apresentação (Irajá) localizada em Rio de Janeiro, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-nossa-senhora-da-apresentacao-iraja-13",
+      "name": "Paróquia Nossa Senhora da Apresentação (Irajá)",
+      "site_type": "parish_church",
+      "address": "Praça N. Sra. da Apresentação - Irajá",
+      "locality": "Rio de Janeiro",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -43.3285,
+      "latitude": -22.834,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-nossa-senhora-de-loreto-freguesia-14",
+      "name": "Paróquia Nossa Senhora de Loreto (Freguesia)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1661,
+      "description": "Paróquia Paróquia Nossa Senhora de Loreto (Freguesia) localizada em Rio de Janeiro, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-nossa-senhora-de-loreto-freguesia-14",
+      "name": "Paróquia Nossa Senhora de Loreto (Freguesia)",
+      "site_type": "parish_church",
+      "address": "Largo do Loreto, 55 - Jacarepaguá",
+      "locality": "Rio de Janeiro",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -43.3421,
+      "latitude": -22.9421,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-sao-sebastiao-bangu-15",
+      "name": "Paróquia São Sebastião (Bangu)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1908,
+      "description": "Paróquia Paróquia São Sebastião (Bangu) localizada em Rio de Janeiro, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-sao-sebastiao-bangu-15",
+      "name": "Paróquia São Sebastião (Bangu)",
+      "site_type": "parish_church",
+      "address": "R. Silva Cardoso, 715 - Bangu",
+      "locality": "Rio de Janeiro",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -43.4682,
+      "latitude": -22.8752,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-nossa-senhora-da-conceicao-campo-grande-16",
+      "name": "Paróquia Nossa Senhora da Conceição (Campo Grande)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1673,
+      "description": "Paróquia Paróquia Nossa Senhora da Conceição (Campo Grande) localizada em Rio de Janeiro, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-nossa-senhora-da-conceicao-campo-grande-16",
+      "name": "Paróquia Nossa Senhora da Conceição (Campo Grande)",
+      "site_type": "parish_church",
+      "address": "Praça Dom José de Camargo - Campo Grande",
+      "locality": "Rio de Janeiro",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -43.5582,
+      "latitude": -22.9032,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-sao-francisco-de-assis-barra-da-tijuca-17",
+      "name": "Paróquia São Francisco de Assis (Barra da Tijuca)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1985,
+      "description": "Paróquia Paróquia São Francisco de Assis (Barra da Tijuca) localizada em Rio de Janeiro, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-sao-francisco-de-assis-barra-da-tijuca-17",
+      "name": "Paróquia São Francisco de Assis (Barra da Tijuca)",
+      "site_type": "parish_church",
+      "address": "Av. Ayrton Senna, 3000 - Barra da Tijuca",
+      "locality": "Rio de Janeiro",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -43.3285,
+      "latitude": -23.0012,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-ressurreicao-arpoador-18",
+      "name": "Paróquia Ressurreição (Arpoador)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1962,
+      "description": "Paróquia Paróquia Ressurreição (Arpoador) localizada em Rio de Janeiro, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-ressurreicao-arpoador-18",
+      "name": "Paróquia Ressurreição (Arpoador)",
+      "site_type": "parish_church",
+      "address": "R. Francisco Otaviano, 99 - Copacabana",
+      "locality": "Rio de Janeiro",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -43.1932,
+      "latitude": -22.9868,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-santa-teresa-de-jesus-19",
+      "name": "Paróquia Santa Teresa de Jesus",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1910,
+      "description": "Paróquia Paróquia Santa Teresa de Jesus localizada em Rio de Janeiro, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-santa-teresa-de-jesus-19",
+      "name": "Paróquia Santa Teresa de Jesus",
+      "site_type": "parish_church",
+      "address": "R. Monte Alegre, 347 - Santa Teresa",
+      "locality": "Rio de Janeiro",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -43.1852,
+      "latitude": -22.9152,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-sao-lourenco-dos-indios-20",
+      "name": "Paróquia São Lourenço dos Índios",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1573,
+      "description": "Paróquia Paróquia São Lourenço dos Índios localizada em Niterói, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-sao-lourenco-dos-indios-20",
+      "name": "Paróquia São Lourenço dos Índios",
+      "site_type": "shrine",
+      "address": "Morro de São Lourenço - Niterói",
+      "locality": "Niterói",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -43.1092,
+      "latitude": -22.8812,
+      "min_zoom": 10,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-catedral-metropolitana-sao-joao-batista-21",
+      "name": "Catedral Metropolitana São João Batista",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1842,
+      "description": "Paróquia Catedral Metropolitana São João Batista localizada em Niterói, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-catedral-metropolitana-sao-joao-batista-21",
+      "name": "Catedral Metropolitana São João Batista",
+      "site_type": "cathedral",
+      "address": "Praça Dom Pedro II, s/n - Centro",
+      "locality": "Niterói",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -43.1228,
+      "latitude": -22.8905,
+      "min_zoom": 10,
+      "display_rank": 3,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-sao-francisco-xavier-22",
+      "name": "Paróquia São Francisco Xavier",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1570,
+      "description": "Paróquia Paróquia São Francisco Xavier localizada em Niterói, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-sao-francisco-xavier-22",
+      "name": "Paróquia São Francisco Xavier",
+      "site_type": "parish_church",
+      "address": "Av. Quintino Bocaiúva - São Francisco",
+      "locality": "Niterói",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -43.0945,
+      "latitude": -22.923,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-nossa-senhora-das-dores-inga-23",
+      "name": "Paróquia Nossa Senhora das Dores (Ingá)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1920,
+      "description": "Paróquia Paróquia Nossa Senhora das Dores (Ingá) localizada em Niterói, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-nossa-senhora-das-dores-inga-23",
+      "name": "Paróquia Nossa Senhora das Dores (Ingá)",
+      "site_type": "parish_church",
+      "address": "R. Dr. Paulo Alves, 12 - Ingá",
+      "locality": "Niterói",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -43.1252,
+      "latitude": -22.9012,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-nossa-senhora-da-conceicao-icarai-24",
+      "name": "Paróquia Nossa Senhora da Conceição (Icaraí)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1935,
+      "description": "Paróquia Paróquia Nossa Senhora da Conceição (Icaraí) localizada em Niterói, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-nossa-senhora-da-conceicao-icarai-24",
+      "name": "Paróquia Nossa Senhora da Conceição (Icaraí)",
+      "site_type": "parish_church",
+      "address": "R. Gavião Peixoto, 250 - Icaraí",
+      "locality": "Niterói",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -43.1082,
+      "latitude": -22.9052,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-sao-goncalo-do-amarante-25",
+      "name": "Paróquia São Gonçalo do Amarante",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1646,
+      "description": "Paróquia Paróquia São Gonçalo do Amarante localizada em São Gonçalo, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-sao-goncalo-do-amarante-25",
+      "name": "Paróquia São Gonçalo do Amarante",
+      "site_type": "parish_church",
+      "address": "Alameda Pio XII, s/n - Zé Garoto",
+      "locality": "São Gonçalo",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -43.0542,
+      "latitude": -22.8251,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-nossa-senhora-da-conceicao-porto-velho-26",
+      "name": "Paróquia Nossa Senhora da Conceição (Porto Velho)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1950,
+      "description": "Paróquia Paróquia Nossa Senhora da Conceição (Porto Velho) localizada em São Gonçalo, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-nossa-senhora-da-conceicao-porto-velho-26",
+      "name": "Paróquia Nossa Senhora da Conceição (Porto Velho)",
+      "site_type": "parish_church",
+      "address": "R. Dr. Gradim - Porto Velho",
+      "locality": "São Gonçalo",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -43.0652,
+      "latitude": -22.8121,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-sao-joao-batista-itaborai-27",
+      "name": "Paróquia São João Batista (Itaboraí)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1672,
+      "description": "Paróquia Paróquia São João Batista (Itaboraí) localizada em Itaboraí, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-sao-joao-batista-itaborai-27",
+      "name": "Paróquia São João Batista (Itaboraí)",
+      "site_type": "parish_church",
+      "address": "Praça Marechal Floriano Peixoto - Centro",
+      "locality": "Itaboraí",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -42.8582,
+      "latitude": -22.7452,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-nossa-senhora-do-amparo-marica-28",
+      "name": "Paróquia Nossa Senhora do Amparo (Maricá)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1788,
+      "description": "Paróquia Paróquia Nossa Senhora do Amparo (Maricá) localizada em Maricá, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-nossa-senhora-do-amparo-marica-28",
+      "name": "Paróquia Nossa Senhora do Amparo (Maricá)",
+      "site_type": "parish_church",
+      "address": "Praça Orlando de Barros Pimentel - Centro",
+      "locality": "Maricá",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -42.8188,
+      "latitude": -22.9192,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-nossa-senhora-da-conceicao-saquarema-29",
+      "name": "Paróquia Nossa Senhora da Conceição (Saquarema)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1755,
+      "description": "Paróquia Paróquia Nossa Senhora da Conceição (Saquarema) localizada em Saquarema, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-nossa-senhora-da-conceicao-saquarema-29",
+      "name": "Paróquia Nossa Senhora da Conceição (Saquarema)",
+      "site_type": "shrine",
+      "address": "Praça Oscar de Macedo Soares - Centro",
+      "locality": "Saquarema",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -42.5112,
+      "latitude": -22.9351,
+      "min_zoom": 10,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-nossa-senhora-de-fatima-araruama-30",
+      "name": "Paróquia Nossa Senhora de Fátima (Araruama)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1955,
+      "description": "Paróquia Paróquia Nossa Senhora de Fátima (Araruama) localizada em Araruama, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-nossa-senhora-de-fatima-araruama-30",
+      "name": "Paróquia Nossa Senhora de Fátima (Araruama)",
+      "site_type": "parish_church",
+      "address": "Praça da Matriz - Centro",
+      "locality": "Araruama",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -42.3412,
+      "latitude": -22.8712,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-nossa-senhora-da-assuncao-cabo-frio-31",
+      "name": "Paróquia Nossa Senhora da Assunção (Cabo Frio)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1615,
+      "description": "Paróquia Paróquia Nossa Senhora da Assunção (Cabo Frio) localizada em Cabo Frio, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-nossa-senhora-da-assuncao-cabo-frio-31",
+      "name": "Paróquia Nossa Senhora da Assunção (Cabo Frio)",
+      "site_type": "parish_church",
+      "address": "Praça Porto Rocha - Centro",
+      "locality": "Cabo Frio",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -42.0185,
+      "latitude": -22.879,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-sant-anna-buzios-32",
+      "name": "Paróquia Sant'Anna (Búzios)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1740,
+      "description": "Paróquia Paróquia Sant'Anna (Búzios) localizada em Armação dos Búzios, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-sant-anna-buzios-32",
+      "name": "Paróquia Sant'Anna (Búzios)",
+      "site_type": "parish_church",
+      "address": "Praia dos Ossos, s/n",
+      "locality": "Armação dos Búzios",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -41.8845,
+      "latitude": -22.7485,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-sacra-familia-arraial-do-cabo-33",
+      "name": "Paróquia Sacra Família (Arraial do Cabo)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1968,
+      "description": "Paróquia Paróquia Sacra Família (Arraial do Cabo) localizada em Arraial do Cabo, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-sacra-familia-arraial-do-cabo-33",
+      "name": "Paróquia Sacra Família (Arraial do Cabo)",
+      "site_type": "parish_church",
+      "address": "Praça da Bandeira - Centro",
+      "locality": "Arraial do Cabo",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -42.0285,
+      "latitude": -22.9652,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-santo-antonio-duque-de-caxias-34",
+      "name": "Paróquia Santo Antônio (Duque de Caxias)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1940,
+      "description": "Paróquia Paróquia Santo Antônio (Duque de Caxias) localizada em Duque de Caxias, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-santo-antonio-duque-de-caxias-34",
+      "name": "Paróquia Santo Antônio (Duque de Caxias)",
+      "site_type": "cathedral",
+      "address": "Av. Governador Leonel de Moura Brizola - Centro",
+      "locality": "Duque de Caxias",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -43.3112,
+      "latitude": -22.7852,
+      "min_zoom": 10,
+      "display_rank": 3,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-nossa-senhora-de-fatima-duque-de-caxias-35",
+      "name": "Paróquia Nossa Senhora de Fátima (Duque de Caxias)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1958,
+      "description": "Paróquia Paróquia Nossa Senhora de Fátima (Duque de Caxias) localizada em Duque de Caxias, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-nossa-senhora-de-fatima-duque-de-caxias-35",
+      "name": "Paróquia Nossa Senhora de Fátima (Duque de Caxias)",
+      "site_type": "parish_church",
+      "address": "R. Frei Fidélis - Vila Meriti",
+      "locality": "Duque de Caxias",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -43.3052,
+      "latitude": -22.7712,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-catedral-santo-antonio-de-jacutinga-36",
+      "name": "Paróquia Catedral Santo Antônio de Jacutinga",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1862,
+      "description": "Paróquia Paróquia Catedral Santo Antônio de Jacutinga localizada em Nova Iguaçu, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-catedral-santo-antonio-de-jacutinga-36",
+      "name": "Paróquia Catedral Santo Antônio de Jacutinga",
+      "site_type": "cathedral",
+      "address": "Av. Marechal Floriano Peixoto - Centro",
+      "locality": "Nova Iguaçu",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -43.4512,
+      "latitude": -22.7582,
+      "min_zoom": 10,
+      "display_rank": 3,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-nossa-senhora-da-conceicao-belford-roxo-37",
+      "name": "Paróquia Nossa Senhora da Conceição (Belford Roxo)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1965,
+      "description": "Paróquia Paróquia Nossa Senhora da Conceição (Belford Roxo) localizada em Belford Roxo, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-nossa-senhora-da-conceicao-belford-roxo-37",
+      "name": "Paróquia Nossa Senhora da Conceição (Belford Roxo)",
+      "site_type": "parish_church",
+      "address": "Praça Getúlio Vargas - Centro",
+      "locality": "Belford Roxo",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -43.3982,
+      "latitude": -22.7642,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-nossa-senhora-da-conceicao-nilopolis-38",
+      "name": "Paróquia Nossa Senhora da Conceição (Nilópolis)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1935,
+      "description": "Paróquia Paróquia Nossa Senhora da Conceição (Nilópolis) localizada em Nilópolis, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-nossa-senhora-da-conceicao-nilopolis-38",
+      "name": "Paróquia Nossa Senhora da Conceição (Nilópolis)",
+      "site_type": "parish_church",
+      "address": "R. Pedro Álvares Cabral - Centro",
+      "locality": "Nilópolis",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -43.4142,
+      "latitude": -22.8082,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-nossa-senhora-da-conceicao-mesquita-39",
+      "name": "Paróquia Nossa Senhora da Conceição (Mesquita)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1945,
+      "description": "Paróquia Paróquia Nossa Senhora da Conceição (Mesquita) localizada em Mesquita, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-nossa-senhora-da-conceicao-mesquita-39",
+      "name": "Paróquia Nossa Senhora da Conceição (Mesquita)",
+      "site_type": "parish_church",
+      "address": "R. Mr. Watkins - Centro",
+      "locality": "Mesquita",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -43.4321,
+      "latitude": -22.7821,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-sao-joao-batista-sao-joao-de-meriti-40",
+      "name": "Paróquia São João Batista (São João de Meriti)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1890,
+      "description": "Paróquia Paróquia São João Batista (São João de Meriti) localizada em São João de Meriti, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-sao-joao-batista-sao-joao-de-meriti-40",
+      "name": "Paróquia São João Batista (São João de Meriti)",
+      "site_type": "parish_church",
+      "address": "Praça Getúlio Vargas - Centro",
+      "locality": "São João de Meriti",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -43.3721,
+      "latitude": -22.8021,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-nossa-senhora-da-conceicao-mage-41",
+      "name": "Paróquia Nossa Senhora da Conceição (Magé)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1565,
+      "description": "Paróquia Paróquia Nossa Senhora da Conceição (Magé) localizada em Magé, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-nossa-senhora-da-conceicao-mage-41",
+      "name": "Paróquia Nossa Senhora da Conceição (Magé)",
+      "site_type": "parish_church",
+      "address": "Praça Doutor Nilo Peçanha - Centro",
+      "locality": "Magé",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -43.0412,
+      "latitude": -22.6521,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-nossa-senhora-da-piedade-surui-42",
+      "name": "Paróquia Nossa Senhora da Piedade (Suruí)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1690,
+      "description": "Paróquia Paróquia Nossa Senhora da Piedade (Suruí) localizada em Magé, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-nossa-senhora-da-piedade-surui-42",
+      "name": "Paróquia Nossa Senhora da Piedade (Suruí)",
+      "site_type": "shrine",
+      "address": "Estrada de Suruí - Magé",
+      "locality": "Magé",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -43.1021,
+      "latitude": -22.6852,
+      "min_zoom": 10,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-catedral-de-sao-pedro-de-alcantara-43",
+      "name": "Catedral de São Pedro de Alcântara",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1884,
+      "description": "Paróquia Catedral de São Pedro de Alcântara localizada em Petrópolis, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-catedral-de-sao-pedro-de-alcantara-43",
+      "name": "Catedral de São Pedro de Alcântara",
+      "site_type": "cathedral",
+      "address": "R. São Pedro de Alcântara, 60 - Centro",
+      "locality": "Petrópolis",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -43.1786,
+      "latitude": -22.5086,
+      "min_zoom": 10,
+      "display_rank": 3,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-sagrado-coracao-de-jesus-44",
+      "name": "Paróquia Sagrado Coração de Jesus",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1910,
+      "description": "Paróquia Paróquia Sagrado Coração de Jesus localizada em Petrópolis, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-sagrado-coracao-de-jesus-44",
+      "name": "Paróquia Sagrado Coração de Jesus",
+      "site_type": "parish_church",
+      "address": "R. Monte dos Cascatinha - Petrópolis",
+      "locality": "Petrópolis",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -43.1852,
+      "latitude": -22.5152,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-santa-teresa-teresopolis-45",
+      "name": "Paróquia Santa Teresa (Teresópolis)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1855,
+      "description": "Paróquia Paróquia Santa Teresa (Teresópolis) localizada em Teresópolis, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-santa-teresa-teresopolis-45",
+      "name": "Paróquia Santa Teresa (Teresópolis)",
+      "site_type": "parish_church",
+      "address": "Praça Baltazar da Silveira - Várzea",
+      "locality": "Teresópolis",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -42.9662,
+      "latitude": -22.4121,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-santo-antonio-teresopolis-46",
+      "name": "Paróquia Santo Antônio (Teresópolis)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1930,
+      "description": "Paróquia Paróquia Santo Antônio (Teresópolis) localizada em Teresópolis, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-santo-antonio-teresopolis-46",
+      "name": "Paróquia Santo Antônio (Teresópolis)",
+      "site_type": "parish_church",
+      "address": "Av. Oliveira Botelho - Alto",
+      "locality": "Teresópolis",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -42.9812,
+      "latitude": -22.4285,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-catedral-sao-joao-batista-nova-friburgo-47",
+      "name": "Catedral São João Batista (Nova Friburgo)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1820,
+      "description": "Paróquia Catedral São João Batista (Nova Friburgo) localizada em Nova Friburgo, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-catedral-sao-joao-batista-nova-friburgo-47",
+      "name": "Catedral São João Batista (Nova Friburgo)",
+      "site_type": "cathedral",
+      "address": "Praça Dermeval Barbosa Moreira - Centro",
+      "locality": "Nova Friburgo",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -42.5312,
+      "latitude": -22.2818,
+      "min_zoom": 10,
+      "display_rank": 3,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-ze-dos-campos-macae-48",
+      "name": "Paróquia Zé dos Campos (Macaé)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1813,
+      "description": "Paróquia Paróquia Zé dos Campos (Macaé) localizada em Macaé, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-ze-dos-campos-macae-48",
+      "name": "Paróquia Zé dos Campos (Macaé)",
+      "site_type": "parish_church",
+      "address": "Praça Veríssimo de Melo - Centro",
+      "locality": "Macaé",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -41.7821,
+      "latitude": -22.3768,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-nossa-senhora-da-conceicao-rio-das-ostras-49",
+      "name": "Paróquia Nossa Senhora da Conceição (Rio das Ostras)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1960,
+      "description": "Paróquia Paróquia Nossa Senhora da Conceição (Rio das Ostras) localizada em Rio das Ostras, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-nossa-senhora-da-conceicao-rio-das-ostras-49",
+      "name": "Paróquia Nossa Senhora da Conceição (Rio das Ostras)",
+      "site_type": "parish_church",
+      "address": "Praça José Pereira Câmara - Centro",
+      "locality": "Rio das Ostras",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -41.9482,
+      "latitude": -22.5251,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-catedral-santissimo-salvador-campos-50",
+      "name": "Catedral Santíssimo Salvador (Campos)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1652,
+      "description": "Paróquia Catedral Santíssimo Salvador (Campos) localizada em Campos dos Goytacazes, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-catedral-santissimo-salvador-campos-50",
+      "name": "Catedral Santíssimo Salvador (Campos)",
+      "site_type": "cathedral",
+      "address": "Praça São Salvador - Centro",
+      "locality": "Campos dos Goytacazes",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -41.3241,
+      "latitude": -21.7542,
+      "min_zoom": 10,
+      "display_rank": 3,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-nossa-senhora-do-terco-campos-51",
+      "name": "Paróquia Nossa Senhora do Terço (Campos)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1910,
+      "description": "Paróquia Paróquia Nossa Senhora do Terço (Campos) localizada em Campos dos Goytacazes, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-nossa-senhora-do-terco-campos-51",
+      "name": "Paróquia Nossa Senhora do Terço (Campos)",
+      "site_type": "parish_church",
+      "address": "R. Barão de Miracema - Centro",
+      "locality": "Campos dos Goytacazes",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -41.3321,
+      "latitude": -21.7612,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-sao-joao-batista-sao-joao-da-barra-52",
+      "name": "Paróquia São João Batista (São João da Barra)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1644,
+      "description": "Paróquia Paróquia São João Batista (São João da Barra) localizada em São João da Barra, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-sao-joao-batista-sao-joao-da-barra-52",
+      "name": "Paróquia São João Batista (São João da Barra)",
+      "site_type": "parish_church",
+      "address": "Praça São João Batista - Centro",
+      "locality": "São João da Barra",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -41.0512,
+      "latitude": -21.6401,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-sao-fidelis-sao-fidelis-53",
+      "name": "Paróquia São Fidélis (São Fidélis)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1785,
+      "description": "Paróquia Paróquia São Fidélis (São Fidélis) localizada em São Fidélis, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-sao-fidelis-sao-fidelis-53",
+      "name": "Paróquia São Fidélis (São Fidélis)",
+      "site_type": "shrine",
+      "address": "Praça Guilherme Tito de Azevedo - Centro",
+      "locality": "São Fidélis",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -41.7482,
+      "latitude": -21.6452,
+      "min_zoom": 10,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-sao-jose-itaperuna-54",
+      "name": "Paróquia São José (Itaperuna)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1889,
+      "description": "Paróquia Paróquia São José (Itaperuna) localizada em Itaperuna, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-sao-jose-itaperuna-54",
+      "name": "Paróquia São José (Itaperuna)",
+      "site_type": "parish_church",
+      "address": "Praça Getúlio Vargas - Centro",
+      "locality": "Itaperuna",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -41.8912,
+      "latitude": -21.2052,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-co-catedral-nossa-senhora-da-conceicao-55",
+      "name": "Co-Catedral Nossa Senhora da Conceição",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1954,
+      "description": "Paróquia Co-Catedral Nossa Senhora da Conceição localizada em Volta Redonda, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-co-catedral-nossa-senhora-da-conceicao-55",
+      "name": "Co-Catedral Nossa Senhora da Conceição",
+      "site_type": "cathedral",
+      "address": "R. 14, nº 322 - Vila Santa Cecília",
+      "locality": "Volta Redonda",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -44.1021,
+      "latitude": -22.5185,
+      "min_zoom": 10,
+      "display_rank": 3,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-santa-cruz-volta-redonda-56",
+      "name": "Paróquia Santa Cruz (Volta Redonda)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1970,
+      "description": "Paróquia Paróquia Santa Cruz (Volta Redonda) localizada em Volta Redonda, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-santa-cruz-volta-redonda-56",
+      "name": "Paróquia Santa Cruz (Volta Redonda)",
+      "site_type": "parish_church",
+      "address": "Av. Integração - Aterrado",
+      "locality": "Volta Redonda",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -44.0952,
+      "latitude": -22.5285,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-sao-sebastiao-barra-mansa-57",
+      "name": "Paróquia São Sebastião (Barra Mansa)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1832,
+      "description": "Paróquia Paróquia São Sebastião (Barra Mansa) localizada em Barra Mansa, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-sao-sebastiao-barra-mansa-57",
+      "name": "Paróquia São Sebastião (Barra Mansa)",
+      "site_type": "parish_church",
+      "address": "Praça Ponce de León - Centro",
+      "locality": "Barra Mansa",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -44.1752,
+      "latitude": -22.5452,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-catedral-de-santana-barra-do-pirai-58",
+      "name": "Catedral de Santana (Barra do Piraí)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1881,
+      "description": "Paróquia Catedral de Santana (Barra do Piraí) localizada em Barra do Piraí, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-catedral-de-santana-barra-do-pirai-58",
+      "name": "Catedral de Santana (Barra do Piraí)",
+      "site_type": "cathedral",
+      "address": "Praça Nilo Peçanha - Centro",
+      "locality": "Barra do Piraí",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -43.8251,
+      "latitude": -22.4718,
+      "min_zoom": 10,
+      "display_rank": 3,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-nossa-senhora-da-conceicao-resende-59",
+      "name": "Paróquia Nossa Senhora da Conceição (Resende)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1744,
+      "description": "Paróquia Paróquia Nossa Senhora da Conceição (Resende) localizada em Resende, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-nossa-senhora-da-conceicao-resende-59",
+      "name": "Paróquia Nossa Senhora da Conceição (Resende)",
+      "site_type": "parish_church",
+      "address": "Praça Oliveira Botelho - Centro",
+      "locality": "Resende",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -44.4485,
+      "latitude": -22.4682,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-nossa-senhora-da-conceicao-angra-60",
+      "name": "Paróquia Nossa Senhora da Conceição (Angra)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1593,
+      "description": "Paróquia Paróquia Nossa Senhora da Conceição (Angra) localizada em Angra dos Reis, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-nossa-senhora-da-conceicao-angra-60",
+      "name": "Paróquia Nossa Senhora da Conceição (Angra)",
+      "site_type": "parish_church",
+      "address": "Praça Silvestre Travassos - Centro",
+      "locality": "Angra dos Reis",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -44.3182,
+      "latitude": -23.0065,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-nossa-senhora-dos-remedios-paraty-61",
+      "name": "Paróquia Nossa Senhora dos Remédios (Paraty)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1646,
+      "description": "Paróquia Paróquia Nossa Senhora dos Remédios (Paraty) localizada em Paraty, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-nossa-senhora-dos-remedios-paraty-61",
+      "name": "Paróquia Nossa Senhora dos Remédios (Paraty)",
+      "site_type": "parish_church",
+      "address": "Praça Monsenhor Hélio Pires - Centro Histórico",
+      "locality": "Paraty",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -44.7121,
+      "latitude": -23.2185,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-catedral-nossa-senhora-da-gloria-valenca-62",
+      "name": "Catedral Nossa Senhora da Glória (Valença)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1803,
+      "description": "Paróquia Catedral Nossa Senhora da Glória (Valença) localizada em Valença, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-catedral-nossa-senhora-da-gloria-valenca-62",
+      "name": "Catedral Nossa Senhora da Glória (Valença)",
+      "site_type": "cathedral",
+      "address": "Praça Visconde de Rio Preto - Centro",
+      "locality": "Valença",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -43.7012,
+      "latitude": -22.2458,
+      "min_zoom": 10,
+      "display_rank": 3,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-nossa-senhora-da-conceicao-vassouras-63",
+      "name": "Paróquia Nossa Senhora da Conceição (Vassouras)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1828,
+      "description": "Paróquia Paróquia Nossa Senhora da Conceição (Vassouras) localizada em Vassouras, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-nossa-senhora-da-conceicao-vassouras-63",
+      "name": "Paróquia Nossa Senhora da Conceição (Vassouras)",
+      "site_type": "parish_church",
+      "address": "Praça Barão de Campo Belo - Centro",
+      "locality": "Vassouras",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -43.6628,
+      "latitude": -22.4042,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-santo-antonio-volta-redonda-64",
+      "name": "Paróquia Santo Antônio (Volta Redonda)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1960,
+      "description": "Paróquia Paróquia Santo Antônio (Volta Redonda) localizada em Volta Redonda, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-santo-antonio-volta-redonda-64",
+      "name": "Paróquia Santo Antônio (Volta Redonda)",
+      "site_type": "parish_church",
+      "address": "Av. Amaral Peixoto - Centro",
+      "locality": "Volta Redonda",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -44.1112,
+      "latitude": -22.5121,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-nossa-senhora-das-dores-casimiro-de-abreu-65",
+      "name": "Paróquia Nossa Senhora das Dores (Casimiro de Abreu)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1850,
+      "description": "Paróquia Paróquia Nossa Senhora das Dores (Casimiro de Abreu) localizada em Casimiro de Abreu, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-nossa-senhora-das-dores-casimiro-de-abreu-65",
+      "name": "Paróquia Nossa Senhora das Dores (Casimiro de Abreu)",
+      "site_type": "parish_church",
+      "address": "Praça Lucélia de Souza - Centro",
+      "locality": "Casimiro de Abreu",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -42.2012,
+      "latitude": -22.4812,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-sao-joao-batista-cantagalo-66",
+      "name": "Paróquia São João Batista (Cantagalo)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1814,
+      "description": "Paróquia Paróquia São João Batista (Cantagalo) localizada em Cantagalo, estado do Rio de Janeiro.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-sao-joao-batista-cantagalo-66",
+      "name": "Paróquia São João Batista (Cantagalo)",
+      "site_type": "parish_church",
+      "address": "Praça Miguel de Carvalho - Centro",
+      "locality": "Cantagalo",
+      "admin_area": "Rio de Janeiro",
+      "country_code": "BR",
+      "longitude": -42.3682,
+      "latitude": -21.9812,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  }
+]

@@ -15,10 +15,10 @@ interface SaintOption {
 interface ParishOption {
   id: number;
   name: string;
+  locality: string | null;
+  admin_area: string | null;
   country_code: string | null;
 }
-
-const PARISH_CANONICAL_TYPES = ["parish", "quasi_parish"];
 
 export default function ProfileModal({
   user,
@@ -52,6 +52,8 @@ export default function ProfileModal({
   const [parishQuery, setParishQuery] = useState("");
   const [parishResults, setParishResults] = useState<ParishOption[]>([]);
   const [parishDropdownOpen, setParishDropdownOpen] = useState(false);
+  const [parishSearching, setParishSearching] = useState(false);
+  const [parishSearchError, setParishSearchError] = useState(false);
 
   useEffect(() => {
     let active = true;
@@ -168,15 +170,21 @@ export default function ProfileModal({
 
     let active = true;
     const timer = window.setTimeout(async () => {
-      const { data } = await supabase
-        .from("ecclesiastical_jurisdictions")
-        .select("id,name,country_code")
-        .in("canonical_type", PARISH_CANONICAL_TYPES)
-        .ilike("name", `%${term}%`)
+      setParishSearching(true);
+      setParishSearchError(false);
+      const normalized = normalizeSearchTerm(term);
+      const { data, error: searchError } = await supabase
+        .from("parish_search_catalog")
+        .select("id,name,locality,admin_area,country_code")
+        .ilike("search_text", `%${normalized}%`)
         .order("name")
-        .limit(6);
+        .limit(8);
 
-      if (active) setParishResults(data ?? []);
+      if (active) {
+        setParishResults(data ?? []);
+        setParishSearchError(Boolean(searchError));
+        setParishSearching(false);
+      }
     }, 250);
 
     return () => {
@@ -381,8 +389,13 @@ export default function ProfileModal({
                 onChange={(event) => {
                   const value = event.target.value;
                   setParishQuery(value);
+                  setFavoriteParishId(null);
                   setParishDropdownOpen(true);
-                  if (value.trim().length < 2) setParishResults([]);
+                  if (value.trim().length < 2) {
+                    setParishResults([]);
+                    setParishSearching(false);
+                    setParishSearchError(false);
+                  }
                 }}
                 placeholder="Buscar uma paróquia…"
                 className="rounded-md border border-gold-500/30 bg-ink-900 px-3 py-2 text-sm text-parchment outline-none focus:border-gold-300"
@@ -392,7 +405,13 @@ export default function ProfileModal({
                   className="search-results"
                   style={{ position: "absolute", top: "100%", left: 0, right: 0, width: "auto" }}
                 >
-                  {parishResults.length === 0 ? (
+                  {parishSearching ? (
+                    <p className="search-empty">Buscando paróquias…</p>
+                  ) : parishSearchError ? (
+                    <p className="search-empty" role="alert">
+                      Não foi possível buscar as paróquias agora.
+                    </p>
+                  ) : parishResults.length === 0 ? (
                     <p className="search-empty">
                       Nenhuma paróquia cadastrada com esse nome ainda.
                     </p>
@@ -411,9 +430,15 @@ export default function ProfileModal({
                         <span className="search-result-type">Paróquia</span>
                         <span className="search-result-copy">
                           <strong>{parish.name}</strong>
-                          {parish.country_code && (
-                            <small>{parish.country_code}</small>
-                          )}
+                          <small>
+                            {[
+                              parish.locality,
+                              parish.admin_area,
+                              parish.country_code,
+                            ]
+                              .filter(Boolean)
+                              .join(" · ")}
+                          </small>
                         </span>
                       </button>
                     ))

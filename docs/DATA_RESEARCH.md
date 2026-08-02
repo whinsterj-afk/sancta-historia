@@ -145,6 +145,21 @@ node scripts/fetch-wikidata-archdioceses.mjs --output supabase/data/archdioceses
 node scripts/generate-archdiocese-migration.mjs supabase/data/archdioceses-wikidata.json supabase/migrations/<timestamp>_import_global_archdioceses.sql
 ```
 
+### Primeiro lote de paróquias brasileiras publicado
+
+Em 2 de agosto de 2026, 300 paróquias foram promovidas ao Supabase em
+quatro lotes estaduais: Espírito Santo 124, Rio de Janeiro 67, Minas
+Gerais 60 e São Paulo 49. Somadas às duas paróquias do Distrito Federal
+já existentes, a busca pública passa a expor 302 paróquias brasileiras.
+
+Os snapshots usados como entrada ficam em
+`supabase/data/parishes/BR/{ES,RJ,MG,SP}.json`, e as migrações idempotentes
+correspondentes são `20260802190000_import_parishes_br_es.sql` até
+`20260802193000_import_parishes_br_sp.sql`. Cada item promove uma
+jurisdição canônica do tipo `parish` e um local publicado, com endereço e
+coordenadas. Antes de ampliar esse conjunto, as fontes e possíveis
+duplicidades devem continuar sendo conferidas por lote.
+
 Cada registro bruto entra em
 `research.ecclesiastical_import_rows`. A promoção ocorre somente após:
 

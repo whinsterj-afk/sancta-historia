@@ -235,6 +235,10 @@ existem no schema atual; o texto abaixo os substitui.
   selecionado. A migração
   `20260726213736_add_ecclesiastical_structure.sql` contém o modelo e
   um piloto rastreável de Santa Sé, Brasília e Formosa.
+- `parish_search_catalog` — view pública `security_invoker` para busca
+  normalizada de paróquias por nome, cidade, estado ou país. Reutiliza
+  `normalize_catalog_text`, respeita o RLS das tabelas-base e alimenta o
+  seletor de paróquia em `ProfileModal.tsx`.
 - As migrações `20260726230811_import_global_archdioceses.sql` e
   `20260726231807_sync_global_archdioceses.sql` promoveram 658
   arquidioceses, arquieparquias e patriarcados territoriais ativos do
@@ -340,11 +344,11 @@ Adicionada em `supabase/migrations/20260726220000_add_user_profiles_and_devotion
   localização própria via `ecclesiastical_sites`. Não crie uma segunda
   tabela de paróquias — isso já foi tentado e revertido nesta sessão
   por criar duas fontes de verdade para o mesmo conceito. O seletor em
-  `ProfileModal.tsx` filtra por esses dois `canonical_type`; não há
-  cadastro de paróquia pelo usuário (só lista o que já estiver
-  publicado). Como o Codex só populou `ecclesiastical_jurisdictions`
-  até nível de arquidiocese até agora, a busca fica vazia até paróquias
-  individuais serem carregadas.
+  `ProfileModal.tsx` usa `parish_search_catalog`; não há cadastro de
+  paróquia pelo usuário (só lista o que já estiver publicado). Em
+  02/08/2026, o banco ao vivo tinha 302 paróquias brasileiras: 2 no
+  Distrito Federal e 300 importadas para ES (124), RJ (67), MG (60) e
+  SP (49), todas com um local publicado e coordenadas.
 
 ### Convenções de dados
 
@@ -471,13 +475,13 @@ O que confirmar antes de agir:
   visível porém inerte a cliques.
 - `profiles`, `saint_devotee_counts`, o bucket `avatars` e
   `profiles.favorite_parish_id` existem no projeto Supabase ao vivo e
-  foram inspecionados em modo somente leitura em 26/07/2026. Entretanto,
-  o histórico remoto retornou 14 migrações enquanto o repositório tinha
-  20 arquivos SQL; as versões de perfil/paróquia não aparecem com os
-  mesmos nomes no registro remoto. Antes de aplicar a próxima mudança
-  estrutural, reconcilie a cadeia local/remota para garantir que um
-  ambiente novo possa ser reconstruído. Evidências e consulta estão em
-  `docs/PROJECT_AUDIT.md`.
+  foram verificados novamente em 02/08/2026. Nessa data, o histórico
+  remoto e `supabase/migrations/` foram reconciliados em 29 versões com
+  nomes idênticos. Três arquivos de compatibilidade preservam versões
+  antigas registradas pelo Supabase; o SQL reproduzível correspondente
+  continua nas versões locais posteriores indicadas nos comentários
+  desses arquivos. Novas mudanças devem ser aplicadas como migrações,
+  nunca como SQL remoto sem registro.
 - Login com Google depende de configuração externa que não está neste
   repositório: credenciais OAuth criadas no Google Cloud Console,
   cadastradas no Supabase Dashboard (Authentication → Providers). Sem

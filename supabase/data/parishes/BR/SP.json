@@ -1,0 +1,1374 @@
+[
+  {
+    "jurisdiction": {
+      "slug": "paroquia-catedral-metropolitana-da-se-nossa-senhora-da-assuncao-e-sao-paulo-0",
+      "name": "Catedral Metropolitana da Sé (Nossa Senhora da Assunção e São Paulo)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1591,
+      "description": "Paróquia Catedral Metropolitana da Sé (Nossa Senhora da Assunção e São Paulo) localizada em São Paulo, estado de São Paulo.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-catedral-metropolitana-da-se-nossa-senhora-da-assuncao-e-sao-paulo-0",
+      "name": "Catedral Metropolitana da Sé (Nossa Senhora da Assunção e São Paulo)",
+      "site_type": "cathedral",
+      "address": "Praça da Sé, s/n - Sé",
+      "locality": "São Paulo",
+      "admin_area": "São Paulo",
+      "country_code": "BR",
+      "longitude": -46.6333,
+      "latitude": -23.5505,
+      "min_zoom": 10,
+      "display_rank": 3,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-santuario-de-sao-jose-de-anchieta-patio-do-colegio-1",
+      "name": "Santuário de São José de Anchieta - Pátio do Colégio",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1554,
+      "description": "Paróquia Santuário de São José de Anchieta - Pátio do Colégio localizada em São Paulo, estado de São Paulo.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-santuario-de-sao-jose-de-anchieta-patio-do-colegio-1",
+      "name": "Santuário de São José de Anchieta - Pátio do Colégio",
+      "site_type": "shrine",
+      "address": "Praça Pátio do Colégio, 2 - Centro",
+      "locality": "São Paulo",
+      "admin_area": "São Paulo",
+      "country_code": "BR",
+      "longitude": -46.6328,
+      "latitude": -23.5481,
+      "min_zoom": 10,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-nossa-senhora-do-brasil-2",
+      "name": "Paróquia Nossa Senhora do Brasil",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1940,
+      "description": "Paróquia Paróquia Nossa Senhora do Brasil localizada em São Paulo, estado de São Paulo.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-nossa-senhora-do-brasil-2",
+      "name": "Paróquia Nossa Senhora do Brasil",
+      "site_type": "parish_church",
+      "address": "Praça N. Sra. do Brasil, s/n - Jardim América",
+      "locality": "São Paulo",
+      "admin_area": "São Paulo",
+      "country_code": "BR",
+      "longitude": -46.6712,
+      "latitude": -23.5678,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-basilica-de-nossa-senhora-da-assuncao-mosteiro-de-sao-bento-3",
+      "name": "Basílica de Nossa Senhora da Assunção (Mosteiro de São Bento)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1598,
+      "description": "Paróquia Basílica de Nossa Senhora da Assunção (Mosteiro de São Bento) localizada em São Paulo, estado de São Paulo.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-basilica-de-nossa-senhora-da-assuncao-mosteiro-de-sao-bento-3",
+      "name": "Basílica de Nossa Senhora da Assunção (Mosteiro de São Bento)",
+      "site_type": "shrine",
+      "address": "Largo de São Bento, s/n - Centro",
+      "locality": "São Paulo",
+      "admin_area": "São Paulo",
+      "country_code": "BR",
+      "longitude": -46.6342,
+      "latitude": -23.5442,
+      "min_zoom": 10,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-basilica-de-nossa-senhora-da-consolacao-4",
+      "name": "Basílica de Nossa Senhora da Consolação",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1799,
+      "description": "Paróquia Basílica de Nossa Senhora da Consolação localizada em São Paulo, estado de São Paulo.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-basilica-de-nossa-senhora-da-consolacao-4",
+      "name": "Basílica de Nossa Senhora da Consolação",
+      "site_type": "shrine",
+      "address": "R. da Consolação, 585 - Consolação",
+      "locality": "São Paulo",
+      "admin_area": "São Paulo",
+      "country_code": "BR",
+      "longitude": -46.6472,
+      "latitude": -23.5492,
+      "min_zoom": 10,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-basilica-nossa-senhora-da-conceicao-e-santa-ifigenia-5",
+      "name": "Basílica Nossa Senhora da Conceição e Santa Ifigênia",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1720,
+      "description": "Paróquia Basílica Nossa Senhora da Conceição e Santa Ifigênia localizada em São Paulo, estado de São Paulo.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-basilica-nossa-senhora-da-conceicao-e-santa-ifigenia-5",
+      "name": "Basílica Nossa Senhora da Conceição e Santa Ifigênia",
+      "site_type": "shrine",
+      "address": "R. Santa Ifigênia, 30 - Centro",
+      "locality": "São Paulo",
+      "admin_area": "São Paulo",
+      "country_code": "BR",
+      "longitude": -46.6368,
+      "latitude": -23.5412,
+      "min_zoom": 10,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-catedral-de-santo-amaro-6",
+      "name": "Catedral de Santo Amaro",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1686,
+      "description": "Paróquia Catedral de Santo Amaro localizada em São Paulo, estado de São Paulo.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-catedral-de-santo-amaro-6",
+      "name": "Catedral de Santo Amaro",
+      "site_type": "cathedral",
+      "address": "Praça Dom Francisco de Souza - Santo Amaro",
+      "locality": "São Paulo",
+      "admin_area": "São Paulo",
+      "country_code": "BR",
+      "longitude": -46.7092,
+      "latitude": -23.6521,
+      "min_zoom": 10,
+      "display_rank": 3,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-catedral-de-santana-7",
+      "name": "Catedral de Santana",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1895,
+      "description": "Paróquia Catedral de Santana localizada em São Paulo, estado de São Paulo.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-catedral-de-santana-7",
+      "name": "Catedral de Santana",
+      "site_type": "cathedral",
+      "address": "R. Voluntários da Pátria, 2060 - Santana",
+      "locality": "São Paulo",
+      "admin_area": "São Paulo",
+      "country_code": "BR",
+      "longitude": -46.6268,
+      "latitude": -23.5042,
+      "min_zoom": 10,
+      "display_rank": 3,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-nossa-senhora-do-o-8",
+      "name": "Paróquia Nossa Senhora do Ó",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1610,
+      "description": "Paróquia Paróquia Nossa Senhora do Ó localizada em São Paulo, estado de São Paulo.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-nossa-senhora-do-o-8",
+      "name": "Paróquia Nossa Senhora do Ó",
+      "site_type": "parish_church",
+      "address": "Largo da Matriz N. Sra. do Ó - Freguesia do Ó",
+      "locality": "São Paulo",
+      "admin_area": "São Paulo",
+      "country_code": "BR",
+      "longitude": -46.6992,
+      "latitude": -23.4795,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-nossa-senhora-da-lapa-9",
+      "name": "Paróquia Nossa Senhora da Lapa",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1911,
+      "description": "Paróquia Paróquia Nossa Senhora da Lapa localizada em São Paulo, estado de São Paulo.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-nossa-senhora-da-lapa-9",
+      "name": "Paróquia Nossa Senhora da Lapa",
+      "site_type": "parish_church",
+      "address": "R. Afonso Sardinha, 160 - Lapa",
+      "locality": "São Paulo",
+      "admin_area": "São Paulo",
+      "country_code": "BR",
+      "longitude": -46.7012,
+      "latitude": -23.5212,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-sao-joao-batista-bras-10",
+      "name": "Paróquia São João Batista (Brás)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1904,
+      "description": "Paróquia Paróquia São João Batista (Brás) localizada em São Paulo, estado de São Paulo.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-sao-joao-batista-bras-10",
+      "name": "Paróquia São João Batista (Brás)",
+      "site_type": "parish_church",
+      "address": "R. Piratininga, 613 - Brás",
+      "locality": "São Paulo",
+      "admin_area": "São Paulo",
+      "country_code": "BR",
+      "longitude": -46.6152,
+      "latitude": -23.5412,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-sao-bento-do-mooca-11",
+      "name": "Paróquia São Bento do Mooca",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1912,
+      "description": "Paróquia Paróquia São Bento do Mooca localizada em São Paulo, estado de São Paulo.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-sao-bento-do-mooca-11",
+      "name": "Paróquia São Bento do Mooca",
+      "site_type": "parish_church",
+      "address": "R. Taquari, 1100 - Mooca",
+      "locality": "São Paulo",
+      "admin_area": "São Paulo",
+      "country_code": "BR",
+      "longitude": -46.5982,
+      "latitude": -23.5582,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-nossa-senhora-da-conceicao-ipiranga-12",
+      "name": "Paróquia Nossa Senhora da Conceição (Ipiranga)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1925,
+      "description": "Paróquia Paróquia Nossa Senhora da Conceição (Ipiranga) localizada em São Paulo, estado de São Paulo.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-nossa-senhora-da-conceicao-ipiranga-12",
+      "name": "Paróquia Nossa Senhora da Conceição (Ipiranga)",
+      "site_type": "parish_church",
+      "address": "R. Moreira e Costa, 140 - Ipiranga",
+      "locality": "São Paulo",
+      "admin_area": "São Paulo",
+      "country_code": "BR",
+      "longitude": -46.6082,
+      "latitude": -23.5852,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-nossa-senhora-aparecida-moema-13",
+      "name": "Paróquia Nossa Senhora Aparecida (Moema)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1933,
+      "description": "Paróquia Paróquia Nossa Senhora Aparecida (Moema) localizada em São Paulo, estado de São Paulo.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-nossa-senhora-aparecida-moema-13",
+      "name": "Paróquia Nossa Senhora Aparecida (Moema)",
+      "site_type": "parish_church",
+      "address": "Praça N. Sra. Aparecida - Moema",
+      "locality": "São Paulo",
+      "admin_area": "São Paulo",
+      "country_code": "BR",
+      "longitude": -46.6612,
+      "latitude": -23.6052,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-sao-paulo-apostolo-pinheiros-14",
+      "name": "Paróquia São Paulo Apóstolo (Pinheiros)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1945,
+      "description": "Paróquia Paróquia São Paulo Apóstolo (Pinheiros) localizada em São Paulo, estado de São Paulo.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-sao-paulo-apostolo-pinheiros-14",
+      "name": "Paróquia São Paulo Apóstolo (Pinheiros)",
+      "site_type": "parish_church",
+      "address": "R. Cardeal Arcoverde, 1250 - Pinheiros",
+      "locality": "São Paulo",
+      "admin_area": "São Paulo",
+      "country_code": "BR",
+      "longitude": -46.6912,
+      "latitude": -23.5652,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-cristo-rei-tatuape-15",
+      "name": "Paróquia Cristo Rei (Tatuapé)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1935,
+      "description": "Paróquia Paróquia Cristo Rei (Tatuapé) localizada em São Paulo, estado de São Paulo.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-cristo-rei-tatuape-15",
+      "name": "Paróquia Cristo Rei (Tatuapé)",
+      "site_type": "parish_church",
+      "address": "R. Maria Eugênia, 104 - Tatuapé",
+      "locality": "São Paulo",
+      "admin_area": "São Paulo",
+      "country_code": "BR",
+      "longitude": -46.5712,
+      "latitude": -23.5412,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-catedral-de-sao-miguel-arcanjo-sao-miguel-paulista-16",
+      "name": "Catedral de São Miguel Arcanjo (São Miguel Paulista)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1622,
+      "description": "Paróquia Catedral de São Miguel Arcanjo (São Miguel Paulista) localizada em São Paulo, estado de São Paulo.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-catedral-de-sao-miguel-arcanjo-sao-miguel-paulista-16",
+      "name": "Catedral de São Miguel Arcanjo (São Miguel Paulista)",
+      "site_type": "cathedral",
+      "address": "Praça Pe. Aleixo Monteiro Mafra - São Miguel",
+      "locality": "São Paulo",
+      "admin_area": "São Paulo",
+      "country_code": "BR",
+      "longitude": -46.4412,
+      "latitude": -23.4912,
+      "min_zoom": 10,
+      "display_rank": 3,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-catedral-de-campo-limpo-17",
+      "name": "Catedral de Campo Limpo",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1989,
+      "description": "Paróquia Catedral de Campo Limpo localizada em São Paulo, estado de São Paulo.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-catedral-de-campo-limpo-17",
+      "name": "Catedral de Campo Limpo",
+      "site_type": "cathedral",
+      "address": "Estrada do Campo Limpo - Campo Limpo",
+      "locality": "São Paulo",
+      "admin_area": "São Paulo",
+      "country_code": "BR",
+      "longitude": -46.7582,
+      "latitude": -23.6452,
+      "min_zoom": 10,
+      "display_rank": 3,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-santuario-de-sao-judas-tadeu-jabaquara-18",
+      "name": "Paróquia Santuário de São Judas Tadeu (Jabaquara)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1940,
+      "description": "Paróquia Paróquia Santuário de São Judas Tadeu (Jabaquara) localizada em São Paulo, estado de São Paulo.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-santuario-de-sao-judas-tadeu-jabaquara-18",
+      "name": "Paróquia Santuário de São Judas Tadeu (Jabaquara)",
+      "site_type": "shrine",
+      "address": "Av. Jabaquara, 2682 - Jabaquara",
+      "locality": "São Paulo",
+      "admin_area": "São Paulo",
+      "country_code": "BR",
+      "longitude": -46.6392,
+      "latitude": -23.6182,
+      "min_zoom": 10,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-catedral-de-nossa-senhora-do-carmo-santo-andre-19",
+      "name": "Catedral de Nossa Senhora do Carmo (Santo André)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1913,
+      "description": "Paróquia Catedral de Nossa Senhora do Carmo (Santo André) localizada em Santo André, estado de São Paulo.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-catedral-de-nossa-senhora-do-carmo-santo-andre-19",
+      "name": "Catedral de Nossa Senhora do Carmo (Santo André)",
+      "site_type": "cathedral",
+      "address": "Praça do Carmo - Centro",
+      "locality": "Santo André",
+      "admin_area": "São Paulo",
+      "country_code": "BR",
+      "longitude": -46.5312,
+      "latitude": -23.6582,
+      "min_zoom": 10,
+      "display_rank": 3,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-catedral-de-nossa-senhora-da-boa-viagem-sao-bernardo-do-campo-20",
+      "name": "Catedral de Nossa Senhora da Boa Viagem (São Bernardo do Campo)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1812,
+      "description": "Paróquia Catedral de Nossa Senhora da Boa Viagem (São Bernardo do Campo) localizada em São Bernardo do Campo, estado de São Paulo.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-catedral-de-nossa-senhora-da-boa-viagem-sao-bernardo-do-campo-20",
+      "name": "Catedral de Nossa Senhora da Boa Viagem (São Bernardo do Campo)",
+      "site_type": "cathedral",
+      "address": "Praça da Matriz - Centro",
+      "locality": "São Bernardo do Campo",
+      "admin_area": "São Paulo",
+      "country_code": "BR",
+      "longitude": -46.5512,
+      "latitude": -23.7121,
+      "min_zoom": 10,
+      "display_rank": 3,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-sagrada-familia-sao-caetano-do-sul-21",
+      "name": "Paróquia Sagrada Família (São Caetano do Sul)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1950,
+      "description": "Paróquia Paróquia Sagrada Família (São Caetano do Sul) localizada em São Caetano do Sul, estado de São Paulo.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-sagrada-familia-sao-caetano-do-sul-21",
+      "name": "Paróquia Sagrada Família (São Caetano do Sul)",
+      "site_type": "parish_church",
+      "address": "Praça Cardeal Arcoverde - Centro",
+      "locality": "São Caetano do Sul",
+      "admin_area": "São Paulo",
+      "country_code": "BR",
+      "longitude": -46.5712,
+      "latitude": -23.6182,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-catedral-de-santo-antonio-osasco-22",
+      "name": "Catedral de Santo Antônio (Osasco)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1930,
+      "description": "Paróquia Catedral de Santo Antônio (Osasco) localizada em Osasco, estado de São Paulo.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-catedral-de-santo-antonio-osasco-22",
+      "name": "Catedral de Santo Antônio (Osasco)",
+      "site_type": "cathedral",
+      "address": "Av. Santo Antônio - Vila Osasco",
+      "locality": "Osasco",
+      "admin_area": "São Paulo",
+      "country_code": "BR",
+      "longitude": -46.7852,
+      "latitude": -23.5352,
+      "min_zoom": 10,
+      "display_rank": 3,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-catedral-de-nossa-senhora-da-conceicao-guarulhos-23",
+      "name": "Catedral de Nossa Senhora da Conceição (Guarulhos)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1685,
+      "description": "Paróquia Catedral de Nossa Senhora da Conceição (Guarulhos) localizada em Guarulhos, estado de São Paulo.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-catedral-de-nossa-senhora-da-conceicao-guarulhos-23",
+      "name": "Catedral de Nossa Senhora da Conceição (Guarulhos)",
+      "site_type": "cathedral",
+      "address": "Praça Tereza Cristina - Centro",
+      "locality": "Guarulhos",
+      "admin_area": "São Paulo",
+      "country_code": "BR",
+      "longitude": -46.5312,
+      "latitude": -23.4652,
+      "min_zoom": 10,
+      "display_rank": 3,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-catedral-de-santana-mogi-das-cruzes-24",
+      "name": "Catedral de Santana (Mogi das Cruzes)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1611,
+      "description": "Paróquia Catedral de Santana (Mogi das Cruzes) localizada em Mogi das Cruzes, estado de São Paulo.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-catedral-de-santana-mogi-das-cruzes-24",
+      "name": "Catedral de Santana (Mogi das Cruzes)",
+      "site_type": "cathedral",
+      "address": "Praça Coronel Benedito de Almeida - Centro",
+      "locality": "Mogi das Cruzes",
+      "admin_area": "São Paulo",
+      "country_code": "BR",
+      "longitude": -46.1882,
+      "latitude": -23.5252,
+      "min_zoom": 10,
+      "display_rank": 3,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-santuario-nacional-de-nossa-senhora-aparecida-basilica-nova-25",
+      "name": "Santuário Nacional de Nossa Senhora Aparecida (Basílica Nova)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1717,
+      "description": "Paróquia Santuário Nacional de Nossa Senhora Aparecida (Basílica Nova) localizada em Aparecida, estado de São Paulo.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-santuario-nacional-de-nossa-senhora-aparecida-basilica-nova-25",
+      "name": "Santuário Nacional de Nossa Senhora Aparecida (Basílica Nova)",
+      "site_type": "shrine",
+      "address": "Av. Dr. Júlio Prestes, s/n - Centro",
+      "locality": "Aparecida",
+      "admin_area": "São Paulo",
+      "country_code": "BR",
+      "longitude": -45.2341,
+      "latitude": -22.8497,
+      "min_zoom": 10,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-basilica-historica-de-nossa-senhora-aparecida-basilica-velha-26",
+      "name": "Basílica Histórica de Nossa Senhora Aparecida (Basílica Velha)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1745,
+      "description": "Paróquia Basílica Histórica de Nossa Senhora Aparecida (Basílica Velha) localizada em Aparecida, estado de São Paulo.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-basilica-historica-de-nossa-senhora-aparecida-basilica-velha-26",
+      "name": "Basílica Histórica de Nossa Senhora Aparecida (Basílica Velha)",
+      "site_type": "shrine",
+      "address": "Praça Nossa Senhora Aparecida - Centro",
+      "locality": "Aparecida",
+      "admin_area": "São Paulo",
+      "country_code": "BR",
+      "longitude": -45.2285,
+      "latitude": -22.8465,
+      "min_zoom": 10,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-catedral-de-santo-antonio-guaratingueta-27",
+      "name": "Catedral de Santo Antônio (Guaratinguetá)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1630,
+      "description": "Paróquia Catedral de Santo Antônio (Guaratinguetá) localizada em Guaratinguetá, estado de São Paulo.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-catedral-de-santo-antonio-guaratingueta-27",
+      "name": "Catedral de Santo Antônio (Guaratinguetá)",
+      "site_type": "cathedral",
+      "address": "Praça Homero Ottoni - Centro",
+      "locality": "Guaratinguetá",
+      "admin_area": "São Paulo",
+      "country_code": "BR",
+      "longitude": -45.1912,
+      "latitude": -22.8162,
+      "min_zoom": 10,
+      "display_rank": 3,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-santuario-frei-galvao-guaratingueta-28",
+      "name": "Santuário Frei Galvão (Guaratinguetá)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 2010,
+      "description": "Paróquia Santuário Frei Galvão (Guaratinguetá) localizada em Guaratinguetá, estado de São Paulo.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-santuario-frei-galvao-guaratingueta-28",
+      "name": "Santuário Frei Galvão (Guaratinguetá)",
+      "site_type": "shrine",
+      "address": "Av. João Pessoa - Jardim das Filhas",
+      "locality": "Guaratinguetá",
+      "admin_area": "São Paulo",
+      "country_code": "BR",
+      "longitude": -45.1852,
+      "latitude": -22.8095,
+      "min_zoom": 10,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-catedral-de-sao-jose-sao-jose-dos-campos-29",
+      "name": "Catedral de São José (São José dos Campos)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1934,
+      "description": "Paróquia Catedral de São José (São José dos Campos) localizada em São José dos Campos, estado de São Paulo.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-catedral-de-sao-jose-sao-jose-dos-campos-29",
+      "name": "Catedral de São José (São José dos Campos)",
+      "site_type": "cathedral",
+      "address": "Praça Afonso Pena - Centro",
+      "locality": "São José dos Campos",
+      "admin_area": "São Paulo",
+      "country_code": "BR",
+      "longitude": -45.8862,
+      "latitude": -23.1855,
+      "min_zoom": 10,
+      "display_rank": 3,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-catedral-de-sao-francisco-das-chagas-taubate-30",
+      "name": "Catedral de São Francisco das Chagas (Taubaté)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1645,
+      "description": "Paróquia Catedral de São Francisco das Chagas (Taubaté) localizada em Taubaté, estado de São Paulo.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-catedral-de-sao-francisco-das-chagas-taubate-30",
+      "name": "Catedral de São Francisco das Chagas (Taubaté)",
+      "site_type": "cathedral",
+      "address": "Praça Dom Epaminondas - Centro",
+      "locality": "Taubaté",
+      "admin_area": "São Paulo",
+      "country_code": "BR",
+      "longitude": -45.5582,
+      "latitude": -23.0252,
+      "min_zoom": 10,
+      "display_rank": 3,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-catedral-metropolitana-de-campinas-31",
+      "name": "Catedral Metropolitana de Campinas",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1807,
+      "description": "Paróquia Catedral Metropolitana de Campinas localizada em Campinas, estado de São Paulo.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-catedral-metropolitana-de-campinas-31",
+      "name": "Catedral Metropolitana de Campinas",
+      "site_type": "cathedral",
+      "address": "Praça Visconde de Indaiatuba - Centro",
+      "locality": "Campinas",
+      "admin_area": "São Paulo",
+      "country_code": "BR",
+      "longitude": -47.0608,
+      "latitude": -22.9055,
+      "min_zoom": 10,
+      "display_rank": 3,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-nossa-senhora-das-dores-campinas-cambui-32",
+      "name": "Paróquia Nossa Senhora das Dores (Campinas - Cambuí)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1935,
+      "description": "Paróquia Paróquia Nossa Senhora das Dores (Campinas - Cambuí) localizada em Campinas, estado de São Paulo.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-nossa-senhora-das-dores-campinas-cambui-32",
+      "name": "Paróquia Nossa Senhora das Dores (Campinas - Cambuí)",
+      "site_type": "parish_church",
+      "address": "R. Maria Monteiro - Cambuí",
+      "locality": "Campinas",
+      "admin_area": "São Paulo",
+      "country_code": "BR",
+      "longitude": -47.0512,
+      "latitude": -22.8982,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-catedral-nossa-senhora-do-desterro-jundiai-33",
+      "name": "Catedral Nossa Senhora do Desterro (Jundiaí)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1651,
+      "description": "Paróquia Catedral Nossa Senhora do Desterro (Jundiaí) localizada em Jundiaí, estado de São Paulo.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-catedral-nossa-senhora-do-desterro-jundiai-33",
+      "name": "Catedral Nossa Senhora do Desterro (Jundiaí)",
+      "site_type": "cathedral",
+      "address": "Praça Gov. Pedro de Toledo - Centro",
+      "locality": "Jundiaí",
+      "admin_area": "São Paulo",
+      "country_code": "BR",
+      "longitude": -46.8842,
+      "latitude": -23.1862,
+      "min_zoom": 10,
+      "display_rank": 3,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-igreja-matriz-nossa-senhora-da-candelaria-itu-34",
+      "name": "Igreja Matriz Nossa Senhora da Candelária (Itu)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1780,
+      "description": "Paróquia Igreja Matriz Nossa Senhora da Candelária (Itu) localizada em Itu, estado de São Paulo.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-igreja-matriz-nossa-senhora-da-candelaria-itu-34",
+      "name": "Igreja Matriz Nossa Senhora da Candelária (Itu)",
+      "site_type": "parish_church",
+      "address": "Praça Padre Miguel - Centro",
+      "locality": "Itu",
+      "admin_area": "São Paulo",
+      "country_code": "BR",
+      "longitude": -47.2985,
+      "latitude": -23.2642,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-santo-antonio-piracicaba-35",
+      "name": "Paróquia Santo Antônio (Piracicaba)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1774,
+      "description": "Paróquia Paróquia Santo Antônio (Piracicaba) localizada em Piracicaba, estado de São Paulo.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-santo-antonio-piracicaba-35",
+      "name": "Paróquia Santo Antônio (Piracicaba)",
+      "site_type": "cathedral",
+      "address": "Praça José Bonifácio - Centro",
+      "locality": "Piracicaba",
+      "admin_area": "São Paulo",
+      "country_code": "BR",
+      "longitude": -47.6482,
+      "latitude": -22.7252,
+      "min_zoom": 10,
+      "display_rank": 3,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-nossa-senhora-das-dores-limeira-36",
+      "name": "Paróquia Nossa Senhora das Dores (Limeira)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1826,
+      "description": "Paróquia Paróquia Nossa Senhora das Dores (Limeira) localizada em Limeira, estado de São Paulo.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-nossa-senhora-das-dores-limeira-36",
+      "name": "Paróquia Nossa Senhora das Dores (Limeira)",
+      "site_type": "cathedral",
+      "address": "Praça Toledo Barros - Centro",
+      "locality": "Limeira",
+      "admin_area": "São Paulo",
+      "country_code": "BR",
+      "longitude": -47.4012,
+      "latitude": -22.5652,
+      "min_zoom": 10,
+      "display_rank": 3,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-nossa-senhora-da-conceicao-braganca-paulista-37",
+      "name": "Paróquia Nossa Senhora da Conceição (Bragança Paulista)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1765,
+      "description": "Paróquia Paróquia Nossa Senhora da Conceição (Bragança Paulista) localizada em Bragança Paulista, estado de São Paulo.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-nossa-senhora-da-conceicao-braganca-paulista-37",
+      "name": "Paróquia Nossa Senhora da Conceição (Bragança Paulista)",
+      "site_type": "cathedral",
+      "address": "Praça Raul Leme - Centro",
+      "locality": "Bragança Paulista",
+      "admin_area": "São Paulo",
+      "country_code": "BR",
+      "longitude": -46.5412,
+      "latitude": -22.9552,
+      "min_zoom": 10,
+      "display_rank": 3,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-catedral-metropolitana-sao-sebastiao-ribeirao-preto-38",
+      "name": "Catedral Metropolitana São Sebastião (Ribeirão Preto)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1904,
+      "description": "Paróquia Catedral Metropolitana São Sebastião (Ribeirão Preto) localizada em Ribeirão Preto, estado de São Paulo.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-catedral-metropolitana-sao-sebastiao-ribeirao-preto-38",
+      "name": "Catedral Metropolitana São Sebastião (Ribeirão Preto)",
+      "site_type": "cathedral",
+      "address": "Praça das Bandeiras - Centro",
+      "locality": "Ribeirão Preto",
+      "admin_area": "São Paulo",
+      "country_code": "BR",
+      "longitude": -47.8102,
+      "latitude": -21.1772,
+      "min_zoom": 10,
+      "display_rank": 3,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-santuario-de-nossa-senhora-do-rosario-ribeirao-39",
+      "name": "Paróquia Santuário de Nossa Senhora do Rosário (Ribeirão)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1920,
+      "description": "Paróquia Paróquia Santuário de Nossa Senhora do Rosário (Ribeirão) localizada em Ribeirão Preto, estado de São Paulo.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-santuario-de-nossa-senhora-do-rosario-ribeirao-39",
+      "name": "Paróquia Santuário de Nossa Senhora do Rosário (Ribeirão)",
+      "site_type": "shrine",
+      "address": "R. Martinico Prado - Vila Tibério",
+      "locality": "Ribeirão Preto",
+      "admin_area": "São Paulo",
+      "country_code": "BR",
+      "longitude": -47.8152,
+      "latitude": -21.1712,
+      "min_zoom": 10,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-catedral-sao-carlos-borromeu-sao-carlos-40",
+      "name": "Catedral São Carlos Borromeu (São Carlos)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1956,
+      "description": "Paróquia Catedral São Carlos Borromeu (São Carlos) localizada em São Carlos, estado de São Paulo.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-catedral-sao-carlos-borromeu-sao-carlos-40",
+      "name": "Catedral São Carlos Borromeu (São Carlos)",
+      "site_type": "cathedral",
+      "address": "Praça Dom José Marcondes - Centro",
+      "locality": "São Carlos",
+      "admin_area": "São Paulo",
+      "country_code": "BR",
+      "longitude": -47.8912,
+      "latitude": -22.0182,
+      "min_zoom": 10,
+      "display_rank": 3,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-catedral-de-nossa-senhora-do-carmo-jaboticabal-41",
+      "name": "Catedral de Nossa Senhora do Carmo (Jaboticabal)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1828,
+      "description": "Paróquia Catedral de Nossa Senhora do Carmo (Jaboticabal) localizada em Jaboticabal, estado de São Paulo.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-catedral-de-nossa-senhora-do-carmo-jaboticabal-41",
+      "name": "Catedral de Nossa Senhora do Carmo (Jaboticabal)",
+      "site_type": "cathedral",
+      "address": "Praça Dom José Marcondes - Centro",
+      "locality": "Jaboticabal",
+      "admin_area": "São Paulo",
+      "country_code": "BR",
+      "longitude": -48.3182,
+      "latitude": -21.2552,
+      "min_zoom": 10,
+      "display_rank": 3,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-catedral-de-sao-bento-araraquara-42",
+      "name": "Catedral de São Bento (Araraquara)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1817,
+      "description": "Paróquia Catedral de São Bento (Araraquara) localizada em Araraquara, estado de São Paulo.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-catedral-de-sao-bento-araraquara-42",
+      "name": "Catedral de São Bento (Araraquara)",
+      "site_type": "cathedral",
+      "address": "Praça da Matriz - Centro",
+      "locality": "Araraquara",
+      "admin_area": "São Paulo",
+      "country_code": "BR",
+      "longitude": -48.1752,
+      "latitude": -21.7952,
+      "min_zoom": 10,
+      "display_rank": 3,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-catedral-de-divino-espirito-santo-barretos-43",
+      "name": "Catedral de Divino Espírito Santo (Barretos)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1877,
+      "description": "Paróquia Catedral de Divino Espírito Santo (Barretos) localizada em Barretos, estado de São Paulo.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-catedral-de-divino-espirito-santo-barretos-43",
+      "name": "Catedral de Divino Espírito Santo (Barretos)",
+      "site_type": "cathedral",
+      "address": "Praça Francisco Barreto - Centro",
+      "locality": "Barretos",
+      "admin_area": "São Paulo",
+      "country_code": "BR",
+      "longitude": -48.5682,
+      "latitude": -20.5582,
+      "min_zoom": 10,
+      "display_rank": 3,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-catedral-nossa-senhora-do-rosario-santos-44",
+      "name": "Catedral Nossa Senhora do Rosário (Santos)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1909,
+      "description": "Paróquia Catedral Nossa Senhora do Rosário (Santos) localizada em Santos, estado de São Paulo.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-catedral-nossa-senhora-do-rosario-santos-44",
+      "name": "Catedral Nossa Senhora do Rosário (Santos)",
+      "site_type": "cathedral",
+      "address": "Praça José Bonifácio - Centro",
+      "locality": "Santos",
+      "admin_area": "São Paulo",
+      "country_code": "BR",
+      "longitude": -46.3282,
+      "latitude": -23.9352,
+      "min_zoom": 10,
+      "display_rank": 3,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-santuario-de-santo-antonio-do-valongo-45",
+      "name": "Santuário de Santo Antônio do Valongo",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1640,
+      "description": "Paróquia Santuário de Santo Antônio do Valongo localizada em Santos, estado de São Paulo.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-santuario-de-santo-antonio-do-valongo-45",
+      "name": "Santuário de Santo Antônio do Valongo",
+      "site_type": "shrine",
+      "address": "Largo Marquês de Monte Alegre - Valongo",
+      "locality": "Santos",
+      "admin_area": "São Paulo",
+      "country_code": "BR",
+      "longitude": -46.3332,
+      "latitude": -23.9312,
+      "min_zoom": 10,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-igreja-matriz-sao-vicente-martir-sao-vicente-46",
+      "name": "Igreja Matriz São Vicente Martir (São Vicente)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1532,
+      "description": "Paróquia Igreja Matriz São Vicente Martir (São Vicente) localizada em São Vicente, estado de São Paulo.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-igreja-matriz-sao-vicente-martir-sao-vicente-46",
+      "name": "Igreja Matriz São Vicente Martir (São Vicente)",
+      "site_type": "parish_church",
+      "address": "Praça João Pessoa - Centro",
+      "locality": "São Vicente",
+      "admin_area": "São Paulo",
+      "country_code": "BR",
+      "longitude": -46.3882,
+      "latitude": -23.9678,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-nossa-senhora-das-dores-ubatuba-47",
+      "name": "Paróquia Nossa Senhora das Dores (Ubatuba)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1637,
+      "description": "Paróquia Paróquia Nossa Senhora das Dores (Ubatuba) localizada em Ubatuba, estado de São Paulo.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-nossa-senhora-das-dores-ubatuba-47",
+      "name": "Paróquia Nossa Senhora das Dores (Ubatuba)",
+      "site_type": "parish_church",
+      "address": "Praça Exaltação à Santa Cruz - Centro",
+      "locality": "Ubatuba",
+      "admin_area": "São Paulo",
+      "country_code": "BR",
+      "longitude": -45.0712,
+      "latitude": -23.4332,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  },
+  {
+    "jurisdiction": {
+      "slug": "paroquia-paroquia-sao-sebastiao-sao-sebastiao-48",
+      "name": "Paróquia São Sebastião (São Sebastião)",
+      "canonical_type": "parish",
+      "tradition": "latin",
+      "country_code": "BR",
+      "status": "active",
+      "erected_year": 1636,
+      "description": "Paróquia Paróquia São Sebastião (São Sebastião) localizada em São Sebastião, estado de São Paulo.",
+      "is_published": true
+    },
+    "site": {
+      "slug": "site-paroquia-sao-sebastiao-sao-sebastiao-48",
+      "name": "Paróquia São Sebastião (São Sebastião)",
+      "site_type": "parish_church",
+      "address": "Praça Major João Fernandes - Centro",
+      "locality": "São Sebastião",
+      "admin_area": "São Paulo",
+      "country_code": "BR",
+      "longitude": -45.4012,
+      "latitude": -23.7982,
+      "min_zoom": 11,
+      "display_rank": 4,
+      "is_primary": true,
+      "is_published": true
+    }
+  }
+]
